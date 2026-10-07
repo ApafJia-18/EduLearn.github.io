@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Ruang Belajar Informatika</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,40 +19,24 @@
     --purple:#c7b7f5;
     --cream:#fffaf0;
     --pink:#ffd9d2;
-    --white:#ffffff;
+    --white:#fff;
     --soft:#536078;
     --border:#eee8dc;
     --shadow:0 12px 30px rgba(23,37,84,.08);
+    --shadow-hover:0 18px 35px rgba(23,37,84,.13);
 }
 
-*{
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
     margin:0;
-    font-family:"DM Sans",sans-serif;
+    font-family:"DM Sans",Arial,sans-serif;
     background:var(--cream);
     color:var(--navy);
     line-height:1.6;
 }
-
-button,
-input,
-select,
-textarea{
-    font-family:inherit;
-}
-
-button{
-    cursor:pointer;
-}
-
-/* ================= HEADER ================= */
+button,input,select,textarea{font-family:inherit}
+button{cursor:pointer}
 
 .header{
     background:rgba(255,250,240,.96);
@@ -65,39 +48,23 @@ button{
     position:sticky;
     top:0;
     z-index:100;
-    border-bottom:1px solid #ddd;
+    border-bottom:1px solid rgba(23,37,84,.08);
 }
-
-.logo-area{
-    display:flex;
-    align-items:center;
-    gap:12px;
-}
-
+.logo-area{display:flex;align-items:center;gap:12px}
 .logo-icon{
-    width:46px;
-    height:46px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    width:46px;height:46px;
+    display:flex;align-items:center;justify-content:center;
     background:var(--yellow);
     border-radius:15px;
     font-size:23px;
+    transform:rotate(-3deg);
 }
-
 .logo{
-    font-family:Fredoka;
+    font-family:"Fredoka",sans-serif;
     font-size:21px;
     font-weight:700;
 }
-
-.header small{
-    display:block;
-    color:var(--soft);
-    font-size:12px;
-}
-
-/* ================= CONTAINER ================= */
+.header small{display:block;color:var(--soft);font-size:12px}
 
 .container{
     width:min(1120px,calc(100% - 32px));
@@ -105,22 +72,19 @@ button{
     padding:25px 0 70px;
 }
 
-/* ================= PROGRESS ================= */
-
 .progress-wrapper{
-    background:white;
+    background:var(--white);
     border-radius:28px;
     padding:20px 15px;
     margin-bottom:24px;
     box-shadow:var(--shadow);
-    overflow-x:auto;
 }
-
 .progress{
     display:flex;
-    min-width:760px;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:3px;
 }
-
 .progress-step{
     flex:1;
     text-align:center;
@@ -128,165 +92,137 @@ button{
     font-weight:700;
     color:#a5adba;
     position:relative;
+    min-width:62px;
 }
-
-.progress-step:before{
+.progress-step::before{
     content:"";
     display:flex;
     align-items:center;
     justify-content:center;
-    width:32px;
-    height:32px;
+    width:32px;height:32px;
     margin:0 auto 6px;
     border-radius:50%;
-    background:#eee;
+    background:#f0eee8;
     color:#999;
+    font-size:12px;
     position:relative;
     z-index:2;
 }
-
-.progress-step:after{
+.progress-step::after{
     content:"";
     position:absolute;
     height:3px;
-    background:#eee;
+    background:#eeeae0;
     top:14px;
     left:calc(50% + 16px);
     right:calc(-50% + 16px);
     z-index:1;
 }
-
-.progress-step:last-child:after{
-    display:none;
-}
-
-.progress-step.active:before{
+.progress-step:last-child::after{display:none}
+.progress-step.active::before{
     background:var(--orange);
     color:white;
+    box-shadow:0 6px 15px rgba(255,121,93,.28);
 }
+.progress-step.done::before{background:var(--green);color:var(--navy)}
+.progress-step.active,.progress-step.done{color:var(--navy)}
+.progress-step.done::after{background:var(--green)}
 
-.progress-step.done:before{
-    background:var(--green);
-    color:var(--navy);
-}
-
-.progress-step.active,
-.progress-step.done{
-    color:var(--navy);
-}
-
-.progress-step.done:after{
-    background:var(--green);
-}
-
-/* ================= PAGE ================= */
-
-.page{
-    display:none;
-}
-
-.page.active{
-    display:block;
-}
-
-/* ================= CARD ================= */
+.page{display:none}
+.page.active{display:block}
 
 .card{
-    background:white;
+    background:var(--white);
     border-radius:30px;
     padding:32px;
     margin-bottom:22px;
     box-shadow:var(--shadow);
+    border:1px solid rgba(23,37,84,.04);
 }
-
 .hero{
     text-align:center;
     padding:48px 35px;
+    position:relative;
+    overflow:hidden;
 }
+.hero::before{
+    content:"";
+    width:170px;height:170px;
+    background:var(--pink);
+    border-radius:50%;
+    position:absolute;
+    top:-80px;left:-70px;
+    opacity:.75;
+}
+.hero::after{
+    content:"✦";
+    position:absolute;
+    right:35px;top:25px;
+    font-size:35px;
+    color:var(--yellow);
+    transform:rotate(15deg);
+}
+.hero>*{position:relative;z-index:2}
 
-.hero-icon,
-.finish-icon{
+.hero-icon,.finish-icon{
     display:flex;
     align-items:center;
     justify-content:center;
     margin:0 auto 18px;
     border-radius:30px;
 }
-
 .hero-icon{
-    width:90px;
-    height:90px;
+    width:90px;height:90px;
     background:var(--blue);
     font-size:48px;
+    transform:rotate(-4deg);
 }
-
 .finish-icon{
-    width:100px;
-    height:100px;
+    width:100px;height:100px;
     background:var(--yellow);
     font-size:55px;
+    transform:rotate(4deg);
 }
 
-h1,
-h2,
-h3{
-    font-family:Fredoka;
+h1,h2,h3{
+    font-family:"Fredoka",sans-serif;
     color:var(--navy);
     line-height:1.25;
 }
+h1{font-size:clamp(28px,4vw,42px);margin:0 0 14px}
+h2{font-size:27px;margin-top:0}
+h3{font-size:21px}
+p{color:var(--soft);line-height:1.75}
+.hero p{max-width:720px;margin:auto}
+strong{color:var(--navy)}
 
-h1{
-    font-size:clamp(28px,4vw,42px);
-    margin:0 0 14px;
-}
-
-h2{
-    font-size:27px;
-    margin-top:0;
-}
-
-p{
-    color:var(--soft);
-    line-height:1.75;
-}
-
-/* ================= LABEL ================= */
-
-.section-label,
-.badge{
+.section-label,.badge{
     display:inline-block;
     border-radius:999px;
     font-weight:800;
 }
-
 .section-label{
     padding:7px 13px;
     background:var(--yellow);
+    color:var(--navy);
     font-size:12px;
     margin-bottom:12px;
 }
-
 .badge{
     padding:6px 11px;
-    background:white;
+    background:rgba(255,255,255,.75);
+    color:var(--navy);
     font-size:11px;
 }
 
-/* ================= FORM ================= */
-
-.form-group{
-    margin-bottom:20px;
-}
-
+.form-group{margin-bottom:20px}
 .form-group label{
     display:block;
     font-weight:700;
+    color:var(--navy);
     margin-bottom:8px;
 }
-
-.form-group input,
-.form-group select,
-.form-group textarea{
+.form-group input,.form-group select,.form-group textarea{
     width:100%;
     padding:14px 16px;
     border:2px solid var(--border);
@@ -295,14 +231,14 @@ p{
     background:#fffdf8;
     color:var(--navy);
     font-size:15px;
+    transition:.2s;
 }
-
-.form-group textarea{
-    min-height:125px;
-    resize:vertical;
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{
+    border-color:var(--blue);
+    background:white;
+    box-shadow:0 0 0 4px rgba(117,201,232,.15);
 }
-
-/* ================= BUTTON ================= */
+textarea{min-height:125px;resize:vertical}
 
 .btn{
     border:none;
@@ -315,49 +251,24 @@ p{
     justify-content:center;
     gap:7px;
 }
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(23,37,84,.12)}
+.btn-primary{background:var(--orange);color:white}
+.btn-secondary{background:var(--blue);color:var(--navy)}
+.btn-success{background:var(--green);color:var(--navy)}
+.btn-warning{background:var(--yellow);color:var(--navy)}
+.btn-danger{background:var(--pink);color:var(--navy)}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
 
-.btn:hover{
-    transform:translateY(-2px);
-}
-
-.btn-primary{
-    background:var(--orange);
-    color:white;
-}
-
-.btn-secondary{
-    background:var(--blue);
-    color:var(--navy);
-}
-
-.btn-success{
-    background:var(--green);
-    color:var(--navy);
-}
-
-.btn-warning{
-    background:var(--yellow);
-    color:var(--navy);
-}
-
-.button-row{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    margin-top:25px;
-}
-
-/* ================= STUDENT ================= */
+.button-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}
 
 .student-info{
     background:var(--blue);
     padding:14px 18px;
     border-radius:18px;
     margin-bottom:22px;
+    color:var(--navy);
     border-left:5px solid var(--navy);
 }
-
-/* ================= QUESTION ================= */
 
 .question{
     border:2px solid #f0ece3;
@@ -366,7 +277,6 @@ p{
     margin-bottom:18px;
     background:#fffefa;
 }
-
 .question-number{
     display:inline-block;
     padding:6px 11px;
@@ -376,11 +286,6 @@ p{
     font-weight:800;
     margin-bottom:8px;
 }
-
-.question p{
-    white-space:pre-line;
-}
-
 .option{
     display:block;
     padding:12px 14px;
@@ -389,19 +294,32 @@ p{
     border-radius:14px;
     border:2px solid transparent;
     cursor:pointer;
+    transition:.2s;
     color:var(--soft);
 }
+.option:hover{border-color:var(--blue);background:#f4fbfd;color:var(--navy)}
+.option input{margin-right:8px;accent-color:var(--orange)}
 
-.option:hover{
-    border-color:var(--blue);
+/* Tampilan pseudocode pada tes kognitif */
+.pseudocode-test{
+    display:block;
+    margin:14px 0;
+    padding:16px 18px;
+    background:#172554;
+    color:#ffffff;
+    border-radius:14px;
+    border-left:5px solid var(--orange);
+    font-family:"Courier New",Consolas,monospace;
+    font-size:14px;
+    line-height:1.75;
+    white-space:pre-wrap;
+    overflow-x:auto;
+    font-weight:500;
+    box-shadow:0 6px 16px rgba(23,37,84,.08);
 }
-
-.option input{
-    margin-right:8px;
-    accent-color:var(--orange);
+.test-question-text{
+    line-height:1.7;
 }
-
-/* ================= SCORE ================= */
 
 .score-box{
     background:var(--yellow);
@@ -410,15 +328,14 @@ p{
     padding:25px;
     margin:22px 0;
 }
-
 .score{
-    font-family:Fredoka;
+    font-family:"Fredoka",sans-serif;
     font-size:55px;
     font-weight:700;
+    color:var(--navy);
     line-height:1.1;
+    margin:8px 0;
 }
-
-/* ================= PATH ================= */
 
 .path-grid{
     display:grid;
@@ -426,7 +343,6 @@ p{
     gap:18px;
     margin-top:24px;
 }
-
 .path-card{
     border:3px solid transparent;
     border-radius:25px;
@@ -435,75 +351,94 @@ p{
     cursor:pointer;
     min-height:245px;
 }
-
-.path-card:hover,
-.path-card.selected{
-    transform:translateY(-4px);
-    box-shadow:var(--shadow);
-}
-
-#pathPenguatan{
-    background:var(--pink);
-}
-
-#pathReguler{
-    background:#e4f7fc;
-}
-
-#pathPengayaan{
-    background:#e5f7eb;
-}
-
+.path-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-hover)}
+#pathPenguatan{background:var(--pink)}
+#pathReguler{background:#e4f7fc}
+#pathPengayaan{background:#e5f7eb}
 .path-card.selected{
     border-color:var(--navy);
+    box-shadow:0 10px 25px rgba(23,37,84,.14);
+    transform:translateY(-4px);
 }
-
 .path-icon{
-    width:58px;
-    height:58px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:white;
-    border-radius:18px;
-    font-size:31px;
+    width:58px;height:58px;
+    display:flex;align-items:center;justify-content:center;
+    background:white;border-radius:18px;font-size:31px;
     margin-bottom:12px;
 }
 
-/* ================= MATERIAL ================= */
-
-.material-box,
-.media-card{
+.material-box{
     background:#fffdf7;
     border-radius:22px;
     padding:22px;
     margin:17px 0;
     border:2px solid #f0eadf;
 }
+.material-box.alt{background:#f1fbfd;border-color:#dff1f5}
+.material-box h2{font-size:23px;margin-bottom:8px}
 
-.material-box ul,
-.material-box ol,
-.lkpd-task ol{
-    line-height:2;
+
+/* Popup gambar materi */
+.jalur-gambar{margin-top:22px;padding-top:20px;border-top:2px dashed #e8e1d5;}
+.jalur-gambar-card{background:#fff;border:2px solid #eee8dc;border-radius:20px;padding:16px;overflow:hidden;}
+.jalur-gambar-card img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;border-radius:14px;background:#f4f1ea;cursor:zoom-in;transition:.2s;}
+.jalur-gambar-card img:hover{transform:scale(1.01);}
+.jalur-gambar-note{margin:9px 0 0;font-size:12px;color:var(--soft);}
+.gambar-popup{position:fixed;inset:0;background:rgba(23,37,84,.82);display:flex;align-items:center;justify-content:center;padding:24px;z-index:9999;cursor:zoom-out;}
+.gambar-popup img{max-width:min(1100px,96vw);max-height:90vh;object-fit:contain;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.3);background:white;}
+.gambar-popup-close{position:absolute;top:18px;right:24px;width:44px;height:44px;border:0;border-radius:50%;background:white;color:var(--navy);font-size:25px;font-weight:800;cursor:pointer;}
+
+/* Media pendukung di setiap jalur belajar */
+.jalur-media{
+    margin-top:22px;
+    padding-top:20px;
+    border-top:2px dashed #e8e1d5;
+}
+.jalur-media-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+    margin-top:14px;
+}
+.jalur-media-card{
+    background:#fff;
+    border:2px solid #eee8dc;
+    border-radius:20px;
+    padding:16px;
+    overflow:hidden;
+}
+.jalur-media-card h4{
+    margin:0 0 10px;
+    font-family:"Fredoka",sans-serif;
+    color:var(--navy);
+    font-size:18px;
+}
+.jalur-media-card img{
+    width:100%;
+    aspect-ratio:16/9;
+    object-fit:cover;
+    display:block;
+    border-radius:14px;
+    background:#f4f1ea;
+}
+.jalur-video{
+    width:100%;
+    aspect-ratio:16/9;
+    border:0;
+    border-radius:14px;
+    display:block;
+    background:#172554;
+}
+.jalur-media-note{
+    margin:9px 0 0;
+    font-size:12px;
     color:var(--soft);
 }
-
-.material-box li::marker{
-    color:var(--orange);
+@media(max-width:700px){
+    .jalur-media-grid{grid-template-columns:1fr}
 }
-
-.path-note{
-    display:flex;
-    gap:10px;
-    padding:14px 16px;
-    border-radius:17px;
-    margin-bottom:18px;
-    background:#f4f1ff;
-    border:2px solid #e6defd;
-    font-weight:700;
-}
-
-/* ================= TABS ================= */
+.material-box ul{line-height:2;color:var(--soft)}
+.material-box li::marker{color:var(--orange)}
 
 .tab-buttons{
     display:flex;
@@ -511,7 +446,6 @@ p{
     flex-wrap:wrap;
     margin:24px 0 20px;
 }
-
 .tab-btn{
     border:none;
     padding:10px 17px;
@@ -519,22 +453,16 @@ p{
     background:#eeeae1;
     color:var(--soft);
     font-weight:700;
+    transition:.2s;
 }
-
-.tab-btn.active{
-    background:var(--navy);
-    color:white;
+.tab-btn:hover{transform:translateY(-1px)}
+.tab-btn.active{background:var(--navy);color:white}
+.tab-content{display:none}
+.tab-content.active{display:block;animation:fadeSlide .22s ease}
+@keyframes fadeSlide{
+    from{opacity:0;transform:translateY(6px)}
+    to{opacity:1;transform:translateY(0)}
 }
-
-.tab-content{
-    display:none;
-}
-
-.tab-content.active{
-    display:block;
-}
-
-/* ================= TABLE ================= */
 
 table{
     width:100%;
@@ -545,25 +473,9 @@ table{
     border:2px solid var(--border);
     background:white;
 }
-
-th{
-    background:var(--navy);
-    color:white;
-    padding:12px;
-    text-align:left;
-}
-
-td{
-    padding:12px;
-    border-top:1px solid var(--border);
-    color:var(--soft);
-}
-
-tr:nth-child(even) td{
-    background:#fffdf8;
-}
-
-/* ================= LKPD ================= */
+th{background:var(--navy);color:white;padding:12px;text-align:left}
+td{padding:12px;border-top:1px solid var(--border);color:var(--soft)}
+tr:nth-child(even) td{background:#fffdf8}
 
 .lkpd-task{
     background:#fff8dc;
@@ -572,9 +484,15 @@ tr:nth-child(even) td{
     border-radius:18px;
     margin:18px 0;
 }
+.lkpd-task h3{margin-top:0}
+.lkpd-task ol{color:var(--soft);line-height:2}
 
-.lkpd-task h3{
-    margin-top:0;
+.reflection-item{
+    background:#fffdf8;
+    border:2px solid #f0eadf;
+    border-radius:20px;
+    padding:20px;
+    margin-bottom:18px;
 }
 
 .notice{
@@ -585,102 +503,79 @@ tr:nth-child(even) td{
     border-left:5px solid var(--yellow);
     margin-top:18px;
 }
+.notice.error{background:#ffe9e5;border-left-color:var(--orange)}
+.notice.success{background:#e8f8ed;border-left-color:var(--green)}
 
-.notice.error{
-    background:#ffe9e5;
-    border-left-color:var(--orange);
+.hidden{display:none!important}
+
+.locked{
+    opacity:.55;
+    pointer-events:none;
 }
 
-.notice.success{
-    background:#e8f8ed;
-    border-left-color:var(--green);
+.exercise-mode .header .btn-back{
+    opacity:.45;
 }
 
-.hidden{
-    display:none!important;
+.exercise-mode .tab-buttons{
+    pointer-events:none;
+    opacity:.5;
 }
 
-/* ================= IMAGE ================= */
-
-.media-image{
-    display:block;
-    width:100%;
-    max-height:430px;
-    object-fit:contain;
-    border-radius:18px;
-    background:#f7f4ec;
-    margin-top:12px;
-}
-
-/* ================= VIDEO ================= */
-
-.video-wrapper{
-    position:relative;
-    width:100%;
-    padding-bottom:56.25%;
-    height:0;
-    overflow:hidden;
-    border-radius:18px;
-    background:var(--navy);
-    margin-top:12px;
-}
-
-.video-wrapper iframe{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    border:0;
-}
-
-/* ================= CODE ================= */
-
-pre{
-    white-space:pre-wrap;
-    background:var(--navy);
-    color:white;
-    padding:18px;
+.reference-bar{
+    background:var(--purple);
+    color:var(--navy);
+    padding:13px 17px;
     border-radius:16px;
-    overflow:auto;
-    font-family:Consolas,monospace;
+    margin-bottom:18px;
+    font-weight:700;
 }
 
-/* ================= RESPONSIVE ================= */
+.link-preview{
+    font-size:13px;
+    color:var(--soft);
+    word-break:break-all;
+}
+
+.finish-message{max-width:680px;margin:0 auto 20px}
+.finish-decoration{display:flex;justify-content:center;gap:10px;margin-top:25px}
+.finish-decoration span{width:12px;height:12px;border-radius:50%;display:block}
+.finish-decoration span:nth-child(1){background:var(--orange)}
+.finish-decoration span:nth-child(2){background:var(--yellow)}
+.finish-decoration span:nth-child(3){background:var(--blue)}
+.finish-decoration span:nth-child(4){background:var(--green)}
+.finish-decoration span:nth-child(5){background:var(--pink)}
 
 @media(max-width:850px){
-
-    .header{
-        padding:13px 16px;
-    }
-
-    .header small{
-        display:none;
-    }
-
-    .container{
-        width:min(100% - 22px,700px);
-        padding-top:15px;
-    }
-
-    .card{
-        padding:23px;
-        border-radius:24px;
-    }
-
-    .hero{
-        padding:38px 22px;
-    }
-
-    .path-grid{
-        grid-template-columns:1fr;
-    }
-
-    .button-row{
-        flex-direction:column;
-    }
-
-    .button-row .btn{
-        width:100%;
+    .header{padding:13px 16px}
+    .logo{font-size:17px}
+    .logo-icon{width:40px;height:40px;font-size:20px}
+    .header small{display:none}
+    .container{width:min(100% - 22px,700px);padding-top:15px}
+    .progress-wrapper{overflow-x:auto;padding:15px 8px}
+    .progress{min-width:760px}
+    .card{padding:23px;border-radius:24px}
+    .hero{padding:38px 22px}
+    .path-grid{grid-template-columns:1fr}
+    .path-card{min-height:auto}
+    h1{font-size:30px}
+    h2{font-size:24px}
+    .button-row{flex-direction:column}
+    .button-row .btn{width:100%}
+}
+@media(max-width:500px){
+    .logo-area{gap:8px}
+    .logo{font-size:15px}
+    .logo-icon{width:36px;height:36px;border-radius:12px}
+    .btn-back{padding:10px 15px;font-size:12px}
+    .student-info{font-size:13px}
+    .score{font-size:48px}
+}
+@media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{
+        scroll-behavior:auto!important;
+        transition:none!important;
+        animation:none!important;
     }
 }
 </style>
@@ -689,774 +584,494 @@ pre{
 <body>
 
 <header class="header">
+    <div class="logo-area">
+        <div class="logo-icon">💻</div>
+        <div>
+            <div class="logo">Ruang Belajar Informatika</div>
+            <small>Pembelajaran Berdiferensiasi</small>
+        </div>
+    </div>
 
-<div class="logo-area">
-
-<div class="logo-icon">
-💻
-</div>
-
-<div>
-<div class="logo">
-Ruang Belajar Informatika
-</div>
-
-<small>
-Pembelajaran Berdiferensiasi
-</small>
-
-</div>
-
-</div>
-
-<button class="btn btn-secondary" onclick="kembaliKeMateri()">
-← Pilih Materi
-</button>
-
+    <button class="btn btn-back" id="backButton" onclick="kembaliKeMateri()">
+        ← Pilih Materi
+    </button>
 </header>
-
 
 <div class="container">
 
-
-<!-- ================= PROGRESS ================= -->
-
 <div class="progress-wrapper">
-
-<div class="progress">
-
-<div class="progress-step active" id="p1">
-1<br>Data
+    <div class="progress">
+        <div class="progress-step active" id="progress1">1<br>Data</div>
+        <div class="progress-step" id="progress2">2<br>Tes</div>
+        <div class="progress-step" id="progress3">3<br>Jalur</div>
+        <div class="progress-step" id="progress4">4<br>Materi</div>
+        <div class="progress-step" id="progress5">5<br>Latihan</div>
+        <div class="progress-step" id="progress6">6<br>LKPD</div>
+        <div class="progress-step" id="progress7">7<br>Refleksi</div>
+        <div class="progress-step" id="progress8">8<br>Selesai</div>
+    </div>
 </div>
 
-<div class="progress-step" id="p2">
-2<br>Tes
-</div>
-
-<div class="progress-step" id="p3">
-3<br>Jalur
-</div>
-
-<div class="progress-step" id="p4">
-4<br>Materi
-</div>
-
-<div class="progress-step" id="p5">
-5<br>Latihan
-</div>
-
-<div class="progress-step" id="p6">
-6<br>LKPD
-</div>
-
-<div class="progress-step" id="p7">
-7<br>Refleksi
-</div>
-
-<div class="progress-step" id="p8">
-8<br>Selesai
-</div>
-
-</div>
-
-</div>
-
-
-<!-- =====================================================
-DATA SISWA
-===================================================== -->
-
+<!-- 1. DATA SISWA -->
 <section class="page active" id="studentPage">
+    <div class="card hero">
+        <div class="hero-icon" id="studentHeroIcon">💻</div>
+        <span class="section-label">SELAMAT DATANG</span>
+        <h1 id="studentHeroTitle">Ruang Belajar Informatika</h1>
+        <p>
+            Yuk, mulai perjalanan belajarmu! Isi data diri terlebih dahulu
+            agar sistem dapat mencatat proses dan perkembangan belajarmu.
+        </p>
+    </div>
 
-<div class="card hero">
+    <div class="card">
+        <span class="section-label">DATA SISWA</span>
+        <h2>📝 Kenalan Dulu, Yuk!</h2>
+        <p>Materi yang dipilih: <strong id="selectedMaterialName">-</strong></p>
 
-<div class="hero-icon" id="studentHeroIcon">
-💻
-</div>
+        <div class="form-group">
+            <label for="namaSiswa">Nama Lengkap</label>
+            <input type="text" id="namaSiswa" placeholder="Masukkan nama lengkap">
+        </div>
 
-<span class="section-label">
-SELAMAT DATANG
-</span>
+        <div class="form-group">
+            <label for="kelasSiswa">Kelas</label>
+            <input type="text" id="kelasSiswa" placeholder="Contoh: X">
+        </div>
 
-<h1 id="studentHeroTitle">
-Ruang Belajar Informatika
-</h1>
+        <div class="form-group">
+            <label for="jurusanSiswa">Jurusan</label>
+            <input type="text" id="jurusanSiswa" placeholder="Contoh: Teknik Kendaraan Ringan">
+        </div>
 
-<p>
-Isi data diri terlebih dahulu agar proses pembelajaranmu dapat tercatat.
-</p>
+        <div class="form-group">
+            <label for="absenSiswa">Nomor Absen</label>
+            <input type="number" id="absenSiswa" placeholder="Masukkan nomor absen" min="1">
+        </div>
 
-</div>
-
-
-<div class="card">
-
-<span class="section-label">
-DATA SISWA
-</span>
-
-<h2>
-📝 Kenalan Dulu, Yuk!
-</h2>
-
-<p>
-Materi yang dipilih:
-<strong id="selectedMaterialName">-</strong>
-</p>
-
-
-<div class="form-group">
-
-<label>
-Nama Lengkap
-</label>
-
-<input
-id="namaSiswa"
-placeholder="Masukkan nama lengkap"
->
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Kelas
-</label>
-
-<input
-id="kelasSiswa"
-placeholder="Contoh: X"
->
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Jurusan
-</label>
-
-<input
-id="jurusanSiswa"
-placeholder="Contoh: Teknik Kendaraan Ringan"
->
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Nomor Absen
-</label>
-
-<input
-id="absenSiswa"
-type="number"
-min="1"
-placeholder="Nomor absen"
->
-
-</div>
-
-
-<div class="button-row">
-
-<button
-class="btn btn-primary"
-onclick="simpanDataSiswa()"
->
-Mulai Pembelajaran →
-</button>
-
-</div>
-
-</div>
-
+        <div class="button-row">
+            <button class="btn btn-primary" onclick="simpanDataSiswa()">
+                Mulai Pembelajaran →
+            </button>
+        </div>
+    </div>
 </section>
 
-
-<!-- =====================================================
-TES KOGNITIF
-===================================================== -->
-
+<!-- 2. TES -->
 <section class="page" id="testPage">
+    <div class="card">
+        <div class="student-info" id="studentInfoTest"></div>
 
-<div class="card">
+        <span class="section-label">TAHAP 1 · KENALI PEMAHAMANMU</span>
+        <h1 id="testTitle">🧠 Tes Kognitif Awal</h1>
+        <p>
+            Jawablah setiap pertanyaan berdasarkan pemahamanmu.
+            Hasil tes digunakan untuk memberikan rekomendasi jalur belajar.
+        </p>
 
-<div
-class="student-info"
-id="studentInfoTest">
-</div>
+        <div id="testQuestions"></div>
+        <div id="testError" class="notice error hidden"></div>
 
-<span class="section-label">
-TAHAP 1 · TES AWAL
-</span>
-
-<h1>
-🧠 Tes Kognitif
-</h1>
-
-<p>
-Jawablah semua soal. Hasil tes digunakan untuk merekomendasikan jalur belajar.
-</p>
-
-<div id="testQuestions"></div>
-
-<div
-id="testError"
-class="notice error hidden">
-</div>
-
-<div class="button-row">
-
-<button
-class="btn btn-primary"
-onclick="periksaTes()"
->
-Periksa Tes →
-</button>
-
-</div>
-
-</div>
-
+        <div class="button-row">
+            <button class="btn btn-primary" onclick="periksaTes()">
+                Selesai dan Periksa Tes →
+            </button>
+        </div>
+    </div>
 </section>
 
-
-<!-- =====================================================
-JALUR
-===================================================== -->
-
+<!-- 3. JALUR -->
 <section class="page" id="pathPage">
+    <div class="card">
+        <span class="section-label">TAHAP 2 · TENTUKAN JALUR</span>
+        <h1>🎯 Pilih Jalur Belajarmu</h1>
+        <p>
+            Sistem memberikan rekomendasi berdasarkan tes awal.
+            Namun, kamu tetap bebas memilih jalur yang paling sesuai
+            dengan kebutuhan belajarmu.
+        </p>
 
-<div class="card">
+        <div class="score-box">
+            <div>Hasil Tes Kognitif</div>
+            <div class="score" id="testScore">0</div>
+            <p id="recommendationText"></p>
+        </div>
 
-<span class="section-label">
-TAHAP 2 · DIFERENSIASI
-</span>
+        <div class="material-box">
+            <strong>💡 Rekomendasi sistem:</strong>
+            <div id="recommendedPath" style="margin-top:8px"></div>
+        </div>
 
-<h1>
-🎯 Pilih Jalur Belajarmu
-</h1>
+        <div class="path-grid">
+            <div class="path-card" id="pathPenguatan" onclick="pilihJalur('Penguatan')">
+                <div class="path-icon">🌱</div>
+                <h3>Penguatan</h3>
+                <span class="badge">Belajar dari dasar</span>
+                <p>Cocok jika kamu masih membutuhkan penguatan konsep secara bertahap.</p>
+            </div>
 
-<p>
-Sistem memberikan rekomendasi berdasarkan skor tes.
-Pilih jalur yang paling sesuai dengan kebutuhanmu.
-</p>
+            <div class="path-card" id="pathReguler" onclick="pilihJalur('Reguler')">
+                <div class="path-icon">📚</div>
+                <h3>Reguler</h3>
+                <span class="badge">Belajar sesuai alur</span>
+                <p>Cocok jika kamu sudah memahami sebagian besar konsep dasar.</p>
+            </div>
 
+            <div class="path-card" id="pathPengayaan" onclick="pilihJalur('Pengayaan')">
+                <div class="path-icon">🚀</div>
+                <h3>Pengayaan</h3>
+                <span class="badge">Tantangan lebih</span>
+                <p>Cocok jika kamu sudah menguasai konsep dasar dan siap menerima tantangan.</p>
+            </div>
+        </div>
 
-<div class="score-box">
-
-<div>
-Skor Tes
-</div>
-
-<div
-class="score"
-id="testScore">
-0
-</div>
-
-<p id="recommendationText">
-</p>
-
-</div>
-
-
-<div class="material-box">
-
-📌 Rekomendasi:
-<strong id="recommendedPath"></strong>
-
-</div>
-
-
-<div class="path-grid">
-
-
-<div
-class="path-card"
-id="pathPenguatan"
-onclick="pilihJalur('Penguatan')">
-
-<div class="path-icon">
-🌱
-</div>
-
-<h3>
-Penguatan
-</h3>
-
-<span class="badge">
-Dari dasar
-</span>
-
-<p>
-Materi bertahap, latihan dasar,
-dan LKPD dengan bantuan.
-</p>
-
-</div>
-
-
-<div
-class="path-card"
-id="pathReguler"
-onclick="pilihJalur('Reguler')">
-
-<div class="path-icon">
-📚
-</div>
-
-<h3>
-Reguler
-</h3>
-
-<span class="badge">
-Sesuai alur
-</span>
-
-<p>
-Materi penerapan konsep,
-latihan menengah, dan LKPD mandiri.
-</p>
-
-</div>
-
-
-<div
-class="path-card"
-id="pathPengayaan"
-onclick="pilihJalur('Pengayaan')">
-
-<div class="path-icon">
-🚀
-</div>
-
-<h3>
-Pengayaan
-</h3>
-
-<span class="badge">
-Tantangan
-</span>
-
-<p>
-Materi analitis, latihan menantang,
-dan LKPD pemecahan masalah.
-</p>
-
-</div>
-
-
-</div>
-
-
-<div class="button-row">
-
-<button
-class="btn btn-primary"
-onclick="mulaiMateri()"
->
-Mulai Jalur Belajar →
-</button>
-
-</div>
-
-</div>
-
+        <div class="button-row">
+            <button class="btn btn-primary" id="btnMulaiMateri" type="button" onclick="mulaiMateri()">
+                Mulai Jalur Belajar →
+            </button>
+        </div>
+    </div>
 </section>
 
-
-<!-- =====================================================
-MATERI
-===================================================== -->
-
+<!-- 4. MATERI -->
 <section class="page" id="materialPage">
+    <div class="card">
+        <div class="student-info" id="studentInfoMaterial"></div>
 
-<div class="card">
+        <span class="section-label">TAHAP 3 · BELAJAR</span>
+        <h1 id="materialTitle">Materi</h1>
+        <p>
+            Materi:
+            <strong id="materialName">-</strong>
+        </p>
+        <p id="materialDescription"></p>
+        <p id="jalurInfo"></p>
 
-<div
-class="student-info"
-id="studentInfoMaterial">
-</div>
+        <div id="referenceBar" class="reference-bar hidden">
+            📌 Mode referensi LKPD — kamu dapat membaca materi, menonton video,
+            atau mencoba games. Setelah selesai, kembali ke LKPD.
+        </div>
 
-<span class="section-label">
-TAHAP 3 · BELAJAR
-</span>
+        <div class="tab-buttons" id="materialTabs">
+            <button class="tab-btn active" id="tabMaterial" onclick="bukaSubmenu('material')">
+                📖 Materi
+            </button>
+            <button class="tab-btn" id="tabVideo" onclick="bukaSubmenu('video')">
+                🎥 Video
+            </button>
+            <button class="tab-btn" id="tabGames" onclick="bukaSubmenu('games')">
+                🎮 Games
+            </button>
+        </div>
 
-<h1 id="materialTitle"></h1>
+        <div class="tab-content active" id="contentMaterial"></div>
+        <div class="tab-content" id="contentVideo"></div>
+        <div class="tab-content" id="contentGames"></div>
 
-<p id="materialDescription"></p>
-
-<div
-id="jalurInfo"
-class="path-note">
-</div>
-
-
-<div class="tab-buttons">
-
-<button
-class="tab-btn active"
-id="tabMaterial"
-onclick="bukaSubmenu('material')">
-📖 Materi
-</button>
-
-<button
-class="tab-btn"
-id="tabVideo"
-onclick="bukaSubmenu('video')">
-🎥 Video
-</button>
-
-<button
-class="tab-btn"
-id="tabGames"
-onclick="bukaSubmenu('games')">
-🎮 Games
-</button>
-
-</div>
-
-
-<div
-class="tab-content active"
-id="contentMaterial">
-</div>
-
-
-<div
-class="tab-content"
-id="contentVideo">
-</div>
-
-
-<div
-class="tab-content"
-id="contentGames">
-</div>
-
-
-<div class="button-row">
-
-<button
-class="btn btn-primary"
-onclick="mulaiLatihan()"
->
-Lanjut ke Latihan →
-</button>
-
-</div>
-
-</div>
-
+        <div class="button-row" id="materialActions">
+            <button class="btn btn-primary" onclick="mulaiLatihan()">
+                Lanjut ke Latihan →
+            </button>
+        </div>
+    </div>
 </section>
 
-
-<!-- =====================================================
-LATIHAN
-===================================================== -->
-
+<!-- 5. LATIHAN -->
 <section class="page" id="practicePage">
+    <div class="card">
+        <span class="section-label">TAHAP 4 · LATIHAN</span>
+        <h1 id="practiceTitle">✏️ Latihan</h1>
+        <p>
+            Kerjakan latihan secara mandiri. Saat latihan berlangsung,
+            menu lain dikunci agar kamu dapat fokus.
+        </p>
 
-<div class="card">
+        <div id="practiceQuestions"></div>
+        <div id="practiceResult"></div>
 
-<span class="section-label">
-TAHAP 4 · LATIHAN
-</span>
+        <div class="button-row" id="practiceActions">
+            <button class="btn btn-primary" onclick="periksaLatihan()">
+                Periksa Latihan
+            </button>
+        </div>
 
-<h1 id="practiceTitle">
-✏️ Latihan
-</h1>
+        <div id="practiceRetry" class="hidden">
+            <div class="notice error">
+                Latihan belum tuntas. Pelajari kembali materi yang masih sulit,
+                lalu coba latihan lagi.
+            </div>
 
-<p>
-Latihan disesuaikan dengan jalur belajar yang dipilih.
-</p>
+            <div class="button-row">
+                <button class="btn btn-warning" onclick="pelajariKembali()">
+                    🔄 Pelajari Kembali
+                </button>
+                <button class="btn btn-primary" onclick="cobaLagi()">
+                    Coba Lagi →
+                </button>
+            </div>
+        </div>
 
-<div id="practiceQuestions"></div>
+        <div id="practicePass" class="hidden">
+            <div class="notice success">
+                🎉 Latihan tuntas! LKPD sekarang sudah terbuka.
+            </div>
 
-<div id="practiceResult"></div>
-
-
-<div
-id="practiceActions"
-class="button-row">
-
-<button
-class="btn btn-primary"
-onclick="periksaLatihan()"
->
-Periksa Latihan
-</button>
-
-</div>
-
-
-<div
-id="practiceRetry"
-class="hidden">
-
-<div class="notice error">
-
-Skor belum mencapai ketuntasan 70.
-Pelajari kembali materi lalu coba lagi.
-
-</div>
-
-<div class="button-row">
-
-<button
-class="btn btn-warning"
-onclick="pelajariKembali()">
-🔄 Pelajari Kembali
-</button>
-
-<button
-class="btn btn-primary"
-onclick="cobaLagi()">
-Coba Lagi
-</button>
-
-</div>
-
-</div>
-
-
-<div
-id="practicePass"
-class="hidden">
-
-<div class="notice success">
-
-🎉 Latihan tuntas!
-LKPD jalurmu telah terbuka.
-
-</div>
-
-<div class="button-row">
-
-<button
-class="btn btn-success"
-onclick="mulaiLKPD()">
-Lanjut ke LKPD →
-</button>
-
-</div>
-
-</div>
-
-</div>
-
+            <div class="button-row">
+                <button class="btn btn-success" onclick="mulaiLKPD()">
+                    Lanjut ke LKPD →
+                </button>
+            </div>
+        </div>
+    </div>
 </section>
 
-
-<!-- =====================================================
-LKPD
-===================================================== -->
-
+<!-- 6. LKPD -->
 <section class="page" id="lkpdPage">
+    <div class="card">
+        <span class="section-label">TAHAP 5 · TERAPKAN</span>
+        <h1 id="lkpdTitle">📋 LKPD</h1>
+        <p id="lkpdIntro"></p>
 
-<div class="card">
+        <div id="lkpdContent"></div>
 
-<span class="section-label">
-TAHAP 5 · LKPD
-</span>
+        <div class="notice">
+            Kerjakan LKPD pada lembar yang diberikan guru. Setelah selesai, lanjutkan ke refleksi pembelajaran.
+        </div>
 
-<h1 id="lkpdTitle">
-📋 LKPD
-</h1>
-
-<p id="lkpdIntro"></p>
-
-<div id="lkpdContent"></div>
-
-
-<div class="notice">
-
-📌 Kerjakan LKPD pada lembar yang diberikan guru.
-Kamu boleh membuka kembali materi/video sebagai referensi.
-
-</div>
-
-
-<div class="button-row">
-
-<button
-class="btn btn-secondary"
-onclick="kembaliKeReferensi()">
-📚 Buka Referensi
-</button>
-
-<button
-class="btn btn-primary"
-onclick="selesaiLKPD()">
-Selesai LKPD →
-</button>
-
-</div>
-
-</div>
-
+        <div class="button-row">
+            <button class="btn btn-primary" onclick="selesaiLKPD()">
+                Selesai LKPD →
+            </button>
+        </div>
+    </div>
 </section>
 
-
-<!-- =====================================================
-REFLEKSI
-===================================================== -->
-
+<!-- 7. REFLEKSI -->
 <section class="page" id="reflectionPage">
+    <div class="card">
+        <span class="section-label">TAHAP 7 · REFLEKSI</span>
+        <h1>💭 Refleksi Pembelajaran</h1>
+        <p>
+            Tidak ada jawaban benar atau salah. Gunakan refleksi ini untuk
+            melihat perkembangan belajarmu.
+        </p>
 
-<div class="card">
+        <div class="reflection-item">
+            <label><strong>1. Apa yang sudah kamu pahami?</strong></label>
+            <textarea id="refleksiPaham" placeholder="Tuliskan pemahamanmu..."></textarea>
+        </div>
 
-<span class="section-label">
-TAHAP 7 · REFLEKSI
-</span>
+        <div class="reflection-item">
+            <label><strong>2. Bagian mana yang masih sulit?</strong></label>
+            <textarea id="refleksiSulit" placeholder="Tuliskan kesulitanmu..."></textarea>
+        </div>
 
-<h1>
-💭 Refleksi Pembelajaran
-</h1>
+        <div class="reflection-item">
+            <label><strong>3. Apa yang ingin kamu pelajari lagi?</strong></label>
+            <textarea id="refleksiLanjut" placeholder="Tuliskan rencana belajarmu..."></textarea>
+        </div>
 
-
-<div class="form-group">
-
-<label>
-1. Apa yang sudah kamu pahami?
-</label>
-
-<textarea id="refleksiPaham"></textarea>
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-2. Bagian mana yang masih sulit?
-</label>
-
-<textarea id="refleksiSulit"></textarea>
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-3. Apa yang ingin kamu pelajari lagi?
-</label>
-
-<textarea id="refleksiLanjut"></textarea>
-
-</div>
-
-
-<div class="button-row">
-
-<button
-class="btn btn-success"
-onclick="kirimRefleksi()">
-Selesaikan Pembelajaran 🎉
-</button>
-
-</div>
-
-</div>
-
+        <div class="button-row">
+            <button class="btn btn-success" onclick="kirimRefleksi()">
+                Selesaikan Pembelajaran 🎉
+            </button>
+        </div>
+    </div>
 </section>
 
-
-<!-- =====================================================
-SELESAI
-===================================================== -->
-
+<!-- 8. SELESAI -->
 <section class="page" id="finishPage">
+    <div class="card hero">
+        <div class="finish-icon">🎉</div>
+        <span class="section-label">SELESAI</span>
+        <h1>Pembelajaran Selesai!</h1>
 
-<div class="card hero">
+        <p class="finish-message" id="finishMessage"></p>
 
-<div class="finish-icon">
-🎉
-</div>
+        <div class="score-box">
+            <div>Materi</div>
+            <h2 id="finishMaterial" style="margin:8px 0"></h2>
 
-<span class="section-label">
-SELESAI
-</span>
+            <div>Jalur Belajar</div>
+            <h2 id="finishPath" style="margin:8px 0"></h2>
 
-<h1>
-Pembelajaran Selesai!
-</h1>
+            <p>
+                Skor tes:
+                <strong id="finishTestScore">0</strong>
+                &nbsp; | &nbsp;
+                Skor latihan:
+                <strong id="finishPracticeScore">0</strong>
+            </p>
+        </div>
 
-<p id="finishMessage"></p>
+        <p>
+            Terima kasih telah mengikuti pembelajaran.
+            Setiap proses belajar adalah langkah untuk menjadi lebih baik.
+            Tetap semangat dan terus berkembang! 🌱
+        </p>
 
+        <div class="finish-decoration">
+            <span></span><span></span><span></span><span></span><span></span>
+        </div>
 
-<div class="score-box">
-
-<h2 id="finishMaterial"></h2>
-
-<p>
-Jalur:
-<strong id="finishPath"></strong>
-</p>
-
-<p>
-Skor Tes:
-<strong id="finishTestScore"></strong>
-|
-Skor Latihan:
-<strong id="finishPracticeScore"></strong>
-</p>
-
-</div>
-
-
-<p>
-Terima kasih telah belajar.
-Terus berkembang dan jangan takut mencoba! 🌱
-</p>
-
-
-<div
-class="button-row"
-style="justify-content:center">
-
-<button
-class="btn btn-primary"
-onclick="kembaliKeMateri()">
-← Kembali ke Daftar Materi
-</button>
-
-</div>
-
-</div>
-
+        <div class="button-row" style="justify-content:center">
+            <button class="btn btn-primary" onclick="kembaliKeMateri()">
+                ← Kembali ke Daftar Materi
+            </button>
+        </div>
+    </div>
 </section>
 
 </div>
-
 
 <script>
+/* =========================================================
+   KONFIGURASI
+   ========================================================= */
 
-/* =====================================================
-GOOGLE SHEETS
-===================================================== */
-
+/*
+   URL Web App Google Apps Script.
+   URL ini sudah mengikuti URL yang ada pada file yang kamu upload.
+   Jika nanti membuat deployment baru, ganti URL ini dengan URL /exec terbaru.
+*/
 const SCRIPT_URL =
-"https://script.google.com/macros/s/AKfycbwYEG1peaLFaTlp091bHANN1b8uia9I4bF87DHPOaz_1zE_WtnPRwxCmZxlgqHO_bIc/exec";
+    "https://script.google.com/macros/s/AKfycbwYEG1peaLFaTlp091bHANN1b8uia9I4bF87DHPOaz_1zE_WtnPRwxCmZxlgqHO_bIc/exec";
 
 
-/* =====================================================
-VARIABEL
-===================================================== */
+
+/* =========================================================
+   PENYIMPANAN AMAN
+   =========================================================
+   Beberapa browser/preview HTML dapat memblokir localStorage.
+   Gunakan penyimpanan cadangan agar tombol dan navigasi tetap bekerja.
+*/
+const storageFallback = {};
+const safeStorage = {
+    getItem(key){
+        try{
+            return localStorage.getItem(key);
+        }catch(error){
+            return Object.prototype.hasOwnProperty.call(storageFallback,key)
+                ? storageFallback[key]
+                : null;
+        }
+    },
+    setItem(key,value){
+        try{
+            localStorage.setItem(key,value);
+        }catch(error){
+            storageFallback[key] = String(value);
+        }
+    },
+    removeItem(key){
+        try{
+            localStorage.removeItem(key);
+        }catch(error){
+            delete storageFallback[key];
+        }
+    }
+};
+
+/* =========================================================
+   MATERI YANG DIPILIH DARI materi.html
+   ========================================================= */
 
 const materiDipilih =
-localStorage.getItem("materiDipilih")
-||
-"Berpikir Komputasional";
+    safeStorage.getItem("materiDipilih") || "Berpikir Komputasional";
+
+
+/* =========================================================
+   MEDIA PEMBELAJARAN
+   =========================================================
+   Cukup ganti URL di bagian ini jika ingin mengganti gambar/video.
+   Gambar: 9 gambar (3 materi × 3 jalur).
+   Video: 9 video (3 materi × 3 jalur).
+
+   Setiap jalur belajar dapat memiliki gambar DAN video yang berbeda.
+*/
+const mediaPembelajaran = {
+
+    "Berpikir Komputasional": {
+        gambar: {
+            "Penguatan": "https://placehold.co/900x506/75c9e8/172554?text=Gambar+Berpikir+Komputasional+-+Penguatan",
+            "Reguler": "https://placehold.co/900x506/8bd3a8/172554?text=Gambar+Berpikir+Komputasional+-+Reguler",
+            "Pengayaan": "https://placehold.co/900x506/c7b7f5/172554?text=Gambar+Berpikir+Komputasional+-+Pengayaan"
+        },
+        video: {
+            "Penguatan": "",
+            "Reguler": "",
+            "Pengayaan": ""
+        }
+    },
+
+    "Flowchart": {
+        gambar: {
+            "Penguatan": "https://placehold.co/900x506/75c9e8/172554?text=Gambar+Flowchart+-+Penguatan",
+            "Reguler": "https://placehold.co/900x506/8bd3a8/172554?text=Gambar+Flowchart+-+Reguler",
+            "Pengayaan": "https://placehold.co/900x506/c7b7f5/172554?text=Gambar+Flowchart+-+Pengayaan"
+        },
+        video: {
+            "Penguatan": "",
+            "Reguler": "",
+            "Pengayaan": ""
+        }
+    },
+
+    "Pseudocode": {
+        gambar: {
+            "Penguatan": "penguatan.jpg",
+            "Reguler": "reguler.jpg",
+            "Pengayaan": "pengayaan.jpg"
+        },
+        video: {
+            "Penguatan": "https://youtu.be/5HlmceV7A6M?si=AZ0zDf59PoBeW2Vt",
+            "Reguler": "https://youtu.be/5HlmceV7A6M?si=AZ0zDf59PoBeW2Vt",
+            "Pengayaan": "https://youtu.be/5HlmceV7A6M?si=AZ0zDf59PoBeW2Vt"
+        }
+    }
+};
+
+function getMediaPembelajaran(namaMateri, jalur) {
+    const data = mediaPembelajaran[namaMateri] || {};
+    return {
+        gambar: (data.gambar && data.gambar[jalur]) || "",
+        video: (data.video && data.video[jalur]) || ""
+    };
+}
+
+function renderVideoPembelajaran(url, judul) {
+    if (!url) {
+        return `
+            <div class="notice">
+                Guru belum menambahkan video pembelajaran. Silakan isi URL video
+                pada bagian <strong>mediaPembelajaran</strong> di awal coding.
+            </div>
+        `;
+    }
+
+    let embedUrl = url;
+    const youtubeMatch = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([^?&/]+)/);
+    if (youtubeMatch) {
+        embedUrl = `https://www.youtube.com/embed/${youtubeMatch[1]}`;
+    }
+
+    return `
+        <div class="video-wrapper">
+            <iframe
+                src="${embedUrl}"
+                title="${judul}"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+            </iframe>
+        </div>
+    `;
+}
+
+
+/* =========================================================
+   DATA SISWA DAN SESI
+   ========================================================= */
 
 let siswa = {
     nama:"",
@@ -1467,2520 +1082,1318 @@ let siswa = {
 
 let jalurDipilih = "";
 let rekomendasi = "";
-
 let skorTes = 0;
 let skorLatihan = 0;
-
 let latihanLulus = false;
+let latihanPernahDicoba = false;
+
+let referenceMode = false;
 let sessionSent = false;
 
 let idSesi =
-localStorage.getItem("idSesi")
-||
-"";
+    safeStorage.getItem("idSesi") || "";
 
-let sessionData = {};
-
-
-/* =====================================================
-FUNGSI ESCAPE
-===================================================== */
-
-function esc(value){
-
-    return String(value ?? "")
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;");
-
-}
+let sessionData = {
+    waktuMulai:"",
+    waktuSelesai:"",
+    aktivitasTerakhir:"",
+    statusPembelajaran:"Belum Selesai",
+    statusLKPD:"",
+    refleksiPaham:"",
+    refleksiSulit:"",
+    refleksiLanjut:""
+};
 
 
-/* =====================================================
-DATA MATERI
-===================================================== */
+/* =========================================================
+   DATA PEMBELAJARAN
+   ========================================================= */
 
 const materiData = {
 
-
-/* =====================================================
-BERPIKIR KOMPUTASIONAL
-===================================================== */
-
-"Berpikir Komputasional":{
-
-icon:"🧩",
-
-deskripsi:
-"Dekomposisi, pengenalan pola, abstraksi, dan algoritma untuk menyelesaikan masalah.",
-
-
-jalur:{
-
-
-/* ---------- PENGUATAN ---------- */
-
-Penguatan:`
-
-<div class="path-note">
-🌱 Jalur Penguatan — memahami konsep dari dasar.
-</div>
-
-<div class="material-box">
-
-<h2>
-🌱 Mengenal Berpikir Komputasional
-</h2>
-
-<p>
-Berpikir komputasional adalah cara berpikir untuk
-menyelesaikan masalah secara terstruktur.
-Ada empat konsep utama.
-</p>
-
-<h3>1. Dekomposisi</h3>
-
-<p>
-Memecah masalah besar menjadi bagian-bagian kecil.
-</p>
-
-<h3>2. Pengenalan Pola</h3>
-
-<p>
-Mencari kesamaan atau pola dari beberapa masalah.
-</p>
-
-<h3>3. Abstraksi</h3>
-
-<p>
-Memilih informasi yang penting dan mengabaikan
-informasi yang tidak diperlukan.
-</p>
-
-<h3>4. Algoritma</h3>
-
-<p>
-Menyusun langkah-langkah penyelesaian masalah
-secara berurutan.
-</p>
-
-<div class="notice">
-
-💡 <strong>Ingat 4 kata kunci:</strong>
-
-Dekomposisi → Pecah
-
-Pola → Cari kesamaan
-
-Abstraksi → Pilih yang penting
-
-Algoritma → Susun langkah
-
-</div>
-
-</div>
-`,
-
-
-/* ---------- REGULER ---------- */
-
-Reguler:`
-
-<div class="path-note">
-📚 Jalur Reguler — menerapkan konsep pada masalah nyata.
-</div>
-
-<div class="material-box">
-
-<h2>
-📚 Penerapan Berpikir Komputasional
-</h2>
-
-<table>
-
-<tr>
-<th>Konsep</th>
-<th>Penerapan di Bengkel</th>
-</tr>
-
-<tr>
-<td>Dekomposisi</td>
-<td>
-Membagi proses servis menjadi
-penerimaan, pemeriksaan, diagnosis,
-perbaikan, pengujian, dan penyerahan.
-</td>
-</tr>
-
-<tr>
-<td>Pengenalan Pola</td>
-<td>
-Mencari kesamaan kerusakan
-dari beberapa kendaraan.
-</td>
-</tr>
-
-<tr>
-<td>Abstraksi</td>
-<td>
-Memilih data kendaraan yang
-paling diperlukan untuk diagnosis.
-</td>
-</tr>
-
-<tr>
-<td>Algoritma</td>
-<td>
-Menyusun urutan pemeriksaan kendaraan.
-</td>
-</tr>
-
-</table>
-
-<div class="notice">
-
-🎯 Gunakan urutan:
-
-<strong>
-Pahami masalah → Pecah → Cari pola →
-Pilih informasi → Susun solusi
-</strong>
-
-</div>
-
-</div>
-`,
-
-
-/* ---------- PENGAYAAN ---------- */
-
-Pengayaan:`
-
-<div class="path-note">
-🚀 Jalur Pengayaan — menganalisis masalah kompleks.
-</div>
-
-<div class="material-box">
-
-<h2>
-🚀 Analisis Masalah Kompleks
-</h2>
-
-<p>
-Sebuah bengkel menerima beberapa kendaraan
-dengan keluhan berbeda pada waktu yang sama.
-Teknisi harus menentukan pemeriksaan
-dan prioritas pelayanan.
-</p>
-
-<h3>Tugas berpikir</h3>
-
-<ol>
-
-<li>
-Pecah masalah menjadi beberapa submasalah.
-</li>
-
-<li>
-Cari pola kerusakan yang mungkin berulang.
-</li>
-
-<li>
-Tentukan informasi yang benar-benar penting.
-</li>
-
-<li>
-Susun algoritma pelayanan.
-</li>
-
-</ol>
-
-<div class="notice">
-
-🚀 <strong>Tantangan:</strong>
-
-Bagaimana algoritma berubah jika terdapat
-kendaraan dalam kondisi darurat?
-
-</div>
-
-</div>
-`
-
-},
-
-
-/* =====================================================
-MEDIA BERPIKIR KOMPUTASIONAL
-===================================================== */
-
-media:{
-
-Penguatan:{
-gambar:"gambar/berpikir-komputasional-penguatan.png",
-video:""
-},
-
-Reguler:{
-gambar:"gambar/berpikir-komputasional-reguler.png",
-video:""
-},
-
-Pengayaan:{
-gambar:"gambar/berpikir-komputasional-pengayaan.png",
-video:""
-}
-
-},
-
-
-/* =====================================================
-LATIHAN BERPIKIR KOMPUTASIONAL
-===================================================== */
-
-latihan:{
-
-
-Penguatan:[
-
-{
-pertanyaan:
-"Memecah masalah besar menjadi beberapa bagian kecil disebut ...",
-pilihan:[
-"Dekomposisi",
-"Abstraksi",
-"Pengenalan pola",
-"Algoritma"
-],
-jawaban:0
-},
-
-{
-pertanyaan:
-"Mencari kesamaan dari beberapa masalah disebut ...",
-pilihan:[
-"Algoritma",
-"Pengenalan pola",
-"Dekomposisi",
-"Abstraksi"
-],
-jawaban:1
-},
-
-{
-pertanyaan:
-"Memilih informasi yang penting disebut ...",
-pilihan:[
-"Abstraksi",
-"Dekomposisi",
-"Pola",
-"Algoritma"
-],
-jawaban:0
-},
-
-{
-pertanyaan:
-"Langkah-langkah penyelesaian masalah secara terurut disebut ...",
-pilihan:[
-"Pola",
-"Abstraksi",
-"Algoritma",
-"Dekomposisi"
-],
-jawaban:2
-},
-
-{
-pertanyaan:
-"Membagi proses servis menjadi pemeriksaan, perbaikan, dan pengujian merupakan ...",
-pilihan:[
-"Abstraksi",
-"Dekomposisi",
-"Algoritma",
-"Pola"
-],
-jawaban:1
-},
-
-{
-pertanyaan:
-"Menemukan bahwa beberapa kendaraan memiliki keluhan mesin sulit hidup merupakan ...",
-pilihan:[
-"Dekomposisi",
-"Pengenalan pola",
-"Abstraksi",
-"Algoritma"
-],
-jawaban:1
-},
-
-{
-pertanyaan:
-"Memilih data nomor kendaraan dan jenis kerusakan sebagai informasi utama merupakan ...",
-pilihan:[
-"Algoritma",
-"Dekomposisi",
-"Abstraksi",
-"Pola"
-],
-jawaban:2
-},
-
-{
-pertanyaan:
-"Langkah pertama ketika menghadapi masalah kompleks adalah ...",
-pilihan:[
-"Mengabaikan masalah",
-"Memecah masalah",
-"Menghapus data",
-"Langsung membuat program"
-],
-jawaban:1
-},
-
-{
-pertanyaan:
-"Urutan langkah penyelesaian masalah disebut ...",
-pilihan:[
-"Algoritma",
-"Pola",
-"Abstraksi",
-"Dekomposisi"
-],
-jawaban:0
-},
-
-{
-pertanyaan:
-"Tujuan berpikir komputasional adalah ...",
-pilihan:[
-"Membuat masalah lebih rumit",
-"Menyelesaikan masalah secara sistematis",
-"Menghafalkan semua informasi",
-"Menghindari masalah"
-],
-jawaban:1
-}
-
-],
-
-
-Reguler:[
-
-{
-pertanyaan:
-"Proses servis dibagi menjadi penerimaan, diagnosis, perbaikan, dan pengujian. Ini merupakan ...",
-pilihan:[
-"Abstraksi",
-"Dekomposisi",
-"Pola",
-"Output"
-],
-jawaban:1
-},
-
-{
-pertanyaan:
-"Jika beberapa kendaraan mengalami kerusakan yang sama, teknisi sedang melakukan ...",
-pilihan:[
-"Pengenalan pola",
-"Dekomposisi",
-"Abstraksi",
-"Algoritma"
-],
-jawaban:0
-},
-
-{
-pertanyaan:
-"Data kendaraan yang penting untuk diagnosis adalah nomor kendaraan dan keluhan. Proses memilih data tersebut disebut ...",
-pilihan:[
-"Pola",
-"Abstraksi",
-"Dekomposisi",
-"Algoritma"
-],
-jawaban:1
-},
-
-{
-pertanyaan:
-"Urutan pemeriksaan kendaraan dari pemeriksaan visual sampai pengujian akhir merupakan ...",
-pilihan:[
-"Algoritma",
-"Pola",
-"Abstraksi",
-"Dekomposisi"
-],
-jawaban:0
-},
-
-{
-pertanyaan:
-"Jika teknisi melihat bahwa kendaraan A, B, dan C memiliki gejala yang sama, langkah berikutnya adalah ...",
-pilihan:[
-"Mengabaikan gejala",
-"Mencari pola kerusakan",
-"Menghapus data",
-"Mengganti kendaraan"
-],
-jawaban:1
-},
-
-{
-pertanyaan:
-"Manakah yang merupakan contoh abstraksi?",
-pilihan:[
-"Membagi servis menjadi beberapa tahap",
-"Mencari kerusakan yang sama",
-"Memilih informasi penting dari data kendaraan",
-"Menyusun langkah pemeriksaan"
-],
-jawaban:2
-},
-
-{
-pertanyaan:
-"Algoritma yang baik seharusnya ...",
-pilihan:[
-"Acak",
-"Berurutan dan jelas",
-"Tidak memiliki tujuan",
-"Selalu panjang"
-],
-jawaban:1
-},
-
-{
-pertanyaan:
-"Jika masalah terlalu besar untuk diselesaikan sekaligus, sebaiknya ...",
-pilihan:[
-"Dihentikan",
-"Dipecah menjadi submasalah",
-"Diabaikan",
-"Dihapus"
-],
-jawaban:1
-},
-
-{
-pertanyaan:
-"Keempat konsep berpikir komputasional saling berkaitan karena ...",
-pilihan:[
-"Semuanya membantu penyelesaian masalah",
-"Semuanya merupakan bahasa pemrograman",
-"Semuanya hanya digunakan untuk matematika",
-"Semuanya digunakan untuk menggambar"
-],
-jawaban:0
-},
-
-{
-pertanyaan:
-"Urutan yang paling logis adalah ...",
-pilihan:[
-"Algoritma → masalah → pola",
-"Masalah → dekomposisi → pola/abstraksi → algoritma",
-"Abstraksi → masalah → dekomposisi",
-"Pola → masalah → output"
-],
-jawaban:1
-}
-
-],
-
-
-Pengayaan:[
-
-{
-pertanyaan:
-"Ketika lima kendaraan memiliki gejala yang berbeda tetapi terdapat beberapa pola yang sama, langkah paling tepat adalah ...",
-pilihan:[
-"Mengabaikan semua kendaraan",
-"Mencari pola yang dapat digunakan kembali",
-"Membuat algoritma secara acak",
-"Menghapus data"
-],
-jawaban:1
-},
-
-{
-pertanyaan:
-"Jika kendaraan darurat harus diprioritaskan, konsep yang paling berhubungan dengan penyusunan urutan pelayanan adalah ...",
-pilihan:[
-"Algoritma",
-"Abstraksi saja",
-"Pola saja",
-"Dekomposisi saja"
-],
-jawaban:0
-},
-
-{
-pertanyaan:
-"Memilih hanya informasi yang diperlukan untuk menentukan prioritas kendaraan merupakan ...",
-pilihan:[
-"Dekomposisi",
-"Abstraksi",
-"Pengenalan pola",
-"Algoritma"
-],
-jawaban:1
-},
-
-{
-pertanyaan:
-"Jika prosedur pemeriksaan yang sama digunakan untuk beberapa kendaraan, teknisi memanfaatkan ...",
-pilihan:[
-"Pola",
-"Kesalahan",
-"Acak",
-"Output"
-],
-jawaban:0
-},
-
-{
-pertanyaan:
-"Algoritma pelayanan dapat dibuat lebih efisien dengan cara ...",
-pilihan:[
-"Menambah langkah yang tidak diperlukan",
-"Menghilangkan langkah penting",
-"Menggunakan pola yang sudah ditemukan",
-"Mengacak urutan"
-],
-jawaban:2
-},
-
-{
-pertanyaan:
-"Jika jumlah kendaraan bertambah, algoritma yang baik seharusnya ...",
-pilihan:[
-"Tidak dapat digunakan lagi",
-"Dapat disesuaikan dengan kondisi",
-"Selalu dihapus",
-"Dibuat tanpa aturan"
-],
-jawaban:1
-},
-
-{
-pertanyaan:
-"Manakah contoh kombinasi empat konsep yang paling tepat?",
-pilihan:[
-"Pecah masalah → cari pola → pilih data penting → susun algoritma",
-"Susun algoritma → hapus masalah → cari pola",
-"Abstraksi → hapus semua data → selesai",
-"Pola → abaikan masalah → output"
-],
-jawaban:0
-},
-
-{
-pertanyaan:
-"Jika terdapat kendaraan darurat, informasi 'tingkat urgensi' merupakan contoh ...",
-pilihan:[
-"Abstraksi",
-"Dekomposisi",
-"Looping",
-"Output"
-],
-jawaban:0
-},
-
-{
-pertanyaan:
-"Jika dua proses servis memiliki langkah pemeriksaan yang sama, kesamaan tersebut dapat digunakan untuk ...",
-pilihan:[
-"Membuat prosedur lebih efisien",
-"Menghapus kendaraan",
-"Mengubah semua data",
-"Menghilangkan algoritma"
-],
-jawaban:0
-},
-
-{
-pertanyaan:
-"Tujuan utama menerapkan berpikir komputasional pada masalah kompleks adalah ...",
-pilihan:[
-"Membuat langkah sebanyak mungkin",
-"Menciptakan solusi yang sistematis dan efisien",
-"Menghafalkan masalah",
-"Menghindari pengambilan keputusan"
-],
-jawaban:1
-}
-
-]},
-
-
-/* =====================================================
-LKPD BERPIKIR KOMPUTASIONAL
-===================================================== */
-
-lkpd:{
-
-Penguatan:`
-
-<div class="lkpd-task">
-
-<h3>
-🌱 LKPD Penguatan — Analisis Proses Servis
-</h3>
-
-<p>
-<strong>Kasus:</strong>
-Sebuah kendaraan datang ke bengkel karena
-mesin sulit dinyalakan.
-</p>
-
-<ol>
-
-<li>
-Tuliskan minimal 4 bagian masalah
-sebagai bentuk <strong>dekomposisi</strong>.
-</li>
-
-<li>
-Tuliskan satu kemungkinan
-<strong>pola</strong> masalah.
-</li>
-
-<li>
-Pilih 3 informasi penting sebagai
-<strong>abstraksi</strong>.
-</li>
-
-<li>
-Susun minimal 5 langkah
-<strong>algoritma</strong> pemeriksaan.
-</li>
-
-</ol>
-
-<div class="notice">
-
-💡 Bantuan:
-
-Masalah → Pemeriksaan → Tindakan → Hasil
-
-</div>
-
-</div>
-`,
-
-Reguler:`
-
-<div class="lkpd-task">
-
-<h3>
-📚 LKPD Reguler — Analisis Kasus Servis
-</h3>
-
-<p>
-<strong>Kasus:</strong>
-Tiga kendaraan memiliki keluhan:
-mesin sulit hidup, rem kurang pakem,
-dan lampu tidak menyala.
-</p>
-
-<ol>
-
-<li>
-Pecah proses pemeriksaan menjadi beberapa bagian.
-</li>
-
-<li>
-Temukan pola proses yang sama
-pada ketiga kendaraan.
-</li>
-
-<li>
-Pilih informasi yang wajib dicatat.
-</li>
-
-<li>
-Susun algoritma pelayanan
-dari penerimaan sampai rekomendasi.
-</li>
-
-<li>
-Jelaskan mengapa urutan tersebut efektif.
-</li>
-
-</ol>
-
-</div>
-`,
-
-Pengayaan:`
-
-<div class="lkpd-task">
-
-<h3>
-🚀 LKPD Pengayaan — Merancang Algoritma Servis Efisien
-</h3>
-
-<p>
-<strong>Kasus:</strong>
-Bengkel menerima lima kendaraan.
-Dua bermasalah pada mesin,
-satu rem, satu kelistrikan,
-dan satu kendaraan dalam kondisi darurat.
-</p>
-
-<ol>
-
-<li>
-Lakukan dekomposisi proses pelayanan.
-</li>
-
-<li>
-Temukan pola pemeriksaan yang dapat digunakan kembali.
-</li>
-
-<li>
-Tentukan data penting untuk menentukan prioritas.
-</li>
-
-<li>
-Buat algoritma pelayanan yang
-memprioritaskan kondisi darurat.
-</li>
-
-<li>
-Bandingkan dengan pelayanan berdasarkan
-urutan kedatangan.
-</li>
-
-<li>
-Usulkan aturan agar algoritma tetap efisien
-ketika jumlah kendaraan bertambah.
-</li>
-
-</ol>
-
-</div>
-`
-
-}
-
-},
-
-
-/* =====================================================
-FLOWCHART
-===================================================== */
-
-"Flowchart":{
-
-icon:"🔀",
-
-deskripsi:
-"Menyusun algoritma dan menggambarkan langkah penyelesaian masalah dengan diagram alir.",
-
-
-jalur:{
-
-Penguatan:`
-
-<div class="path-note">
-🌱 Jalur Penguatan — mengenali simbol dan alur dasar.
-</div>
-
-<div class="material-box">
-
-<h2>
-🌱 Simbol Dasar Flowchart
-</h2>
-
-<table>
-
-<tr>
-<th>Simbol</th>
-<th>Fungsi</th>
-</tr>
-
-<tr>
-<td>Oval</td>
-<td>Mulai / Selesai</td>
-</tr>
-
-<tr>
-<td>Persegi panjang</td>
-<td>Proses</td>
-</tr>
-
-<tr>
-<td>Jajar genjang</td>
-<td>Input / Output</td>
-</tr>
-
-<tr>
-<td>Belah ketupat</td>
-<td>Keputusan</td>
-</tr>
-
-<tr>
-<td>Panah</td>
-<td>Arah alur</td>
-</tr>
-
-</table>
-
-<div class="notice">
-
-💡 Urutan sederhana:
-
-Mulai → Input → Proses → Output → Selesai
-
-</div>
-
-</div>
-`,
-
-Reguler:`
-
-<div class="path-note">
-📚 Jalur Reguler — membuat flowchart dari algoritma.
-</div>
-
-<div class="material-box">
-
-<h2>
-📚 Membuat Flowchart
-</h2>
-
-<ol>
-
-<li>
-Tentukan titik Mulai.
-</li>
-
-<li>
-Tentukan Input.
-</li>
-
-<li>
-Tentukan Proses.
-</li>
-
-<li>
-Tambahkan keputusan jika diperlukan.
-</li>
-
-<li>
-Tentukan Output.
-</li>
-
-<li>
-Akhiri dengan Selesai.
-</li>
-
-</ol>
-
-<h3>
-Contoh
-</h3>
-
-<p>
-Menentukan kelulusan siswa:
-</p>
-
-<pre>
-Mulai
-↓
-Input nilai
-↓
-Apakah nilai ≥ 75?
-↙           ↘
-Ya           Tidak
-↓              ↓
-Lulus       Tidak Lulus
-↘           ↙
-Selesai
-</pre>
-
-</div>
-`,
-
-Pengayaan:`
-
-<div class="path-note">
-🚀 Jalur Pengayaan — merancang flowchart multi-kondisi.
-</div>
-
-<div class="material-box">
-
-<h2>
-🚀 Flowchart Multi-Kondisi
-</h2>
-
-<p>
-Sistem memeriksa tekanan ban.
-</p>
-
-<ul>
-
-<li>
-Tekanan &lt;30 psi → Isi angin
-</li>
-
-<li>
-30–35 psi → Normal
-</li>
-
-<li>
-&gt;35 psi → Kurangi tekanan
-</li>
-
-</ul>
-
-<p>
-Untuk menyelesaikannya diperlukan lebih dari
-satu pemeriksaan kondisi.
-</p>
-
-<div class="notice">
-
-🚀 Tantangan:
-
-Tambahkan kondisi
-<strong>sensor tidak terbaca</strong>
-ke dalam flowchart.
-
-</div>
-
-</div>
-`
-
-},
-
-
-media:{
-
-Penguatan:{
-gambar:"gambar/flowchart-penguatan.png",
-video:""
-},
-
-Reguler:{
-gambar:"gambar/flowchart-reguler.png",
-video:""
-},
-
-Pengayaan:{
-gambar:"gambar/flowchart-pengayaan.png",
-video:""
-}
-
-},
-
-
-/* =====================================================
-LATIHAN FLOWCHART
-===================================================== */
-
-latihan:{
-
-Penguatan:[
-
-{
-pertanyaan:"Simbol untuk Mulai/Selesai adalah ...",
-pilihan:["Oval","Persegi panjang","Belah ketupat","Jajar genjang"],
-jawaban:0
-},
-
-{
-pertanyaan:"Simbol proses adalah ...",
-pilihan:["Oval","Persegi panjang","Belah ketupat","Panah"],
-jawaban:1
-},
-
-{
-pertanyaan:"Simbol input/output adalah ...",
-pilihan:["Oval","Jajar genjang","Belah ketupat","Persegi panjang"],
-jawaban:1
-},
-
-{
-pertanyaan:"Simbol keputusan adalah ...",
-pilihan:["Oval","Persegi panjang","Belah ketupat","Panah"],
-jawaban:2
-},
-
-{
-pertanyaan:"Panah menunjukkan ...",
-pilihan:["Arah alur","Input","Keputusan","Proses"],
-jawaban:0
-},
-
-{
-pertanyaan:"Flowchart digunakan untuk ...",
-pilihan:["Menggambarkan alur algoritma","Mengedit gambar","Menyimpan data","Membuat jaringan"],
-jawaban:0
-},
-
-{
-pertanyaan:"Input nilai siswa menggunakan simbol ...",
-pilihan:["Oval","Jajar genjang","Belah ketupat","Persegi panjang"],
-jawaban:1
-},
-
-{
-pertanyaan:"Pertanyaan nilai ≥75 menggunakan simbol ...",
-pilihan:["Oval","Persegi panjang","Belah ketupat","Jajar genjang"],
-jawaban:2
-},
-
-{
-pertanyaan:"Urutan awal flowchart biasanya dimulai dengan ...",
-pilihan:["Output","Proses","Mulai","Keputusan"],
-jawaban:2
-},
-
-{
-pertanyaan:"Flowchart yang baik memiliki alur yang ...",
-pilihan:["Acak","Jelas","Tidak berurutan","Tidak memiliki akhir"],
-jawaban:1
-}
-
-],
-
-Reguler:[
-
-{
-pertanyaan:"Flowchart untuk menentukan kelulusan memerlukan simbol keputusan karena ...",
-pilihan:["Ada kondisi yang harus diperiksa","Ada gambar","Ada judul","Ada input saja"],
-jawaban:0
-},
-
-{
-pertanyaan:"Jika nilai 80 dan kondisi nilai ≥75, alur menuju ...",
-pilihan:["Tidak Lulus","Lulus","Input","Mulai"],
-jawaban:1
-},
-
-{
-pertanyaan:"Jika nilai 60 dan kondisi nilai ≥75, alur menuju ...",
-pilihan:["Lulus","Tidak Lulus","Selesai langsung","Input ulang"],
-jawaban:1
-},
-
-{
-pertanyaan:"Urutan yang benar adalah ...",
-pilihan:[
-"Mulai → Input → Keputusan → Output → Selesai",
-"Output → Mulai → Input → Selesai",
-"Keputusan → Mulai → Output",
-"Selesai → Input → Mulai"
-],
-jawaban:0
-},
-
-{
-pertanyaan:"Jika suatu masalah tidak memiliki kondisi, simbol keputusan ...",
-pilihan:["Tetap wajib","Tidak selalu diperlukan","Harus dua","Menggantikan proses"],
-jawaban:1
-},
-
-{
-pertanyaan:"Untuk menghitung luas persegi panjang, proses perhitungan menggunakan simbol ...",
-pilihan:["Oval","Persegi panjang","Belah ketupat","Panah"],
-jawaban:1
-},
-
-{
-pertanyaan:"Panjang dan lebar yang dimasukkan pengguna merupakan ...",
-pilihan:["Output","Input","Keputusan","Selesai"],
-jawaban:1
-},
-
-{
-pertanyaan:"Hasil perhitungan luas merupakan ...",
-pilihan:["Input","Output","Keputusan","Mulai"],
-jawaban:1
-},
-
-{
-pertanyaan:"Belah ketupat digunakan ketika algoritma memiliki ...",
-pilihan:["Kondisi","Input saja","Output saja","Mulai"],
-jawaban:0
-},
-
-{
-pertanyaan:"Tujuan flowchart adalah membuat alur algoritma menjadi ...",
-pilihan:["Lebih sulit","Lebih jelas secara visual","Lebih panjang","Tidak berurutan"],
-jawaban:1
-}
-
-],
-
-Pengayaan:[
-
-{
-pertanyaan:"Flowchart tekanan ban dengan tiga kategori membutuhkan ...",
-pilihan:["Tidak ada keputusan","Minimal dua keputusan","Satu proses saja","Satu output saja"],
-jawaban:1
-},
-
-{
-pertanyaan:"Tekanan 28 psi harus mengikuti jalur ...",
-pilihan:["Normal","Isi angin","Kurangi tekanan","Selesai"],
-jawaban:1
-},
-
-{
-pertanyaan:"Tekanan 32 psi harus mengikuti jalur ...",
-pilihan:["Isi angin","Normal","Kurangi tekanan","Error"],
-jawaban:1
-},
-
-{
-pertanyaan:"Tekanan 38 psi harus mengikuti jalur ...",
-pilihan:["Isi angin","Normal","Kurangi tekanan","Mulai"],
-jawaban:2
-},
-
-{
-pertanyaan:"Jika sensor tidak terbaca, sebaiknya dibuat ...",
-pilihan:["Jalur kondisi tambahan","Dihapus","Diabaikan","Menjadi Mulai"],
-jawaban:0
-},
-
-{
-pertanyaan:"Flowchart multi-kondisi membutuhkan perencanaan agar ...",
-pilihan:["Semua jalur memiliki tujuan jelas","Tidak ada output","Tidak memiliki akhir","Kondisi acak"],
-jawaban:0
-},
-
-{
-pertanyaan:"Jika kondisi pertama salah, flowchart seharusnya ...",
-pilihan:["Berhenti selalu","Melanjutkan ke kondisi berikutnya","Kembali ke Mulai tanpa alasan","Menghapus input"],
-jawaban:1
-},
-
-{
-pertanyaan:"Dalam flowchart, setiap jalur keputusan sebaiknya ...",
-pilihan:["Memiliki arah yang jelas","Tidak memiliki panah","Tidak memiliki output","Selalu sama"],
-jawaban:0
-},
-
-{
-pertanyaan:"Menambahkan kondisi baru pada algoritma berarti ...",
-pilihan:["Struktur keputusan dapat bertambah","Semua simbol dihapus","Flowchart tidak berubah sama sekali","Input dihapus"],
-jawaban:0
-},
-
-{
-pertanyaan:"Flowchart yang efisien adalah flowchart yang ...",
-pilihan:["Memiliki langkah yang tidak perlu","Memiliki alur jelas dan tidak berlebihan","Tidak memiliki keputusan","Tidak memiliki output"],
-jawaban:1
-}
-
-]},
-
-/* =====================================================
-LKPD FLOWCHART
-===================================================== */
-
-lkpd:{
-
-Penguatan:`
-
-<div class="lkpd-task">
-
-<h3>
-🌱 LKPD Penguatan — Flowchart Tekanan Ban
-</h3>
-
-<p>
-Masukkan tekanan ban kendaraan.
-Jika tekanan ≥30 psi tampilkan
-<strong>“Tekanan cukup”</strong>.
-Jika &lt;30 psi tampilkan
-<strong>“Tekanan kurang”</strong>.
-</p>
-
-<ol>
-
-<li>
-Tentukan simbol Mulai.
-</li>
-
-<li>
-Tentukan simbol Input.
-</li>
-
-<li>
-Tentukan simbol Keputusan.
-</li>
-
-<li>
-Tentukan dua Output.
-</li>
-
-<li>
-Gambarkan flowchart.
-</li>
-
-</ol>
-
-<div class="notice">
-💡 Gunakan hanya satu keputusan terlebih dahulu.
-</div>
-
-</div>
-`,
-
-Reguler:`
-
-<div class="lkpd-task">
-
-<h3>
-📚 LKPD Reguler — Flowchart Suhu Mesin
-</h3>
-
-<p>
-Buat flowchart berdasarkan kasus berikut.
-</p>
-
-<p>
-Input suhu mesin.
-Jika suhu ≤90°C tampilkan
-<strong>“Suhu normal”</strong>.
-Jika suhu &gt;90°C tampilkan
-<strong>“Perlu diperiksa”</strong>.
-</p>
-
-<ol>
-
-<li>
-Tulis algoritmanya.
-</li>
-
-<li>
-Tentukan simbol setiap langkah.
-</li>
-
-<li>
-Gambarkan flowchart.
-</li>
-
-<li>
-Uji menggunakan suhu 85°C.
-</li>
-
-<li>
-Uji menggunakan suhu 95°C.
-</li>
-
-<li>
-Jelaskan mengapa kedua input menghasilkan
-jalur berbeda.
-</li>
-
-</ol>
-
-</div>
-`,
-
-Pengayaan:`
-
-<div class="lkpd-task">
-
-<h3>
-🚀 LKPD Pengayaan — Flowchart Multi-Kondisi
-</h3>
-
-<p>
-Buat flowchart sistem pemeriksaan tekanan ban
-dengan aturan:
-</p>
-
-<ol>
-
-<li>
-&lt;30 psi → Isi angin.
-</li>
-
-<li>
-30–35 psi → Tekanan normal.
-</li>
-
-<li>
-&gt;35 psi → Kurangi tekanan.
-</li>
-
-</ol>
-
-<p>
-Kemudian tambahkan kondisi:
-<strong>“Sensor tidak terbaca”</strong>.
-</p>
-
-<ol>
-
-<li>
-Buat flowchart.
-</li>
-
-<li>
-Tentukan minimal dua keputusan.
-</li>
-
-<li>
-Uji dengan input 28 psi.
-</li>
-
-<li>
-Uji dengan input 32 psi.
-</li>
-
-<li>
-Uji dengan input 38 psi.
-</li>
-
-<li>
-Jelaskan fungsi setiap jalur.
-</li>
-
-</ol>
-
-</div>
-`
-
-}
-
-},
-
-
-/* =====================================================
-PSEUDOCODE
-===================================================== */
-
-"Pseudocode":{
-
-icon:"💻",
-
-deskripsi:
-"Menuliskan algoritma menggunakan bahasa sederhana dan terstruktur.",
-
-
-jalur:{
-
-Penguatan:`
-
-<div class="path-note">
-🌱 Jalur Penguatan — memahami dasar pseudocode.
-</div>
-
-<div class="material-box">
-
-<h2>
-🌱 Dasar Pseudocode
-</h2>
-
-<p>
-Pseudocode adalah cara menuliskan algoritma
-menggunakan bahasa sederhana dan terstruktur.
-</p>
-
-<h3>
-Sequence
-</h3>
-
-<p>
-Langkah dijalankan secara berurutan.
-</p>
-
-<pre>
-INPUT panjang
-INPUT lebar
-
-luas ← panjang × lebar
-
-OUTPUT luas
-</pre>
-
-<h3>
-Branching
-</h3>
-
-<pre>
-IF nilai >= 75 THEN
-
-    OUTPUT "Lulus"
-
-ELSE
-
-    OUTPUT "Belum Lulus"
-
-ENDIF
-</pre>
-
-<h3>
-Looping
-</h3>
-
-<pre>
-FOR i ← 1 TO 3 DO
-
-    OUTPUT i
-
-ENDFOR
-</pre>
-
-</div>
-`,
-
-Reguler:`
-
-<div class="path-note">
-📚 Jalur Reguler — menerapkan Sequence, Branching, dan Looping.
-</div>
-
-<div class="material-box">
-
-<h2>
-📚 Tiga Struktur Dasar
-</h2>
-
-<h3>
-1. Sequence
-</h3>
-
-<pre>
-INPUT harga
-INPUT jumlah
-
-total ← harga × jumlah
-
-OUTPUT total
-</pre>
-
-<h3>
-2. Branching
-</h3>
-
-<pre>
+    "Berpikir Komputasional": {
+
+        icon:"🧩",
+        deskripsi:
+            "Mengenal dekomposisi, pengenalan pola, abstraksi, dan algoritma untuk menyelesaikan masalah.",
+
+        jalur: {
+
+            "Penguatan": `
+                <div class="material-box">
+                    <h2>🌱 Penguatan: Mengenal Dasar Berpikir Komputasional</h2>
+                    <p>
+                        Berpikir komputasional adalah cara berpikir untuk menyelesaikan masalah
+                        secara logis dan sistematis. Kita tidak harus langsung menggunakan komputer.
+                    </p>
+
+                    <h3>Empat konsep utama</h3>
+                    <ol>
+                        <li><strong>Dekomposisi</strong> — memecah masalah besar menjadi bagian-bagian kecil.</li>
+                        <li><strong>Pengenalan pola</strong> — mencari kesamaan atau kejadian yang berulang.</li>
+                        <li><strong>Abstraksi</strong> — memilih informasi yang penting dan mengabaikan yang tidak diperlukan.</li>
+                        <li><strong>Algoritma</strong> — menyusun langkah penyelesaian secara berurutan.</li>
+                    </ol>
+
+                    <div class="notice">
+                        💡 <strong>Contoh sederhana:</strong> mencuci kendaraan dapat dipecah menjadi
+                        menyiapkan alat, membasahi kendaraan, memberi sabun, membilas, dan mengeringkan.
+                    </div>
+
+                    <h3>Gunakan pertanyaan bantuan</h3>
+                    <ul>
+                        <li>Apa saja bagian dari masalah ini? → <strong>Dekomposisi</strong></li>
+                        <li>Apa yang memiliki kesamaan? → <strong>Pengenalan pola</strong></li>
+                        <li>Informasi mana yang benar-benar penting? → <strong>Abstraksi</strong></li>
+                        <li>Langkah apa yang harus dilakukan dari awal sampai akhir? → <strong>Algoritma</strong></li>
+                    </ul>
+
+                    
+                </div>
+            `,
+
+            "Reguler": `
+                <div class="material-box">
+                    <h2>📚 Reguler: Menerapkan Berpikir Komputasional</h2>
+                    <p>
+                        Gunakan empat konsep berpikir komputasional untuk menganalisis masalah
+                        dan menyusun solusi yang sistematis.
+                    </p>
+
+                    <table>
+                        <tr><th>Konsep</th><th>Pertanyaan yang dapat digunakan</th><th>Contoh</th></tr>
+                        <tr><td>Dekomposisi</td><td>Apa saja bagian masalah?</td><td>Memecah proses servis kendaraan menjadi beberapa tahap.</td></tr>
+                        <tr><td>Pengenalan pola</td><td>Apa yang berulang atau sama?</td><td>Menemukan keluhan kendaraan yang sering muncul.</td></tr>
+                        <tr><td>Abstraksi</td><td>Informasi apa yang penting?</td><td>Memilih jenis kerusakan dan gejalanya.</td></tr>
+                        <tr><td>Algoritma</td><td>Apa urutan langkah penyelesaiannya?</td><td>Menyusun prosedur pemeriksaan kendaraan.</td></tr>
+                    </table>
+
+                    <div class="notice">
+                        🎯 <strong>Strategi:</strong> mulai dari memahami masalah, pecah menjadi bagian,
+                        cari pola, pilih informasi penting, lalu susun langkah penyelesaian.
+                    </div>
+
+                    
+                </div>
+            `,
+
+            "Pengayaan": `
+                <div class="material-box">
+                    <h2>🚀 Pengayaan: Menganalisis Masalah Kompleks</h2>
+                    <p>
+                        Pada jalur pengayaan, gunakan keempat konsep secara terpadu untuk
+                        menganalisis masalah yang memiliki banyak kemungkinan.
+                    </p>
+
+                    <h3>Tantangan Analisis</h3>
+                    <p>
+                        Sebuah bengkel menerima beberapa kendaraan dengan keluhan berbeda.
+                        Teknisi harus menentukan urutan pemeriksaan agar pelayanan lebih efisien.
+                    </p>
+
+                    <ol>
+                        <li>Pecah proses pelayanan menjadi beberapa submasalah.</li>
+                        <li>Cari pola dari jenis keluhan atau pemeriksaan yang berulang.</li>
+                        <li>Tentukan informasi yang benar-benar diperlukan teknisi.</li>
+                        <li>Susun algoritma pelayanan yang efisien.</li>
+                    </ol>
+
+                    <div class="notice">
+                        🚀 <strong>Tantangan lanjutan:</strong> pikirkan bagaimana algoritma berubah
+                        jika terdapat kendaraan yang harus diprioritaskan karena kondisi darurat.
+                    </div>
+
+                    
+                </div>
+            `
+        },
+
+        video: "",
+
+        game: {
+            "Penguatan": `
+                <div class="material-box game-box">
+                    <h2>🎮 Game Penguatan: Pilih Konsep!</h2>
+                    <p>Di bengkel, masalah kendaraan dibagi menjadi mesin, rem, ban, dan kelistrikan. Konsep berpikir komputasional yang digunakan adalah ....</p>
+                    <button class="btn btn-secondary" onclick="cekGame(this,'benar')">Dekomposisi</button>
+                    <button class="btn btn-secondary" onclick="cekGame(this,'salah')">Abstraksi</button>
+                    <button class="btn btn-secondary" onclick="cekGame(this,'salah')">Pengenalan Pola</button>
+                    <div class="gameResult notice hidden"></div>
+                </div>
+            `,
+            "Reguler": `
+                <div class="material-box game-box">
+                    <h2>🎮 Game Reguler: Susun Langkah!</h2>
+                    <p>Pilih urutan konsep yang paling tepat untuk menyelesaikan masalah secara sistematis.</p>
+                    <button class="btn btn-secondary" onclick="cekGame(this,'benar')">Dekomposisi → Pola → Abstraksi → Algoritma</button>
+                    <button class="btn btn-secondary" onclick="cekGame(this,'salah')">Algoritma → Pola → Dekomposisi → Abstraksi</button>
+                    <button class="btn btn-secondary" onclick="cekGame(this,'salah')">Abstraksi → Dekomposisi → Algoritma → Pola</button>
+                    <div class="gameResult notice hidden"></div>
+                </div>
+            `,
+            "Pengayaan": `
+                <div class="material-box game-box">
+                    <h2>🎮 Game Pengayaan: Tantangan Bengkel</h2>
+                    <p>Ada beberapa kendaraan dengan keluhan berbeda. Kamu perlu mengelompokkan keluhan yang sama, memilih informasi penting, lalu menyusun langkah pemeriksaan. Kombinasi konsep yang paling tepat adalah ....</p>
+                    <button class="btn btn-secondary" onclick="cekGame(this,'benar')">Dekomposisi + Pola + Abstraksi + Algoritma</button>
+                    <button class="btn btn-secondary" onclick="cekGame(this,'salah')">Hanya Algoritma</button>
+                    <button class="btn btn-secondary" onclick="cekGame(this,'salah')">Hanya Pengenalan Pola</button>
+                    <div class="gameResult notice hidden"></div>
+                </div>
+            `
+        },
+
+        latihan: [
+            {pertanyaan:"Memecah masalah besar menjadi beberapa bagian kecil disebut ...",pilihan:["Dekomposisi","Abstraksi","Pengenalan pola","Algoritma"],jawaban:0},
+            {pertanyaan:"Menemukan kesamaan dari beberapa permasalahan disebut ...",pilihan:["Algoritma","Pengenalan pola","Dekomposisi","Output"],jawaban:1},
+            {pertanyaan:"Memilih informasi yang penting dan mengabaikan informasi yang tidak diperlukan disebut ...",pilihan:["Dekomposisi","Algoritma","Abstraksi","Pola"],jawaban:2},
+            {pertanyaan:"Urutan langkah yang sistematis untuk menyelesaikan masalah disebut ...",pilihan:["Pola","Abstraksi","Algoritma","Dekomposisi"],jawaban:2},
+            {pertanyaan:"Sebelum memperbaiki kendaraan, teknisi membagi proses pemeriksaan menjadi mesin, rem, ban, dan kelistrikan. Ini merupakan contoh ...",pilihan:["Abstraksi","Dekomposisi","Looping","Output"],jawaban:1},
+            {pertanyaan:"Dari beberapa kendaraan ditemukan bahwa mesin sulit dinyalakan ketika aki lemah. Menemukan kesamaan tersebut merupakan ...",pilihan:["Pengenalan pola","Dekomposisi","Abstraksi","Algoritma"],jawaban:0},
+            {pertanyaan:"Saat membuat catatan servis, teknisi hanya mencatat jenis kerusakan dan tindakan perbaikan. Hal ini merupakan contoh ...",pilihan:["Dekomposisi","Pengenalan pola","Abstraksi","Looping"],jawaban:2},
+            {pertanyaan:"Langkah pertama yang paling tepat ketika menghadapi masalah yang besar adalah ...",pilihan:["Langsung mencari jawaban","Memecah masalah menjadi bagian yang lebih kecil","Mengabaikan masalah","Menghapus semua informasi"],jawaban:1},
+            {pertanyaan:"Urutan langkah yang jelas dari awal sampai akhir untuk menyelesaikan masalah disebut ...",pilihan:["Algoritma","Pola","Abstraksi","Dekomposisi"],jawaban:0},
+            {pertanyaan:"Manakah pasangan yang tepat?",pilihan:["Dekomposisi = memilih informasi penting","Pola = mencari kesamaan","Abstraksi = menyusun langkah","Algoritma = memecah masalah"],jawaban:1}
+        ],
+
+        lkpd: `
+            <div class="lkpd-task">
+                <h3>LKPD Penguatan: Menganalisis Proses Servis Kendaraan</h3>
+                <p>
+                    Gunakan kasus sederhana berikut untuk berlatih menggunakan empat konsep berpikir komputasional.
+                </p>
+                <p><strong>Kasus:</strong> Sebuah kendaraan datang ke bengkel karena mesin sulit dinyalakan.</p>
+
+                <ol>
+                    <li><strong>Dekomposisi:</strong> tuliskan minimal 4 bagian pemeriksaan yang perlu dilakukan.</li>
+                    <li><strong>Pengenalan pola:</strong> tuliskan satu kemungkinan pola dari masalah kendaraan tersebut.</li>
+                    <li><strong>Abstraksi:</strong> dari informasi kendaraan, tentukan 3 informasi yang paling penting.</li>
+                    <li><strong>Algoritma:</strong> susun langkah pemeriksaan dari awal sampai akhir.</li>
+                </ol>
+
+                <div class="notice">
+                    💡 <strong>Bantuan:</strong> kamu dapat menggunakan pola “Masalah → Pemeriksaan → Tindakan → Hasil”.
+                </div>
+            </div>
+        `
+    },
+
+
+    "Flowchart": {
+
+        icon:"🔀",
+        deskripsi:
+            "Belajar menyusun langkah penyelesaian masalah dan menggambarkannya dengan diagram alir.",
+
+        jalur: {
+
+            "Penguatan": `
+                <div class="material-box">
+                    <h2>🌱 Penguatan: Mengenal Simbol Flowchart</h2>
+                    <p>
+                        Flowchart adalah diagram yang digunakan untuk menggambarkan urutan langkah
+                        penyelesaian masalah secara visual.
+                    </p>
+
+                    <table>
+                        <tr><th>Simbol</th><th>Fungsi</th></tr>
+                        <tr><td>Oval</td><td>Mulai atau selesai</td></tr>
+                        <tr><td>Persegi panjang</td><td>Proses</td></tr>
+                        <tr><td>Jajar genjang</td><td>Input atau output</td></tr>
+                        <tr><td>Belah ketupat</td><td>Keputusan/kondisi</td></tr>
+                        <tr><td>Panah</td><td>Menunjukkan arah alur</td></tr>
+                    </table>
+
+                    <div class="notice">
+                        💡 <strong>Ingat:</strong> Mulai/Selesai → Input → Proses/Keputusan → Output → Selesai.
+                    </div>
+
+                    
+                </div>
+            `,
+
+            "Reguler": `
+                <div class="material-box">
+                    <h2>📚 Reguler: Struktur dan Alur Flowchart</h2>
+                    <p>
+                        Pada jalur reguler, kamu mempelajari hubungan antar simbol dan menggunakannya
+                        untuk menggambarkan algoritma sederhana.
+                    </p>
+
+                    <ol>
+                        <li>Tentukan titik <strong>Mulai</strong>.</li>
+                        <li>Tentukan data yang diperlukan sebagai <strong>Input</strong>.</li>
+                        <li>Tentukan <strong>Proses</strong> yang dilakukan.</li>
+                        <li>Jika ada kondisi, gunakan <strong>Keputusan</strong>.</li>
+                        <li>Tentukan <strong>Output</strong>.</li>
+                        <li>Akhiri dengan <strong>Selesai</strong>.</li>
+                    </ol>
+
+                    <div class="notice">
+                        🎯 Contoh: input nilai → periksa nilai ≥ 75? → jika ya “Lulus” → jika tidak “Tidak Lulus”.
+                    </div>
+
+                    
+                </div>
+            `,
+
+            "Pengayaan": `
+                <div class="material-box">
+                    <h2>🚀 Pengayaan: Flowchart dengan Beberapa Kondisi</h2>
+                    <p>
+                        Flowchart dapat digunakan untuk menggambarkan algoritma yang memiliki
+                        beberapa keputusan dan kemungkinan alur.
+                    </p>
+
+                    <h3>Tantangan</h3>
+                    <p>
+                        Buat rancangan alur pemeriksaan kendaraan berdasarkan kondisi ban.
+                        Jika tekanan kurang dari 30 psi, tampilkan “Isi angin”. Jika tekanan
+                        30–35 psi, tampilkan “Tekanan normal”. Jika lebih dari 35 psi,
+                        tampilkan “Kurangi tekanan”.
+                    </p>
+
+                    <div class="notice">
+                        🚀 Tantangan: tentukan sendiri simbol keputusan dan arah panah untuk setiap kemungkinan.
+                    </div>
+
+                    
+                </div>
+            `
+        },
+
+        video: "",
+
+        game: {
+            "Penguatan": `
+                <div class="material-box game-box">
+                    <h2>🎮 Game Penguatan: Tebak Simbol!</h2>
+                    <p>Simbol flowchart yang digunakan untuk menerima input dan menampilkan output adalah ....</p>
+                    <button class="btn btn-secondary" onclick="cekGame(this,'benar')">Jajar Genjang</button>
+                    <button class="btn btn-secondary" onclick="cekGame(this,'salah')">Oval</button>
+                    <button class="btn btn-secondary" onclick="cekGame(this,'salah')">Belah Ketupat</button>
+                    <div class="gameResult notice hidden"></div>
+                </div>
+            `,
+            "Reguler": `
+                <div class="material-box game-box">
+                    <h2>🎮 Game Reguler: Pilih Alur!</h2>
+                    <p>Pilih urutan flowchart yang tepat untuk menghitung total biaya servis.</p>
+                    <button class="btn btn-secondary" onclick="cekGame(this,'benar')">Mulai → Input → Proses → Output → Selesai</button>
+                    <button class="btn btn-secondary" onclick="cekGame(this,'salah')">Mulai → Proses → Input → Output → Selesai</button>
+                    <button class="btn btn-secondary" onclick="cekGame(this,'salah')">Input → Mulai → Output → Proses → Selesai</button>
+                    <div class="gameResult notice hidden"></div>
+                </div>
+            `,
+            "Pengayaan": `
+                <div class="material-box game-box">
+                    <h2>🎮 Game Pengayaan: Tebak Jalur!</h2>
+                    <p>Tekanan ban = 32 psi. Jika &lt;30 psi = Isi angin, 30–35 psi = Normal, dan &gt;35 psi = Kurangi tekanan. Hasil yang tepat adalah ....</p>
+                    <button class="btn btn-secondary" onclick="cekGame(this,'benar')">Tekanan normal</button>
+                    <button class="btn btn-secondary" onclick="cekGame(this,'salah')">Isi angin</button>
+                    <button class="btn btn-secondary" onclick="cekGame(this,'salah')">Kurangi tekanan</button>
+                    <div class="gameResult notice hidden"></div>
+                </div>
+            `
+        },
+
+        latihan: [
+            {pertanyaan:"Simbol flowchart untuk proses adalah ...",pilihan:["Oval","Persegi panjang","Belah ketupat","Jajar genjang"],jawaban:1},
+            {pertanyaan:"Simbol keputusan pada flowchart adalah ...",pilihan:["Oval","Persegi panjang","Belah ketupat","Panah"],jawaban:2},
+            {pertanyaan:"Simbol yang digunakan untuk input/output adalah ...",pilihan:["Oval","Jajar genjang","Belah ketupat","Persegi panjang"],jawaban:1},
+            {pertanyaan:"Simbol oval biasanya digunakan untuk ...",pilihan:["Proses","Keputusan","Mulai/Selesai","Input"],jawaban:2},
+            {pertanyaan:"Fungsi panah pada flowchart adalah ...",pilihan:["Menunjukkan arah alur","Menentukan input","Menentukan keputusan","Menunjukkan proses"],jawaban:0},
+            {pertanyaan:"Simbol yang tepat untuk menerima nilai dari pengguna adalah ...",pilihan:["Oval","Jajar genjang","Belah ketupat","Persegi panjang"],jawaban:1},
+            {pertanyaan:"Jika sebuah flowchart memiliki pertanyaan “nilai ≥ 75?”, simbol yang digunakan adalah ...",pilihan:["Oval","Persegi panjang","Belah ketupat","Jajar genjang"],jawaban:2},
+            {pertanyaan:"Urutan sederhana yang tepat adalah ...",pilihan:["Mulai → Input → Proses → Output → Selesai","Output → Mulai → Input → Selesai","Proses → Output → Mulai → Input","Input → Selesai → Mulai → Proses"],jawaban:0},
+            {pertanyaan:"Jika nilai siswa 80 dan kondisi flowchart adalah nilai ≥ 75, alur seharusnya menuju ...",pilihan:["Tidak Lulus","Lulus","Mulai","Input ulang"],jawaban:1},
+            {pertanyaan:"Manakah pasangan simbol dan fungsi yang tepat?",pilihan:["Oval = keputusan","Belah ketupat = proses","Jajar genjang = input/output","Persegi panjang = mulai"],jawaban:2}
+        ],
+
+        lkpd: `
+            <div class="lkpd-task">
+                <h3>LKPD Penguatan: Mengenal dan Menyusun Flowchart</h3>
+                <p>
+                    Buatlah flowchart sederhana untuk menentukan apakah kendaraan boleh digunakan berdasarkan kondisi ban.
+                </p>
+                <p><strong>Kasus:</strong> Masukkan tekanan ban. Jika tekanan minimal 30 psi, tampilkan “Tekanan cukup”. Jika kurang dari 30 psi, tampilkan “Tekanan kurang”.</p>
+
+                <ol>
+                    <li>Tuliskan simbol yang digunakan untuk <strong>Mulai</strong>.</li>
+                    <li>Tentukan simbol untuk <strong>Input tekanan ban</strong>.</li>
+                    <li>Tentukan simbol untuk <strong>keputusan tekanan ≥ 30?</strong>.</li>
+                    <li>Tentukan dua output yang mungkin.</li>
+                    <li>Gambarkan flowchart sesuai urutan.</li>
+                </ol>
+
+                <div class="notice">
+                    💡 <strong>Bantuan urutan:</strong> Mulai → Input → Keputusan → Output → Selesai.
+                </div>
+            </div>
+        `
+    },
+
+
+    "Pseudocode": {
+
+        icon:"💻",
+        deskripsi:
+            "Belajar menuliskan langkah penyelesaian masalah dengan bahasa sederhana dan terstruktur.",
+
+        jalur: {
+
+            "Penguatan": `
+                <div class="material-box">
+                    <h2>🌱 Penguatan: Dasar-Dasar Pseudocode</h2>
+                    <p>
+                        Pseudocode adalah cara menuliskan algoritma dengan bahasa sederhana dan terstruktur.
+                        Pseudocode tidak terikat pada aturan sintaks bahasa pemrograman tertentu.
+                    </p>
+
+                    <h3>Notasi dasar</h3>
+                    <ul>
+                        <li><strong>INPUT</strong> → menerima data dari pengguna.</li>
+                        <li><strong>OUTPUT</strong> → menampilkan hasil.</li>
+                        <li><strong>←</strong> → memberikan nilai kepada variabel.</li>
+                        <li><strong>IF/ELSE</strong> → memilih berdasarkan kondisi.</li>
+                        <li><strong>FOR/WHILE</strong> → mengulang perintah.</li>
+                    </ul>
+
+                    <h3>Contoh Sequence</h3>
+                    <pre style="white-space:pre-wrap;background:#172554;color:white;padding:18px;border-radius:16px;">INPUT nama
 INPUT nilai
+OUTPUT nama
+OUTPUT nilai</pre>
 
+                    <div class="notice">
+                        💡 Mulailah dengan memahami arti setiap perintah sebelum mencoba membuat pseudocode sendiri.
+                    </div>
+
+                    
+                </div>
+            `,
+
+            "Reguler": `
+                <div class="material-box">
+                    <h2>📚 Reguler: Sequence, Branching, dan Looping</h2>
+                    <p>
+                        Pseudocode dapat menggunakan beberapa struktur dasar untuk menggambarkan algoritma.
+                    </p>
+
+                    <h3>1. Sequence</h3>
+                    <p>Perintah dijalankan secara berurutan dari atas ke bawah.</p>
+                    <pre style="white-space:pre-wrap;background:#172554;color:white;padding:18px;border-radius:16px;">INPUT harga
+INPUT jumlah
+total ← harga * jumlah
+OUTPUT total</pre>
+
+                    <h3>2. Branching</h3>
+                    <p>Perintah dipilih berdasarkan kondisi.</p>
+                    <pre style="white-space:pre-wrap;background:#172554;color:white;padding:18px;border-radius:16px;">INPUT nilai
 IF nilai >= 75 THEN
-
     OUTPUT "Lulus"
-
 ELSE
-
     OUTPUT "Belum Lulus"
+ENDIF</pre>
 
-ENDIF
-</pre>
-
-<h3>
-3. Looping
-</h3>
-
-<pre>
-FOR i ← 1 TO 5 DO
-
+                    <h3>3. Looping</h3>
+                    <p>Perintah dijalankan berulang kali sesuai kondisi atau jumlah pengulangan.</p>
+                    <pre style="white-space:pre-wrap;background:#172554;color:white;padding:18px;border-radius:16px;">FOR i ← 1 TO 3 DO
     OUTPUT i
+ENDFOR</pre>
 
-ENDFOR
-</pre>
+                    
+                </div>
+            `,
 
-</div>
-`,
+            "Pengayaan": `
+                <div class="material-box">
+                    <h2>🚀 Pengayaan: Menggabungkan Struktur Pseudocode</h2>
+                    <p>
+                        Pada jalur pengayaan, kamu akan menganalisis pseudocode yang menggunakan
+                        lebih dari satu struktur algoritma.
+                    </p>
 
-Pengayaan:`
-
-<div class="path-note">
-🚀 Jalur Pengayaan — menggabungkan struktur algoritma.
-</div>
-
-<div class="material-box">
-
-<h2>
-🚀 Pseudocode Gabungan
-</h2>
-
-<p>
-Looping dapat digabungkan dengan branching.
-</p>
-
-<pre>
-FOR i ← 1 TO 3 DO
-
+                    <pre style="white-space:pre-wrap;background:#172554;color:white;padding:18px;border-radius:16px;">FOR i ← 1 TO 3 DO
     INPUT kondisi
 
     IF kondisi = "baik" THEN
-
         OUTPUT "Kendaraan siap"
-
     ELSE
-
         OUTPUT "Kendaraan perlu diperiksa"
+    ENDIF
+ENDFOR</pre>
 
+                    <p>
+                        Pseudocode tersebut menggunakan <strong>looping</strong> untuk memeriksa beberapa kendaraan
+                        dan <strong>branching</strong> untuk menentukan hasil berdasarkan kondisi kendaraan.
+                    </p>
+
+                    <div class="notice">
+                        🚀 <strong>Tantangan:</strong> analisis bagaimana algoritma berubah jika ditambahkan
+                        kondisi kedua, misalnya “perlu servis ringan” dan “perlu servis berat”.
+                    </div>
+
+                    
+                </div>
+            `
+        },
+
+        video: "",
+
+        game: {
+            "Penguatan": `
+                <div class="material-box game-box">
+                    <h2>🎮 Game Penguatan: INPUT atau OUTPUT?</h2>
+                    <p>Perintah pseudocode yang digunakan untuk menerima data suhu dari pengguna adalah ....</p>
+                    <button class="btn btn-secondary" onclick="cekGame(this,'benar')">INPUT suhu</button>
+                    <button class="btn btn-secondary" onclick="cekGame(this,'salah')">OUTPUT suhu</button>
+                    <button class="btn btn-secondary" onclick="cekGame(this,'salah')">FOR suhu</button>
+                    <div class="gameResult notice hidden"></div>
+                </div>
+            `,
+            "Reguler": `
+                <div class="material-box game-box">
+                    <h2>🎮 Game Reguler: Tebak Output!</h2>
+                    <pre style="white-space:pre-wrap;background:#172554;color:white;padding:18px;border-radius:16px;">IF suhu &gt; 90 THEN
+    OUTPUT "Tinggi"
+ELSE
+    OUTPUT "Normal"
+ENDIF</pre>
+                    <p>Jika <strong>suhu = 85</strong>, output yang benar adalah ....</p>
+                    <button class="btn btn-secondary" onclick="cekGame(this,'benar')">Normal</button>
+                    <button class="btn btn-secondary" onclick="cekGame(this,'salah')">Tinggi</button>
+                    <button class="btn btn-secondary" onclick="cekGame(this,'salah')">Tidak ada output</button>
+                    <div class="gameResult notice hidden"></div>
+                </div>
+            `,
+            "Pengayaan": `
+                <div class="material-box game-box">
+                    <h2>🎮 Game Pengayaan: Hitung Hasil Loop!</h2>
+                    <pre style="white-space:pre-wrap;background:#172554;color:white;padding:18px;border-radius:16px;">FOR i ← 1 TO 4 DO
+    OUTPUT "Periksa"
+ENDFOR</pre>
+                    <p>Berapa kali tulisan <strong>“Periksa”</strong> ditampilkan?</p>
+                    <button class="btn btn-secondary" onclick="cekGame(this,'benar')">4 kali</button>
+                    <button class="btn btn-secondary" onclick="cekGame(this,'salah')">3 kali</button>
+                    <button class="btn btn-secondary" onclick="cekGame(this,'salah')">5 kali</button>
+                    <div class="gameResult notice hidden"></div>
+                </div>
+            `
+        },
+
+        latihan: {
+
+            "Penguatan": [
+                {
+                    pertanyaan:"Pseudocode adalah ....",
+                    pilihan:[
+                        "Bahasa pemrograman yang dapat langsung dijalankan komputer",
+                        "Cara menuliskan algoritma dengan bahasa sederhana dan terstruktur",
+                        "Gambar yang menunjukkan alur program",
+                        "Aplikasi untuk membuat program"
+                    ],
+                    jawaban:1
+                },
+                {
+                    pertanyaan:"Notasi yang digunakan untuk menerima data dari pengguna adalah ....",
+                    pilihan:["OUTPUT","INPUT","IF","FOR"],
+                    jawaban:1
+                },
+                {
+                    pertanyaan:"Notasi OUTPUT digunakan untuk ....",
+                    pilihan:[
+                        "Memasukkan data",
+                        "Mengulang perintah",
+                        "Menampilkan hasil",
+                        "Membuat variabel"
+                    ],
+                    jawaban:2
+                },
+                {
+                    pertanyaan:`Perhatikan pseudocode berikut!
+
+INPUT suhu
+OUTPUT suhu
+
+Jika pengguna memasukkan 85, maka output yang dihasilkan adalah ....`,
+                    pilihan:["0","85","90","Tidak ada output"],
+                    jawaban:1
+                },
+                {
+                    pertanyaan:`Perhatikan pseudocode berikut!
+
+INPUT biaya
+total ← biaya + 50000
+OUTPUT total
+
+Jika biaya = 100000, maka nilai total adalah ....`,
+                    pilihan:["50.000","100.000","150.000","200.000"],
+                    jawaban:2
+                },
+                {
+                    pertanyaan:"Struktur pseudocode yang menjalankan perintah satu per satu sesuai urutan disebut ....",
+                    pilihan:["Sequence","Branching","Looping","Function"],
+                    jawaban:0
+                },
+                {
+                    pertanyaan:`Perhatikan pseudocode berikut!
+
+INPUT suhu
+
+IF suhu > 90 THEN
+    OUTPUT "Panas"
+ELSE
+    OUTPUT "Normal"
+ENDIF
+
+Jika suhu = 80, outputnya adalah ....`,
+                    pilihan:["Panas","Normal","80","Tidak ada output"],
+                    jawaban:1
+                },
+                {
+                    pertanyaan:"Struktur yang digunakan untuk melakukan perulangan disebut ....",
+                    pilihan:["Sequence","Branching","Looping","Input"],
+                    jawaban:2
+                },
+                {
+                    pertanyaan:`Perhatikan pseudocode berikut!
+
+FOR i ← 1 TO 3 DO
+    OUTPUT "Periksa"
+ENDFOR
+
+Berapa kali kata "Periksa" ditampilkan?`,
+                    pilihan:["1 kali","2 kali","3 kali","4 kali"],
+                    jawaban:2
+                },
+                {
+                    pertanyaan:`Seorang teknisi ingin membuat algoritma yang:
+
+1. Memasukkan suhu mesin.
+2. Jika suhu lebih dari 90°C, menampilkan "Suhu tinggi".
+3. Jika tidak, menampilkan "Suhu normal".
+
+Struktur yang paling tepat adalah ....`,
+                    pilihan:["Sequence","Branching","Looping","FOR"],
+                    jawaban:1
+                }
+            ],
+
+            "Reguler": [
+                {
+                    pertanyaan:`Perhatikan pseudocode berikut!
+
+INPUT jasa
+INPUT sparepart
+total ← jasa + sparepart
+OUTPUT total
+
+Jika jasa = 150.000 dan sparepart = 250.000, output yang dihasilkan adalah ....`,
+                    pilihan:["100.000","250.000","400.000","500.000"],
+                    jawaban:2
+                },
+                {
+                    pertanyaan:`Perhatikan pseudocode berikut!
+
+INPUT nilai
+
+IF nilai >= 75 THEN
+    OUTPUT "Lulus"
+ELSE
+    OUTPUT "Belum Lulus"
+ENDIF
+
+Jika nilai = 74, outputnya adalah ....`,
+                    pilihan:["Lulus","Belum Lulus","74","Error"],
+                    jawaban:1
+                },
+                {
+                    pertanyaan:`Perhatikan pseudocode berikut!
+
+INPUT suhu
+
+IF suhu > 90 THEN
+    OUTPUT "Tinggi"
+ELSE
+    OUTPUT "Normal"
+ENDIF
+
+Jika suhu = 90, output yang dihasilkan adalah ....`,
+                    pilihan:["Tinggi","Normal","90","Tidak ada output"],
+                    jawaban:1
+                },
+                {
+                    pertanyaan:`Perhatikan pseudocode berikut!
+
+FOR i ← 1 TO 5 DO
+    OUTPUT i
+ENDFOR
+
+Output yang dihasilkan adalah ....`,
+                    pilihan:["0, 1, 2, 3, 4","1, 2, 3, 4","1, 2, 3, 4, 5","5, 4, 3, 2, 1"],
+                    jawaban:2
+                },
+                {
+                    pertanyaan:`Perhatikan pseudocode berikut!
+
+FOR i ← 1 TO 3 DO
+    INPUT suhu
+
+    IF suhu > 90 THEN
+        OUTPUT "Tinggi"
+    ELSE
+        OUTPUT "Normal"
+    ENDIF
+ENDFOR
+
+Pseudocode tersebut menggunakan ....`,
+                    pilihan:["Sequence saja","Branching saja","Looping saja","Looping dan branching"],
+                    jawaban:3
+                },
+                {
+                    pertanyaan:`Seorang teknisi ingin memeriksa 5 kendaraan. Untuk setiap kendaraan, teknisi memasukkan kondisi kendaraan dan sistem memberikan hasil "Baik" atau "Perlu diperiksa". Struktur yang paling tepat digunakan adalah ....`,
+                    pilihan:["Sequence saja","Branching saja","Looping dan branching","Input dan output saja"],
+                    jawaban:2
+                },
+                {
+                    pertanyaan:`Perhatikan pseudocode berikut!
+
+INPUT tekanan
+
+IF tekanan < 30 THEN
+    OUTPUT "Kurang"
+ELSE
+    OUTPUT "Cukup"
+ENDIF
+
+Jika tekanan = 25, hasilnya adalah ....`,
+                    pilihan:["Kurang","Cukup","25","Error"],
+                    jawaban:0
+                },
+                {
+                    pertanyaan:`Perhatikan pseudocode berikut!
+
+i ← 1
+
+WHILE i <= 3 DO
+    OUTPUT i
+    i ← i + 1
+ENDWHILE
+
+Berapa kali perintah OUTPUT i dijalankan?`,
+                    pilihan:["1 kali","2 kali","3 kali","4 kali"],
+                    jawaban:2
+                },
+                {
+                    pertanyaan:`Seorang siswa membuat pseudocode berikut:
+
+INPUT suhu
+
+IF suhu > 90 THEN
+    OUTPUT "Suhu normal"
+ELSE
+    OUTPUT "Suhu tinggi"
+ENDIF
+
+Kesalahan pada pseudocode tersebut adalah ....`,
+                    pilihan:["Tidak memiliki INPUT","Kondisi IF harus menggunakan FOR","Output pada IF dan ELSE tertukar","Tidak boleh menggunakan ELSE"],
+                    jawaban:2
+                },
+                {
+                    pertanyaan:"Pseudocode yang paling tepat untuk menghitung total biaya servis adalah ....",
+                    pilihan:[
+                        `INPUT jasa
+INPUT sparepart
+OUTPUT jasa
+OUTPUT sparepart`,
+                        `INPUT jasa
+INPUT sparepart
+total ← jasa + sparepart
+OUTPUT total`,
+                        `INPUT jasa
+INPUT sparepart
+IF jasa > sparepart THEN
+    OUTPUT jasa
+ENDIF`,
+                        `FOR jasa ← 1 TO 5 DO
+    OUTPUT jasa
+ENDFOR`
+                    ],
+                    jawaban:1
+                }
+            ],
+
+            "Pengayaan": [
+                {
+                    pertanyaan:`Perhatikan pseudocode berikut!
+
+INPUT suhu
+
+IF suhu >= 100 THEN
+    OUTPUT "Sangat tinggi"
+ELSE
+    IF suhu >= 90 THEN
+        OUTPUT "Tinggi"
+    ELSE
+        OUTPUT "Normal"
+    ENDIF
+ENDIF
+
+Jika suhu = 95, output yang dihasilkan adalah ....`,
+                    pilihan:["Sangat tinggi","Tinggi","Normal","Tidak ada output"],
+                    jawaban:1
+                },
+                {
+                    pertanyaan:`Perhatikan pseudocode berikut!
+
+FOR i ← 1 TO 4 DO
+    INPUT suhu
+
+    IF suhu > 90 THEN
+        OUTPUT "Tinggi"
+    ELSE
+        OUTPUT "Normal"
+    ENDIF
+ENDFOR
+
+Jika data suhu yang dimasukkan berturut-turut adalah 85, 95, 90, 100, maka output yang dihasilkan adalah ....`,
+                    pilihan:["Normal, Tinggi, Tinggi, Tinggi","Normal, Tinggi, Normal, Tinggi","Tinggi, Normal, Normal, Tinggi","Normal, Normal, Tinggi, Normal"],
+                    jawaban:1
+                },
+                {
+                    pertanyaan:`Perhatikan pseudocode berikut!
+
+i ← 1
+
+WHILE i <= 5 DO
+    OUTPUT i
+    i ← i + 2
+ENDWHILE
+
+Output yang dihasilkan adalah ....`,
+                    pilihan:["1, 2, 3, 4, 5","1, 3, 5","2, 4","1, 3, 5, 7"],
+                    jawaban:1
+                },
+                {
+                    pertanyaan:`Perhatikan dua algoritma berikut.
+
+Algoritma A
+INPUT suhu
+IF suhu > 90 THEN
+    OUTPUT "Tinggi"
+ELSE
+    OUTPUT "Normal"
+ENDIF
+
+Algoritma B
+INPUT suhu
+IF suhu <= 90 THEN
+    OUTPUT "Normal"
+ELSE
+    OUTPUT "Tinggi"
+ENDIF
+
+Pernyataan yang paling tepat adalah ....`,
+                    pilihan:["Algoritma A benar, B salah","Algoritma B benar, A salah","Keduanya dapat menghasilkan keputusan yang sama","Keduanya merupakan looping"],
+                    jawaban:2
+                },
+                {
+                    pertanyaan:`Seorang siswa ingin membuat program pemeriksaan 10 kendaraan. Setiap kendaraan memiliki nilai suhu mesin. Jika suhu lebih dari 90°C, tampilkan "Perlu diperiksa". Jika tidak, tampilkan "Normal". Struktur pseudocode yang paling tepat adalah ....`,
+                    pilihan:[
+                        `INPUT suhu
+IF suhu > 90 THEN
+    OUTPUT "Perlu diperiksa"
+ENDIF`,
+                        `FOR i ← 1 TO 10 DO
+    INPUT suhu
+    IF suhu > 90 THEN
+        OUTPUT "Perlu diperiksa"
+    ELSE
+        OUTPUT "Normal"
+    ENDIF
+ENDFOR`,
+                        `WHILE suhu > 90 DO
+    OUTPUT "Perlu diperiksa"
+ENDWHILE`,
+                        `OUTPUT "Periksa 10 kendaraan"`
+                    ],
+                    jawaban:1
+                },
+                {
+                    pertanyaan:`Perhatikan pseudocode berikut!
+
+PROGRAM Pemeriksaan
+
+DEKLARASI
+i, tekanan : angka
+
+ALGORITMA
+MULAI
+
+FOR i ← 1 TO 3 DO
+    INPUT tekanan
+
+    IF tekanan < 30 THEN
+        OUTPUT "Tekanan kurang"
+    ELSE
+        OUTPUT "Tekanan cukup"
     ENDIF
 
 ENDFOR
-</pre>
 
-<p>
-Algoritma tersebut menggunakan
-<strong>looping dan branching</strong>.
-</p>
+SELESAI
 
-<div class="notice">
+Jika input berturut-turut adalah 25, 30, dan 28, berapa output "Tekanan kurang" yang dihasilkan?`,
+                    pilihan:["0","1","2","3"],
+                    jawaban:2
+                },
+                {
+                    pertanyaan:`Perhatikan pseudocode berikut!
 
-🚀 Tantangan:
+INPUT nilai
 
-Tambahkan kondisi:
-
-“servis ringan”
-
-dan
-
-“servis berat”.
-
-</div>
-
-</div>
-`
-
-},
-
-
-media:{
-
-Penguatan:{
-gambar:"penguatan.jpg",
-video:"https://www.youtube.com/embed/5HlmceV7A6M"
-},
-
-Reguler:{
-gambar:"reguler.jpg",
-video:"https://www.youtube.com/embed/5HlmceV7A6M"
-},
-
-Pengayaan:{
-gambar:"pengayaan.jpg",
-video:"https://www.youtube.com/embed/5HlmceV7A6M"
-}
-
-},
-
-
-/* =====================================================
-LATIHAN PSEUDOCODE
-===================================================== */
-
-latihan:{
-
-Penguatan:[
-
-{
-pertanyaan:"Pseudocode adalah ....",
-pilihan:[
-"Bahasa pemrograman yang dapat langsung dijalankan komputer",
-"Cara menuliskan algoritma dengan bahasa sederhana dan terstruktur",
-"Gambar yang menunjukkan alur program",
-"Aplikasi untuk membuat program"
-],
-jawaban:1
-},
-
-{
-pertanyaan:"Notasi yang digunakan untuk menerima data dari pengguna adalah ...",
-pilihan:[
-"OUTPUT",
-"INPUT",
-"IF",
-"FOR"
-],
-jawaban:1
-},
-
-{
-pertanyaan:"OUTPUT digunakan untuk ...",
-pilihan:[
-"Memasukkan data",
-"Mengulang perintah",
-"Menampilkan hasil",
-"Membuat variabel"
-],
-jawaban:2
-},
-
-{
-pertanyaan:"Perhatikan pseudocode berikut:\nINPUT suhu\nOUTPUT suhu\n\nJika pengguna memasukkan nilai 85, maka output yang ditampilkan adalah ...",
-pilihan:[
-"0",
-"85",
-"90",
-"Tidak ada output"
-],
-jawaban:1
-},
-
-{
-pertanyaan:"Perhatikan pseudocode berikut:\nINPUT biaya\ntotal ← biaya + 50000\nOUTPUT total\n\nJika biaya = 100000, maka nilai total adalah ...",
-pilihan:[
-"50.000",
-"100.000",
-"150.000",
-"200.000"
-],
-jawaban:2
-},
-
-{
-pertanyaan:"Struktur algoritma yang menjalankan langkah-langkah satu per satu sesuai urutan disebut ...",
-pilihan:[
-"Sequence",
-"Branching",
-"Looping",
-"Function"
-],
-jawaban:0
-},
-
-{
-pertanyaan:"Perhatikan pseudocode berikut:\nINPUT suhu\nIF suhu > 90 THEN\n    OUTPUT \"Panas\"\nELSE\n    OUTPUT \"Normal\"\nENDIF\n\nJika suhu = 80, output yang dihasilkan adalah ...",
-pilihan:[
-"Panas",
-"Normal",
-"80",
-"Tidak ada output"
-],
-jawaban:1
-},
-
-{
-pertanyaan:"Struktur algoritma yang digunakan untuk melakukan pengulangan disebut ...",
-pilihan:[
-"Sequence",
-"Branching",
-"Looping",
-"Input"
-],
-jawaban:2
-},
-
-{
-pertanyaan:"Perhatikan pseudocode berikut:\nFOR i ← 1 TO 3 DO\n    OUTPUT \"Periksa\"\nENDFOR\n\nBerapa kali tulisan \"Periksa\" ditampilkan?",
-pilihan:[
-"1 kali",
-"2 kali",
-"3 kali",
-"4 kali"
-],
-jawaban:2
-},
-
-{
-pertanyaan:"Sebuah algoritma menerima input suhu mesin. Jika suhu >90 maka tampilkan \"Suhu tinggi\", sedangkan jika tidak tampilkan \"Suhu normal\". Struktur yang digunakan adalah ...",
-pilihan:[
-"Sequence",
-"Branching",
-"Looping",
-"FOR"
-],
-jawaban:1
-}
-
-],
-
-
-Reguler:[
-
-{
-pertanyaan:"Perhatikan pseudocode berikut:\nINPUT jasa\nINPUT sparepart\ntotal ← jasa + sparepart\nOUTPUT total\n\nJika jasa = 150000 dan sparepart = 250000, maka total biaya adalah ...",
-pilihan:[
-"100000",
-"250000",
-"400000",
-"500000"
-],
-jawaban:2
-},
-
-{
-pertanyaan:"Perhatikan pseudocode berikut:\nINPUT nilai\nIF nilai >= 75 THEN\n    OUTPUT \"Lulus\"\nELSE\n    OUTPUT \"Belum Lulus\"\nENDIF\n\nJika nilai = 74, output yang dihasilkan adalah ...",
-pilihan:[
-"Lulus",
-"Belum Lulus",
-"74",
-"Error"
-],
-jawaban:1
-},
-
-{
-pertanyaan:"Perhatikan pseudocode berikut:\nINPUT suhu\nIF suhu > 90 THEN\n    OUTPUT \"Tinggi\"\nELSE\n    OUTPUT \"Normal\"\nENDIF\n\nJika suhu = 90, output yang dihasilkan adalah ...",
-pilihan:[
-"Tinggi",
-"Normal",
-"90",
-"Tidak ada output"
-],
-jawaban:1
-},
-
-{
-pertanyaan:"Perhatikan pseudocode berikut:\nFOR i ← 1 TO 5 DO\n    OUTPUT i\nENDFOR\n\nOutput yang dihasilkan adalah ...",
-pilihan:[
-"0, 1, 2, 3, 4",
-"1, 2, 3, 4",
-"1, 2, 3, 4, 5",
-"5, 4, 3, 2, 1"
-],
-jawaban:2
-},
-
-{
-pertanyaan:"Perhatikan pseudocode berikut:\nFOR i ← 1 TO 3 DO\n    INPUT suhu\n    IF suhu > 90 THEN\n        OUTPUT \"Tinggi\"\n    ELSE\n        OUTPUT \"Normal\"\n    ENDIF\nENDFOR\n\nStruktur yang digunakan adalah ...",
-pilihan:[
-"Sequence saja",
-"Branching saja",
-"Looping saja",
-"Looping dan branching"
-],
-jawaban:3
-},
-
-{
-pertanyaan:"Sebuah algoritma digunakan untuk memeriksa 5 kendaraan. Setiap kendaraan dimasukkan kondisinya, kemudian menghasilkan \"Baik\" atau \"Perlu diperiksa\". Struktur yang paling tepat adalah ...",
-pilihan:[
-"Sequence saja",
-"Branching saja",
-"Looping dan branching",
-"Input/output saja"
-],
-jawaban:2
-},
-
-{
-pertanyaan:"Perhatikan pseudocode berikut:\nINPUT tekanan\nIF tekanan < 30 THEN\n    OUTPUT \"Kurang\"\nELSE\n    OUTPUT \"Cukup\"\nENDIF\n\nJika tekanan = 25, output yang dihasilkan adalah ...",
-pilihan:[
-"Kurang",
-"Cukup",
-"25",
-"Error"
-],
-jawaban:0
-},
-
-{
-pertanyaan:"Perhatikan pseudocode berikut:\ni ← 1\nWHILE i <= 3 DO\n    OUTPUT i\n    i ← i + 1\nENDWHILE\n\nBerapa kali perintah OUTPUT dijalankan?",
-pilihan:[
-"1 kali",
-"2 kali",
-"3 kali",
-"4 kali"
-],
-jawaban:2
-},
-
-{
-pertanyaan:"Seorang siswa membuat pseudocode berikut:\nIF suhu > 90 THEN\n    OUTPUT \"Suhu normal\"\nELSE\n    OUTPUT \"Suhu tinggi\"\nENDIF\n\nKesalahan pada pseudocode tersebut adalah ...",
-pilihan:[
-"Tidak ada INPUT",
-"IF harus menggunakan FOR",
-"Output pada IF dan ELSE tertukar",
-"Tidak ada ELSE"
-],
-jawaban:2
-},
-
-{
-pertanyaan:"Pseudocode yang paling tepat untuk menghitung total biaya jasa dan sparepart adalah ...",
-pilihan:[
-"INPUT jasa; INPUT sparepart; OUTPUT jasa; OUTPUT sparepart",
-"INPUT jasa; INPUT sparepart; total ← jasa + sparepart; OUTPUT total",
-"INPUT jasa; INPUT sparepart; IF jasa > sparepart THEN OUTPUT jasa ENDIF",
-"FOR jasa 1 TO 5 DO OUTPUT jasa ENDFOR"
-],
-jawaban:1
-}
-
-],
-
-
-Pengayaan:[
-
-{
-pertanyaan:"Perhatikan pseudocode berikut:\nIF suhu >= 100 THEN\n    OUTPUT \"Sangat tinggi\"\nELSE IF suhu >= 90 THEN\n    OUTPUT \"Tinggi\"\nELSE\n    OUTPUT \"Normal\"\nENDIF\n\nJika suhu = 95, output yang dihasilkan adalah ...",
-pilihan:[
-"Sangat tinggi",
-"Tinggi",
-"Normal",
-"Tidak ada output"
-],
-jawaban:1
-},
-
-{
-pertanyaan:"Perhatikan pseudocode berikut:\nFOR i ← 1 TO 4 DO\n    INPUT suhu\n    IF suhu > 90 THEN\n        OUTPUT \"Tinggi\"\n    ELSE\n        OUTPUT \"Normal\"\n    ENDIF\nENDFOR\n\nJika input berturut-turut adalah 85, 95, 90, 100, maka outputnya adalah ...",
-pilihan:[
-"Normal, Tinggi, Tinggi, Tinggi",
-"Normal, Tinggi, Normal, Tinggi",
-"Tinggi, Normal, Normal, Tinggi",
-"Normal, Normal, Tinggi, Normal"
-],
-jawaban:1
-},
-
-{
-pertanyaan:"Perhatikan pseudocode berikut:\ni ← 1\nWHILE i <= 5 DO\n    OUTPUT i\n    i ← i + 2\nENDWHILE\n\nOutput yang dihasilkan adalah ...",
-pilihan:[
-"1, 2, 3, 4, 5",
-"1, 3, 5",
-"2, 4",
-"1, 3, 5, 7"
-],
-jawaban:1
-},
-
-{
-pertanyaan:"Perhatikan dua algoritma berikut.\n\nAlgoritma A:\nIF suhu > 90 THEN\n    OUTPUT \"Tinggi\"\nELSE\n    OUTPUT \"Normal\"\nENDIF\n\nAlgoritma B:\nIF suhu <= 90 THEN\n    OUTPUT \"Normal\"\nELSE\n    OUTPUT \"Tinggi\"\nENDIF\n\nPernyataan yang tepat adalah ...",
-pilihan:[
-"Algoritma A selalu benar, sedangkan B salah",
-"Algoritma B selalu benar, sedangkan A salah",
-"Kedua algoritma dapat menghasilkan hasil yang sama",
-"Kedua algoritma tidak dapat digunakan"
-],
-jawaban:2
-},
-
-{
-pertanyaan:"Sebuah sistem memeriksa 10 kendaraan. Setiap kendaraan dimasukkan suhu mesinnya. Jika suhu >90 maka tampilkan \"Perlu diperiksa\", jika tidak tampilkan \"Normal\". Struktur pseudocode yang paling tepat adalah ...",
-pilihan:[
-"Sequence saja",
-"FOR dengan IF/ELSE",
-"IF saja tanpa pengulangan",
-"OUTPUT saja"
-],
-jawaban:1
-},
-
-{
-pertanyaan:"Perhatikan pseudocode berikut:\nFOR i ← 1 TO 3 DO\n    INPUT tekanan\n    IF tekanan < 30 THEN\n        OUTPUT \"Tekanan kurang\"\n    ELSE\n        OUTPUT \"Tekanan cukup\"\n    ENDIF\nENDFOR\n\nJika input berturut-turut adalah 25, 30, dan 28, berapa kali \"Tekanan kurang\" ditampilkan?",
-pilihan:[
-"0 kali",
-"1 kali",
-"2 kali",
-"3 kali"
-],
-jawaban:2
-},
-
-{
-pertanyaan:"Perhatikan pseudocode berikut:\nIF nilai >= 75 THEN\n    OUTPUT \"Lulus\"\nELSE\n    OUTPUT \"Tidak Lulus\"\nENDIF\nOUTPUT \"Selesai\"\n\nJika nilai = 60, berapa baris output yang dihasilkan?",
-pilihan:[
-"0 baris",
-"1 baris",
-"2 baris",
-"3 baris"
-],
-jawaban:2
-},
-
-{
-pertanyaan:"Sebuah sistem memeriksa 5 kendaraan. Setiap kendaraan dimasukkan suhu mesinnya. Jika suhu >90 tampilkan \"Panas\", jika tidak tampilkan \"Normal\". Setelah semua kendaraan diperiksa, sistem menampilkan \"Pemeriksaan selesai\". Pseudocode yang paling tepat menggunakan ...",
-pilihan:[
-"IF saja tanpa looping",
-"FOR + INPUT + IF/ELSE + OUTPUT setelah looping",
-"Sequence saja tanpa kondisi",
-"OUTPUT saja"
-],
-jawaban:1
-},
-
-{
-pertanyaan:"Perhatikan pseudocode berikut:\nFOR i ← 1 TO 5 DO\n    INPUT suhu\n    IF suhu > 90 THEN\n        OUTPUT \"A\"\n    ELSE\n        OUTPUT \"B\"\n    ENDIF\nENDFOR\n\nJika hanya kendaraan ke-2 dan ke-5 yang memiliki suhu >90, maka jumlah output A dan B adalah ...",
-pilihan:[
-"A = 2 dan B = 3",
-"A = 3 dan B = 2",
-"A = 5 dan B = 0",
-"A = 0 dan B = 5"
-],
-jawaban:0
-},
-
-{
-pertanyaan:"Perhatikan pseudocode berikut:\njumlah ← 0\nFOR i ← 1 TO 5 DO\n    INPUT suhu\n    IF suhu > 90 THEN\n        ...\n    ENDIF\nENDFOR\nOUTPUT jumlah\n\nPerintah yang tepat untuk menggantikan bagian yang kosong agar jumlah kendaraan dengan suhu >90 dapat dihitung adalah ...",
-pilihan:[
-"jumlah ← jumlah + 1",
-"jumlah ← jumlah - 1",
-"suhu ← suhu + 1",
-"i ← 0"
-],
-jawaban:0
-}
-
-]},
-
-
-/* =====================================================
-LKPD PSEUDOCODE
-===================================================== */
-
-lkpd:{
-
-Penguatan:`
-
-<div class="lkpd-task">
-
-<h3>
-🌱 LKPD Penguatan — Pseudocode IF/ELSE
-</h3>
-
-<p>
-<strong>Kasus:</strong>
-
-Masukkan suhu mesin.
-
-Jika suhu >90°C tampilkan
-<strong>“Mesin terlalu panas”</strong>.
-
-Jika tidak tampilkan
-<strong>“Suhu normal”</strong>.
-</p>
-
-<ol>
-
-<li>
-Tentukan input.
-</li>
-
-<li>
-Tentukan kondisi.
-</li>
-
-<li>
-Tentukan dua output.
-</li>
-
-<li>
-Tulis pseudocode menggunakan IF/ELSE.
-</li>
-
-<li>
-Uji dengan nilai 85.
-</li>
-
-<li>
-Uji dengan nilai 95.
-</li>
-
-</ol>
-
-<div class="notice">
-
-💡 Kerangka:
-
-INPUT ...
-
-IF ... THEN
-
-OUTPUT ...
-
+IF nilai >= 75 THEN
+    OUTPUT "Lulus"
 ELSE
-
-OUTPUT ...
-
+    OUTPUT "Tidak Lulus"
 ENDIF
 
-</div>
+OUTPUT "Selesai"
 
-</div>
-`,
+Jika nilai = 60, berapa baris output yang dihasilkan?`,
+                    pilihan:["0","1","2","3"],
+                    jawaban:2
+                },
+                {
+                    pertanyaan:`Seorang siswa ingin membuat algoritma berikut: Memeriksa 5 kendaraan. Pada setiap kendaraan, masukkan suhu mesin. Jika suhu lebih dari 90°C, tampilkan "Panas". Setelah semua kendaraan diperiksa, tampilkan "Pemeriksaan selesai". Pseudocode yang paling tepat adalah ....`,
+                    pilihan:[
+                        `INPUT suhu
+IF suhu > 90 THEN
+    OUTPUT "Panas"
+ELSE
+    OUTPUT "Normal"
+ENDIF
+OUTPUT "Pemeriksaan selesai"`,
+                        `FOR i ← 1 TO 5 DO
+    INPUT suhu
 
-Reguler:`
+    IF suhu > 90 THEN
+        OUTPUT "Panas"
+    ELSE
+        OUTPUT "Normal"
+    ENDIF
+ENDFOR
 
-<div class="lkpd-task">
+OUTPUT "Pemeriksaan selesai"`,
+                        `FOR i ← 1 TO 5 DO
+    INPUT suhu
+ENDFOR
 
-<h3>
-📚 LKPD Reguler — Pseudocode Biaya Servis
-</h3>
+IF suhu > 90 THEN
+    OUTPUT "Panas"
+ENDIF
 
-<p>
-Teknisi ingin menghitung total biaya servis
-berdasarkan biaya jasa dan sparepart.
-</p>
+OUTPUT "Pemeriksaan selesai"`,
+                        `WHILE i <= 5 DO
+    OUTPUT "Pemeriksaan selesai"
+ENDWHILE`
+                    ],
+                    jawaban:1
+                },
+                {
+                    pertanyaan:`Perhatikan pseudocode berikut!
 
-<ol>
+FOR i ← 1 TO 5 DO
+    INPUT suhu
 
-<li>
-Tentukan input.
-</li>
+    IF suhu > 90 THEN
+        OUTPUT "A"
+    ELSE
+        OUTPUT "B"
+    ENDIF
+ENDFOR
 
-<li>
-Buat pseudocode sequence
-untuk menghitung total.
-</li>
+Jika hanya kendaraan ke-2 dan ke-5 yang memiliki suhu lebih dari 90°C, berapa kali masing-masing output ditampilkan?`,
+                    pilihan:["A = 2 dan B = 3","A = 3 dan B = 2","A = 5 dan B = 0","A = 0 dan B = 5"],
+                    jawaban:0
+                },
+                {
+                    pertanyaan:`Seorang siswa membuat algoritma untuk menghitung jumlah kendaraan yang memiliki suhu lebih dari 90°C.
 
-<li>
-Tambahkan branching:
-jika total ≥500000 maka
-“Biaya besar”.
-</li>
+PROGRAM HitungKendaraanPanas
 
-<li>
-Jika total kurang dari 500000,
-tampilkan “Biaya standar”.
-</li>
+DEKLARASI
+i, suhu, jumlah : angka
 
-<li>
-Uji dengan jasa 200000
-dan sparepart 350000.
-</li>
+ALGORITMA
+MULAI
 
-<li>
-Tandai bagian sequence
-dan branching.
-</li>
+jumlah ← 0
 
-</ol>
+FOR i ← 1 TO 5 DO
 
-</div>
-`,
+    INPUT suhu
 
-Pengayaan:`
+    IF suhu > 90 THEN
+        __________________
+    ENDIF
 
-<div class="lkpd-task">
+ENDFOR
 
-<h3>
-🚀 LKPD Pengayaan — Pseudocode Multi-Kondisi
-</h3>
+OUTPUT jumlah
 
-<p>
-Sistem bengkel memeriksa lima kendaraan.
-Kondisinya dapat berupa:
-<strong>baik</strong>,
-<strong>ringan</strong>,
-atau
-<strong>berat</strong>.
-</p>
+SELESAI
 
-<ol>
+Perintah yang paling tepat untuk mengisi bagian kosong adalah ....`,
+                    pilihan:[
+                        "jumlah ← jumlah + 1",
+                        "jumlah ← jumlah - 1",
+                        "suhu ← suhu + 1",
+                        "i ← i + 1"
+                    ],
+                    jawaban:0
+                }
+            ]
+        },
 
-<li>
-Gunakan looping untuk memeriksa
-lima kendaraan.
-</li>
+        lkpd: `
+            <div class="lkpd-task">
+                <h3>LKPD Penguatan: Menulis Pseudocode Sederhana</h3>
+                <p>
+                    Gunakan kasus berikut untuk membuat pseudocode secara bertahap.
+                </p>
+                <p><strong>Kasus:</strong> Seorang teknisi memasukkan suhu mesin. Jika suhu lebih dari 90°C,
+                tampilkan “Mesin terlalu panas”. Jika tidak, tampilkan “Suhu normal”.</p>
 
-<li>
-Gunakan branching bertingkat:
-</li>
+                <ol>
+                    <li>Tuliskan data yang menjadi <strong>input</strong>.</li>
+                    <li>Tuliskan kondisi yang harus diperiksa.</li>
+                    <li>Tuliskan dua kemungkinan <strong>output</strong>.</li>
+                    <li>Susun pseudocode menggunakan <strong>IF/ELSE</strong>.</li>
+                    <li>Uji pseudocode dengan suhu 85°C dan 95°C.</li>
+                </ol>
 
-<ul>
-
-<li>
-baik → “Kendaraan siap”
-</li>
-
-<li>
-ringan → “Servis ringan”
-</li>
-
-<li>
-berat → “Servis berat”
-</li>
-
-</ul>
-
-<li>
-Tulis pseudocode lengkap.
-</li>
-
-<li>
-Uji dengan data:
-baik, ringan, berat, ringan, baik.
-</li>
-
-<li>
-Jelaskan bagaimana algoritma berubah
-jika pemeriksaan dilakukan terus
-sampai teknisi memilih berhenti.
-</li>
-
-</ol>
-
-<div class="notice">
-
-🚀 Tantangan:
-
-Gunakan WHILE untuk membuat
-skenario berhenti berdasarkan
-pilihan teknisi.
-
-</div>
-
-</div>
-`
-
-}
-
-}
+                <div class="notice">
+                    💡 <strong>Kerangka bantuan:</strong><br>
+                    INPUT ...<br>
+                    IF ... THEN<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;OUTPUT ...<br>
+                    ELSE<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;OUTPUT ...<br>
+                    ENDIF
+                </div>
+            </div>
+        `
+    }
 
 };
 
 
-/* =====================================================
-TES KOGNITIF
-===================================================== */
+/* =========================================================
+   DATA TES KOGNITIF
+   ========================================================= */
 
-const testData={
+const testData = {
 
-"Berpikir Komputasional":[
+    "Berpikir Komputasional":[
+        {pertanyaan:"Memecah masalah besar menjadi beberapa bagian kecil disebut ...",pilihan:["Dekomposisi","Abstraksi","Pengenalan pola","Algoritma"],jawaban:0},
+        {pertanyaan:"Menemukan kesamaan dari beberapa permasalahan disebut ...",pilihan:["Algoritma","Pengenalan pola","Dekomposisi","Output"],jawaban:1},
+        {pertanyaan:"Memilih informasi yang penting dan mengabaikan informasi yang tidak diperlukan disebut ...",pilihan:["Dekomposisi","Algoritma","Abstraksi","Pola"],jawaban:2},
+        {pertanyaan:"Urutan langkah yang sistematis untuk menyelesaikan masalah disebut ...",pilihan:["Pola","Abstraksi","Algoritma","Dekomposisi"],jawaban:2},
+        {pertanyaan:"Sebelum memperbaiki kendaraan, teknisi membagi proses pemeriksaan menjadi mesin, rem, ban, dan kelistrikan. Ini merupakan contoh ...",pilihan:["Abstraksi","Dekomposisi","Looping","Output"],jawaban:1},
+        {pertanyaan:"Dari beberapa kendaraan ditemukan bahwa mesin sulit dinyalakan ketika aki lemah. Menemukan kesamaan tersebut merupakan ...",pilihan:["Pengenalan pola","Dekomposisi","Abstraksi","Algoritma"],jawaban:0},
+        {pertanyaan:"Saat membuat catatan servis, teknisi hanya mencatat jenis kerusakan dan tindakan perbaikan. Hal ini merupakan contoh ...",pilihan:["Dekomposisi","Pengenalan pola","Abstraksi","Looping"],jawaban:2},
+        {pertanyaan:"Langkah pertama yang paling tepat ketika menghadapi masalah yang besar adalah ...",pilihan:["Langsung mencari jawaban","Memecah masalah menjadi bagian yang lebih kecil","Mengabaikan masalah","Menghapus semua informasi"],jawaban:1},
+        {pertanyaan:"Urutan langkah yang jelas dari awal sampai akhir untuk menyelesaikan masalah disebut ...",pilihan:["Algoritma","Pola","Abstraksi","Dekomposisi"],jawaban:0},
+        {pertanyaan:"Manakah pasangan yang tepat?",pilihan:["Dekomposisi = memilih informasi penting","Pola = mencari kesamaan","Abstraksi = menyusun langkah","Algoritma = memecah masalah"],jawaban:1}
+    ],
 
-[
-"Memecah masalah besar menjadi bagian kecil disebut ...",
-["Dekomposisi","Abstraksi","Pola","Output"],
-0
-],
+    "Flowchart":[
+        {pertanyaan:"Simbol flowchart untuk proses adalah ...",pilihan:["Oval","Persegi panjang","Belah ketupat","Jajar genjang"],jawaban:1},
+        {pertanyaan:"Simbol keputusan pada flowchart adalah ...",pilihan:["Oval","Persegi panjang","Belah ketupat","Panah"],jawaban:2},
+        {pertanyaan:"Simbol yang digunakan untuk input/output adalah ...",pilihan:["Oval","Jajar genjang","Belah ketupat","Persegi panjang"],jawaban:1},
+        {pertanyaan:"Simbol oval biasanya digunakan untuk ...",pilihan:["Proses","Keputusan","Mulai/Selesai","Input"],jawaban:2},
+        {pertanyaan:"Fungsi panah pada flowchart adalah ...",pilihan:["Menunjukkan arah alur","Menentukan input","Menentukan keputusan","Menunjukkan proses"],jawaban:0},
+        {pertanyaan:"Simbol yang tepat untuk menerima nilai dari pengguna adalah ...",pilihan:["Oval","Jajar genjang","Belah ketupat","Persegi panjang"],jawaban:1},
+        {pertanyaan:"Jika sebuah flowchart memiliki pertanyaan “nilai ≥ 75?”, simbol yang digunakan adalah ...",pilihan:["Oval","Persegi panjang","Belah ketupat","Jajar genjang"],jawaban:2},
+        {pertanyaan:"Urutan sederhana yang tepat adalah ...",pilihan:["Mulai → Input → Proses → Output → Selesai","Output → Mulai → Input → Selesai","Proses → Output → Mulai → Input","Input → Selesai → Mulai → Proses"],jawaban:0},
+        {pertanyaan:"Jika nilai siswa 80 dan kondisi flowchart adalah nilai ≥ 75, alur seharusnya menuju ...",pilihan:["Tidak Lulus","Lulus","Mulai","Input ulang"],jawaban:1},
+        {pertanyaan:"Manakah pasangan simbol dan fungsi yang tepat?",pilihan:["Oval = keputusan","Belah ketupat = proses","Jajar genjang = input/output","Persegi panjang = mulai"],jawaban:2}
+    ],
 
-[
-"Menemukan kesamaan dari beberapa masalah disebut ...",
-["Algoritma","Pengenalan pola","Dekomposisi","Input"],
-1
-],
+    "Pseudocode":[
+        {
+            pertanyaan:"Pernyataan yang paling tepat mengenai pseudocode adalah ....",
+            pilihan:[
+                "Bahasa pemrograman yang harus mengikuti aturan sintaks tertentu",
+                "Cara menuliskan algoritma dengan bahasa sederhana dan terstruktur",
+                "Gambar yang menunjukkan alur suatu program",
+                "Kode program yang hanya dapat dijalankan oleh komputer"
+            ],
+            jawaban:1
+        },
+        {
+            pertanyaan:"Salah satu tujuan utama penggunaan pseudocode adalah ....",
+            pilihan:[
+                "Membuat program langsung dapat dijalankan komputer",
+                "Menggantikan seluruh bahasa pemrograman",
+                "Mempermudah manusia memahami dan merancang algoritma",
+                "Membuat tampilan program menjadi lebih menarik"
+            ],
+            jawaban:2
+        },
+        {
+            pertanyaan:`Perhatikan pseudocode berikut!
 
-[
-"Memilih informasi penting disebut ...",
-["Abstraksi","Dekomposisi","Pola","Output"],
-0
-],
+INPUT nama
+INPUT nilai
+OUTPUT nama
+OUTPUT nilai
 
-[
-"Langkah sistematis menyelesaikan masalah disebut ...",
-["Pola","Abstraksi","Algoritma","Dekomposisi"],
-2
-],
+Struktur algoritma tersebut termasuk ....`,
+            pilihan:["Sequence","Branching","Looping","Function"],
+            jawaban:0
+        },
+        {
+            pertanyaan:"Notasi yang digunakan untuk menerima data dari pengguna adalah ....",
+            pilihan:["OUTPUT","INPUT","FOR","IF"],
+            jawaban:1
+        },
+        {
+            pertanyaan:`Perhatikan pseudocode berikut!
 
-[
-"Contoh dekomposisi adalah ...",
-[
-"Membagi proses servis menjadi beberapa tahap",
-"Mengabaikan informasi",
-"Mengubah warna kendaraan",
-"Menghapus masalah"
-],
-0
-]
+INPUT suhu
 
-],
+IF suhu > 90 THEN
+    OUTPUT "Mesin terlalu panas"
+ELSE
+    OUTPUT "Suhu normal"
+ENDIF
 
-"Flowchart":[
+Jika nilai suhu = 85, keluaran yang dihasilkan adalah ....`,
+            pilihan:["Mesin terlalu panas","Suhu normal","85 derajat","Tidak ada keluaran"],
+            jawaban:1
+        },
+        {
+            pertanyaan:"Notasi FOR paling tepat digunakan ketika ....",
+            pilihan:[
+                "Jumlah pengulangan sudah dapat ditentukan",
+                "Program hanya memiliki satu perintah",
+                "Program harus menerima input",
+                "Program harus menghasilkan output"
+            ],
+            jawaban:0
+        },
+        {
+            pertanyaan:`Perhatikan pseudocode berikut!
 
-[
-"Flowchart digunakan untuk ...",
-[
-"Menggambarkan alur penyelesaian masalah",
-"Mengedit foto",
-"Menyimpan file",
-"Membuat jaringan"
-],
-0
-],
+i ← 1
 
-[
-"Simbol keputusan adalah ...",
-["Oval","Persegi panjang","Belah ketupat","Panah"],
-2
-],
+WHILE i <= 3 DO
+    OUTPUT i
+    i ← i + 1
+ENDWHILE
 
-[
-"Simbol proses adalah ...",
-["Oval","Persegi panjang","Belah ketupat","Jajar genjang"],
-1
-],
+Berapa kali perintah OUTPUT i dijalankan?`,
+            pilihan:["1 kali","2 kali","3 kali","4 kali"],
+            jawaban:2
+        },
+        {
+            pertanyaan:"Manakah yang merupakan contoh inisialisasi variabel?",
+            pilihan:["OUTPUT nilai","INPUT nilai","nilai ← 0","IF nilai > 75 THEN"],
+            jawaban:2
+        },
+        {
+            pertanyaan:"Bagian pseudocode yang digunakan untuk mendefinisikan variabel disebut ....",
+            pilihan:["Judul","Deklarasi","Algoritma","Output"],
+            jawaban:1
+        },
+        {
+            pertanyaan:`Perhatikan kasus berikut.
 
-[
-"Simbol input/output adalah ...",
-["Oval","Jajar genjang","Belah ketupat","Panah"],
-1
-],
+Seorang teknisi memasukkan nilai tekanan ban. Jika tekanan kurang dari 30 psi, tampilkan "Tekanan kurang". Jika tidak, tampilkan "Tekanan cukup".
 
-[
-"Simbol oval menunjukkan ...",
-["Proses","Keputusan","Mulai/Selesai","Input"],
-2
-]
-
-],
-
-"Pseudocode":[
-
-[
-"Pseudocode adalah ...",
-[
-"Bahasa pemrograman",
-"Cara menuliskan algoritma dengan bahasa sederhana dan terstruktur",
-"Gambar alur",
-"Aplikasi"
-],
-1
-],
-
-[
-"Tujuan pseudocode adalah ...",
-[
-"Menjalankan program langsung",
-"Menggantikan bahasa pemrograman",
-"Mempermudah memahami dan merancang algoritma",
-"Membuat tampilan"
-],
-2
-],
-
-[
-"INPUT nama; INPUT nilai; OUTPUT nama; OUTPUT nilai termasuk ...",
-[
-"Sequence",
-"Branching",
-"Looping",
-"Function"
-],
-0
-],
-
-[
-"Perintah menerima data adalah ...",
-[
-"OUTPUT",
-"INPUT",
-"FOR",
-"IF"
-],
-1
-],
-
-[
-"Jika IF suhu >90 dan suhu=85, output ELSE adalah ...",
-[
-"Mesin panas",
-"Suhu normal",
-"85",
-"Tidak ada"
-],
-1
-],
-
-[
-"FOR tepat digunakan ketika ...",
-[
-"Jumlah pengulangan dapat ditentukan",
-"Program satu perintah",
-"Menerima input",
-"Menghasilkan output"
-],
-0
-],
-
-[
-"WHILE i<=3, i=1 lalu i=i+1 menjalankan OUTPUT ...",
-[
-"1",
-"2",
-"3",
-"4"
-],
-2
-],
-
-[
-"Contoh inisialisasi variabel adalah ...",
-[
-"OUTPUT nilai",
-"INPUT nilai",
-"nilai ← 0",
-"IF nilai >75"
-],
-2
-],
-
-[
-"Bagian untuk mendefinisikan variabel disebut ...",
-[
-"Judul",
-"Deklarasi",
-"Algoritma",
-"Output"
-],
-1
-],
-
-[
-"Pemeriksaan tekanan <30 atau tidak menggunakan struktur ...",
-[
-"Sequence",
-"Branching",
-"Looping",
-"Repeat"
-],
-1
-]
-
-]
-
+Struktur pseudocode yang paling tepat digunakan adalah ....`,
+            pilihan:["Sequence","Branching","Looping","Repeat–Until"],
+            jawaban:1
+        }
+    ]
 };
 
 
-/* =====================================================
-HELPER
-===================================================== */
+/* =========================================================
+   SESI
+   ========================================================= */
+
+function buatSesiBaru(){
+
+    idSesi =
+        Date.now().toString();
+
+    safeStorage.setItem(
+        "idSesi",
+        idSesi
+    );
+
+    sessionData = {
+        waktuMulai:new Date().toISOString(),
+        waktuSelesai:"",
+        aktivitasTerakhir:"Mulai Pembelajaran",
+        statusPembelajaran:"Sedang Berlangsung",
+        statusLKPD:"",
+        refleksiPaham:"",
+        refleksiSulit:"",
+        refleksiLanjut:""
+    };
+
+    safeStorage.setItem(
+        "sessionData",
+        JSON.stringify(sessionData)
+    );
+
+    sessionSent = false;
+}
+
+function updateSession(data={}){
+
+    sessionData = {
+        ...sessionData,
+        ...data
+    };
+
+    safeStorage.setItem(
+        "sessionData",
+        JSON.stringify(sessionData)
+    );
+}
+
+function muatDataSiswa(){
+
+    const dataSiswa =
+        safeStorage.getItem("dataSiswa");
+
+    const dataSesi =
+        safeStorage.getItem("sessionData");
+
+    if(dataSiswa){
+        try{
+            siswa = JSON.parse(dataSiswa);
+        }catch(error){
+            console.error("Data siswa tidak valid:",error);
+        }
+    }
+
+    if(dataSesi){
+        try{
+            sessionData = {
+                ...sessionData,
+                ...JSON.parse(dataSesi)
+            };
+        }catch(error){
+            console.error("Data sesi tidak valid:",error);
+        }
+    }
+
+    const savedId =
+        safeStorage.getItem("idSesi");
+
+    if(savedId){
+        idSesi = savedId;
+    }
+}
+
+
+/* =========================================================
+   UTILITAS
+   ========================================================= */
+
+function escapeHTML(text){
+    return String(text ?? "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+}
 
 function getMateri(){
-
-    return materiData[materiDipilih]
-        ||
-        materiData["Berpikir Komputasional"];
-
+    return materiData[materiDipilih] ||
+           materiData["Berpikir Komputasional"];
 }
 
-
 function getLatihanAktif(){
-
-    const latihan =
-        getMateri().latihan;
+    const latihan = getMateri().latihan;
 
     if(Array.isArray(latihan)){
         return latihan;
     }
 
-    return latihan[jalurDipilih]
-        ||
-        latihan["Reguler"]
-        ||
-        [];
-
+    return latihan[jalurDipilih] ||
+           latihan["Reguler"] ||
+           [];
 }
 
 
-function getLKPDAktif(){
-
-    const lkpd =
-        getMateri().lkpd;
-
-    if(typeof lkpd === "string"){
-        return lkpd;
-    }
-
-    return lkpd[jalurDipilih]
-        ||
-        lkpd["Reguler"]
-        ||
-        "";
-
-}
-
-
-function getMediaAktif(){
-
-    const media =
-        getMateri().media;
-
-    if(!media){
-        return {};
-    }
-
-    return media[jalurDipilih]
-        ||
-        media["Reguler"]
-        ||
-        {};
-
-}
-
-
-/* =====================================================
-VIDEO YOUTUBE
-===================================================== */
-
-function embedYouTube(url){
-    if(!url) return "";
-
-    try{
-        const u = new URL(url);
-
-        // Format: youtube.com/watch?v=xxxxx
-        if(u.hostname.includes("youtube.com")){
-            const id = u.searchParams.get("v");
-
-            if(id){
-                return `https://www.youtube.com/embed/${id}`;
-            }
-
-            // Format: youtube.com/embed/xxxxx
-            if(u.pathname.startsWith("/embed/")){
-                return `https://www.youtube.com/embed/${u.pathname.split("/embed/")[1]}`;
-            }
-
-            // Format: youtube.com/shorts/xxxxx
-            if(u.pathname.startsWith("/shorts/")){
-                return `https://www.youtube.com/embed/${u.pathname.split("/shorts/")[1]}`;
-            }
-        }
-
-        // Format: youtu.be/xxxxx
-        if(
-            u.hostname === "youtu.be" ||
-            u.hostname === "www.youtu.be"
-        ){
-            const id = u.pathname.slice(1);
-
-            if(id){
-                return `https://www.youtube.com/embed/${id}`;
-            }
-        }
-
-    }catch(e){
-        console.error("URL video tidak valid:", e);
-    }
-
-    return "";
-}
-
-
-/* =====================================================
-NAVIGASI
-===================================================== */
-
-const pageMap={
-
-data:"studentPage",
-tes:"testPage",
-jalur:"pathPage",
-materi:"materialPage",
-latihan:"practicePage",
-lkpd:"lkpdPage",
-refleksi:"reflectionPage",
-selesai:"finishPage"
-
-};
-
+/* =========================================================
+   NAVIGASI
+   ========================================================= */
 
 function bukaHalaman(nama){
 
-    document
-    .querySelectorAll(".page")
-    .forEach(
-        p=>p.classList.remove("active")
-    );
+    const halaman = {
+        data:"studentPage",
+        tes:"testPage",
+        jalur:"pathPage",
+        materi:"materialPage",
+        latihan:"practicePage",
+        lkpd:"lkpdPage",
+        refleksi:"reflectionPage",
+        selesai:"finishPage"
+    };
 
     document
-    .getElementById(pageMap[nama])
-    .classList.add("active");
+        .querySelectorAll(".page")
+        .forEach(page=>{
+            page.classList.remove("active");
+        });
 
+    const target =
+        document.getElementById(
+            halaman[nama]
+        );
 
-    const nomor={
+    if(!target){
+        console.error("Halaman tidak ditemukan:",nama);
+        return;
+    }
 
+    target.classList.add("active");
+    updateProgress(nama);
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+    if(nama==="tes"){
+        tampilkanDataSiswa("studentInfoTest");
+    }
+
+    if(nama==="materi"){
+        tampilkanDataSiswa("studentInfoMaterial");
+        updateInfoMateri();
+        renderMateri();
+    }
+
+    if(nama==="selesai"){
+        tampilkanHalamanSelesai();
+    }
+}
+
+function updateProgress(page){
+
+    const mapping = {
         data:1,
         tes:2,
         jalur:3,
@@ -3989,1257 +2402,1237 @@ function bukaHalaman(nama){
         lkpd:6,
         refleksi:7,
         selesai:8
+    };
 
-    }[nama];
-
+    const current =
+        mapping[page] || 1;
 
     for(let i=1;i<=8;i++){
 
-        const p =
-            document.getElementById("p"+i);
+        const element =
+            document.getElementById(
+                "progress"+i
+            );
 
-        p.classList.remove(
+        if(!element) continue;
+
+        element.classList.remove(
             "active",
             "done"
         );
 
-        if(i<nomor){
-            p.classList.add("done");
+        if(i<current){
+            element.classList.add("done");
+        }else if(i===current){
+            element.classList.add("active");
         }
-
-        if(i===nomor){
-            p.classList.add("active");
-        }
-
     }
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
-
 }
 
 
-/* =====================================================
-DATA SISWA
-===================================================== */
+/* =========================================================
+   DATA SISWA
+   ========================================================= */
 
 function simpanDataSiswa(){
 
     const nama =
-        namaSiswa.value.trim();
+        document.getElementById("namaSiswa").value.trim();
 
     const kelas =
-        kelasSiswa.value.trim();
+        document.getElementById("kelasSiswa").value.trim();
 
     const jurusan =
-        jurusanSiswa.value.trim();
+        document.getElementById("jurusanSiswa").value.trim();
 
     const absen =
-        absenSiswa.value.trim();
+        document.getElementById("absenSiswa").value.trim();
 
-
-    if(
-        !nama ||
-        !kelas ||
-        !jurusan ||
-        !absen
-    ){
+    if(!nama || !kelas || !jurusan || !absen){
 
         alert(
             "Silakan lengkapi semua data siswa."
         );
 
         return;
-
     }
 
-
-    siswa={
+    siswa = {
         nama,
         kelas,
         jurusan,
         absen
     };
 
-
-    localStorage.setItem(
+    safeStorage.setItem(
         "dataSiswa",
         JSON.stringify(siswa)
     );
 
+    buatSesiBaru();
 
-    idSesi =
-        Date.now().toString();
-
-    localStorage.setItem(
-        "idSesi",
-        idSesi
-    );
-
-
-    sessionData={
-        waktuMulai:
-            new Date().toISOString(),
-
-        statusPembelajaran:
-            "Sedang Berlangsung"
-    };
-
-
-    localStorage.setItem(
-        "sessionData",
-        JSON.stringify(sessionData)
-    );
-
+    jalurDipilih = "";
+    rekomendasi = "";
+    skorTes = 0;
+    skorLatihan = 0;
+    latihanLulus = false;
+    latihanPernahDicoba = false;
 
     buatSoalTes();
-
     bukaHalaman("tes");
-
 }
 
+function tampilkanDataSiswa(elementId){
 
-/* =====================================================
-TAMPILKAN DATA SISWA
-===================================================== */
+    const element =
+        document.getElementById(elementId);
 
-function tampilkanSiswa(id){
+    if(!element) return;
 
-    document
-    .getElementById(id)
-    .innerHTML=`
-
-    <strong>
-    ${esc(siswa.nama)}
-    </strong>
-
-    |
-
-    Kelas ${esc(siswa.kelas)}
-
-    |
-
-    ${esc(siswa.jurusan)}
-
-    |
-
-    Absen ${esc(siswa.absen)}
-
+    element.innerHTML = `
+        <strong>${escapeHTML(siswa.nama)}</strong>
+        &nbsp; | &nbsp;
+        Kelas ${escapeHTML(siswa.kelas)}
+        &nbsp; | &nbsp;
+        ${escapeHTML(siswa.jurusan)}
+        &nbsp; | &nbsp;
+        Absen ${escapeHTML(siswa.absen)}
     `;
-
 }
 
 
-/* =====================================================
-TES
-===================================================== */
+/* =========================================================
+   TES KOGNITIF
+   ========================================================= */
+
+function formatTesPertanyaan(teks){
+
+    const bagian = teks.split(/\n\s*\n/);
+
+    return bagian.map(paragraf=>{
+
+        const aman = escapeHTML(paragraf);
+
+        /*
+         * Jika bagian berisi sintaks pseudocode, tampilkan sebagai
+         * blok kode agar baris, spasi, dan indentasi tetap terjaga.
+         */
+        const adalahPseudocode =
+            /\b(INPUT|OUTPUT|IF|THEN|ELSE|ENDIF|FOR|ENDFOR|WHILE|ENDWHILE|DO)\b|←/.test(paragraf);
+
+        if(adalahPseudocode){
+            return `<pre class="pseudocode-test">${aman}</pre>`;
+        }
+
+        return `<div>${aman.replace(/\n/g,"<br>")}</div>`;
+
+    }).join("");
+}
 
 function buatSoalTes(){
 
     const data =
-        testData[materiDipilih]
-        ||
+        testData[materiDipilih] ||
         testData["Berpikir Komputasional"];
 
-    const box =
-        document.getElementById(
-            "testQuestions"
+    const container =
+        document.getElementById("testQuestions");
+
+    if(!container) return;
+
+    container.innerHTML = "";
+
+    data.forEach((soal,index)=>{
+
+        const question =
+            document.createElement("div");
+
+        question.className =
+            "question";
+
+        let pilihanHTML = "";
+
+        soal.pilihan.forEach(
+            (pilihan,pilihanIndex)=>{
+
+                pilihanHTML += `
+                    <label class="option">
+                        <input
+                            type="radio"
+                            name="tes_${index}"
+                            value="${pilihanIndex}"
+                        >
+                        ${escapeHTML(pilihan)}
+                    </label>
+                `;
+            }
         );
 
-    box.innerHTML="";
-
-
-    data.forEach(
-        (soal,index)=>{
-
-            const q =
-                document.createElement("div");
-
-            q.className="question";
-
-
-            q.innerHTML=`
-
+        question.innerHTML = `
             <div class="question-number">
-            Soal ${index+1}
+                Soal ${index+1}
             </div>
 
-            <p>
-            <strong>
-            ${esc(soal[0])}
-            </strong>
-            </p>
+            <div class="test-question-text">
+                <strong>
+                    ${formatTesPertanyaan(soal.pertanyaan)}
+                </strong>
+            </div>
 
-            ${
-                soal[1]
-                .map(
-                    (opsi,j)=>
-                    `
+            ${pilihanHTML}
+        `;
 
-                    <label class="option">
-
-                    <input
-                    type="radio"
-                    name="tes${index}"
-                    value="${j}"
-                    >
-
-                    ${esc(opsi)}
-
-                    </label>
-
-                    `
-                )
-                .join("")
-            }
-
-            `;
-
-
-            box.appendChild(q);
-
-        }
-    );
-
+        container.appendChild(question);
+    });
 }
-
 
 function periksaTes(){
 
     const data =
-        testData[materiDipilih]
-        ||
+        testData[materiDipilih] ||
         testData["Berpikir Komputasional"];
 
+    let benar = 0;
+    let terjawab = 0;
 
-    let benar=0;
-    let dijawab=0;
+    data.forEach((soal,index)=>{
 
+        const jawaban =
+            document.querySelector(
+                `input[name="tes_${index}"]:checked`
+            );
 
-    data.forEach(
-        (soal,index)=>{
+        if(jawaban){
 
-            const jawaban =
-                document.querySelector(
-                    `input[name="tes${index}"]:checked`
-                );
+            terjawab++;
 
-
-            if(jawaban){
-
-                dijawab++;
-
-                if(
-                    Number(jawaban.value)
-                    ===
-                    soal[2]
-                ){
-
-                    benar++;
-
-                }
-
+            if(
+                Number(jawaban.value) ===
+                soal.jawaban
+            ){
+                benar++;
             }
-
         }
-    );
+    });
 
+    const error =
+        document.getElementById("testError");
 
-    if(dijawab<data.length){
+    if(terjawab < data.length){
 
-        testError.textContent=
-            `Masih ada ${data.length-dijawab} soal yang belum dijawab.`;
+        error.textContent =
+            `⚠️ Masih ada ${data.length-terjawab} soal yang belum dijawab.`;
 
-        testError.classList.remove(
-            "hidden"
-        );
+        error.classList.remove("hidden");
 
         return;
-
     }
 
-
-    testError.classList.add(
-        "hidden"
-    );
-
+    error.classList.add("hidden");
 
     skorTes =
         Math.round(
-            benar/data.length*100
+            (benar/data.length)*100
         );
 
-
-    if(skorTes<60){
-
-        rekomendasi="Penguatan";
-
-    }else if(skorTes<80){
-
-        rekomendasi="Reguler";
-
+    if(skorTes < 60){
+        rekomendasi = "Penguatan";
+    }else if(skorTes < 80){
+        rekomendasi = "Reguler";
     }else{
-
-        rekomendasi="Pengayaan";
-
+        rekomendasi = "Pengayaan";
     }
 
+    document.getElementById(
+        "testScore"
+    ).textContent = skorTes;
 
-    testScore.textContent =
-        skorTes;
+    document.getElementById(
+        "recommendationText"
+    ).innerHTML =
+        `Berdasarkan hasil tes, jalur yang direkomendasikan adalah <strong>${rekomendasi}</strong>.`;
 
+    document.getElementById(
+        "recommendedPath"
+    ).innerHTML =
+        `<strong>${rekomendasi}</strong>`;
 
-    recommendationText.innerHTML=
-        `Jalur yang direkomendasikan:
-        <strong>${rekomendasi}</strong>`;
-
-
-    recommendedPath.textContent =
-        rekomendasi;
-
-
-    sessionData.skorTes =
-        skorTes;
-
-    sessionData.rekomendasi =
-        rekomendasi;
-
-
-    localStorage.setItem(
-        "sessionData",
-        JSON.stringify(sessionData)
-    );
-
+    updateSession({
+        aktivitasTerakhir:"Tes Kognitif",
+        skorTes,
+        rekomendasi
+    });
 
     bukaHalaman("jalur");
-
 }
 
 
-/* =====================================================
-PILIH JALUR
-===================================================== */
+/* =========================================================
+   PILIH JALUR
+   ========================================================= */
 
 function pilihJalur(jalur){
 
-    jalurDipilih =
-        jalur;
-
+    jalurDipilih = jalur;
 
     document
-    .querySelectorAll(".path-card")
-    .forEach(
-        card=>
-        card.classList.remove(
-            "selected"
-        )
-    );
+        .querySelectorAll(".path-card")
+        .forEach(card=>{
+            card.classList.remove("selected");
+        });
 
+    const ids = {
+        Penguatan:"pathPenguatan",
+        Reguler:"pathReguler",
+        Pengayaan:"pathPengayaan"
+    };
 
-    document
-    .getElementById(
-        "path"+jalur
-    )
-    .classList.add(
-        "selected"
-    );
+    const card =
+        document.getElementById(
+            ids[jalur]
+        );
 
+    if(card){
+        card.classList.add("selected");
+    }
+
+    updateSession({
+        aktivitasTerakhir:"Memilih Jalur",
+        jalurDipilih:jalur
+    });
 }
-
-
-/* =====================================================
-MULAI MATERI
-===================================================== */
 
 function mulaiMateri(){
 
+    /*
+       Jika siswa belum menekan kartu jalur, gunakan rekomendasi
+       dari hasil tes agar tombol tetap dapat digunakan. Siswa tetap
+       bebas mengganti jalur dengan menekan kartu Penguatan, Reguler,
+       atau Pengayaan terlebih dahulu.
+    */
     if(!jalurDipilih){
-
-        jalurDipilih =
-            rekomendasi;
-
+        jalurDipilih = rekomendasi || "Reguler";
     }
 
+    referenceMode = false;
 
-    if(!jalurDipilih){
+    const tombol =
+        document.getElementById("btnMulaiMateri");
 
-        alert(
-            "Pilih jalur belajar terlebih dahulu."
-        );
-
-        return;
-
+    if(tombol){
+        tombol.disabled = false;
     }
 
-
-    renderMateri();
+    updateSession({
+        aktivitasTerakhir:"Mulai Materi",
+        jalurDipilih
+    });
 
     bukaHalaman("materi");
-
 }
 
 
-/* =====================================================
-RENDER MATERI
-===================================================== */
+/* =========================================================
+   MATERI
+   ========================================================= */
+
+function updateInfoMateri(){
+
+    const data = getMateri();
+
+    document.getElementById(
+        "materialTitle"
+    ).textContent =
+        `${data.icon} ${dataName()}`;
+
+    document.getElementById(
+        "materialName"
+    ).textContent =
+        dataName();
+
+    document.getElementById(
+        "materialDescription"
+    ).textContent =
+        data.deskripsi;
+
+    document.getElementById(
+        "jalurInfo"
+    ).innerHTML =
+        `Jalur belajar: <strong>${escapeHTML(jalurDipilih)}</strong>`;
+
+    document.getElementById(
+        "materialDescription"
+    ).textContent =
+        data.deskripsi;
+
+    document.getElementById(
+        "referenceBar"
+    ).classList.toggle(
+        "hidden",
+        !referenceMode
+    );
+
+    const actions =
+        document.getElementById(
+            "materialActions"
+        );
+
+    if(referenceMode){
+
+        actions.innerHTML = `
+            <button
+                class="btn btn-warning"
+                onclick="kembaliKeLKPD()"
+            >
+                ← Kembali ke LKPD
+            </button>
+        `;
+
+    }else{
+
+        actions.innerHTML = `
+            <button
+                class="btn btn-primary"
+                onclick="mulaiLatihan()"
+            >
+                Lanjut ke Latihan →
+            </button>
+        `;
+    }
+}
+
+function dataName(){
+    return materiDipilih;
+}
+
+function renderGambarJalur(){
+    const media = getMediaPembelajaran(materiDipilih, jalurDipilih);
+    if(!media.gambar) return "";
+    return `
+        <div class="jalur-gambar">
+            <h3>🖼️ Gambar Pendukung</h3>
+            <div class="jalur-gambar-card">
+                <img src="${media.gambar}" alt="Gambar pendukung ${escapeHTML(materiDipilih)} ${escapeHTML(jalurDipilih)}" onclick="bukaGambarPopup(this.src)">
+                <p class="jalur-gambar-note">Klik gambar untuk memperbesar.</p>
+            </div>
+        </div>
+    `;
+}
+
+function bukaGambarPopup(src){
+    const old = document.getElementById("gambarPopup");
+    if(old) old.remove();
+
+    const popup = document.createElement("div");
+    popup.id = "gambarPopup";
+    popup.className = "gambar-popup";
+    popup.onclick = function(e){
+        if(e.target === popup || e.target.classList.contains("gambar-popup-close")) popup.remove();
+    };
+    popup.innerHTML = `
+        <button class="gambar-popup-close" aria-label="Tutup gambar">×</button>
+        <img src="${src}" alt="Gambar diperbesar">
+    `;
+    document.body.appendChild(popup);
+}
 
 function renderMateri(){
 
-    const data =
-        getMateri();
+    const data = getMateri();
 
-    const media =
-        getMediaAktif();
+    document.getElementById(
+        "contentMaterial"
+    ).innerHTML =
+        (data.jalur[jalurDipilih] || data.jalur["Reguler"]) +
+        renderGambarJalur();
 
+    const media = getMediaPembelajaran(materiDipilih, jalurDipilih);
 
-    materialTitle.textContent =
-        `${data.icon} ${materiDipilih}`;
-
-
-    materialDescription.textContent =
-        data.deskripsi;
-
-
-    jalurInfo.innerHTML=
-        `🎯 Jalur aktif:
-        <strong>
-        ${esc(jalurDipilih)}
-        </strong>`;
-
-
-    let gambar="";
-
-
-    if(media.gambar){
-
-        gambar=`
-
-        <div class="media-card">
-
-        <h3>
-        🖼️ Gambar Pendukung
-        </h3>
-
-        <img
-        class="media-image"
-        src="${esc(media.gambar)}"
-        onerror="this.style.display='none';"
-        >
-
-        </div>
-
-        `;
-
-    }
-
-
-    contentMaterial.innerHTML =
-        gambar
-        +
-        (
-            data.jalur[jalurDipilih]
-            ||
-            data.jalur["Reguler"]
+    document.getElementById(
+        "contentVideo"
+    ).innerHTML =
+        renderVideoPembelajaran(
+            media.video,
+            `Video ${materiDipilih} — Jalur ${jalurDipilih}`
         );
 
+    const gameData = data.game;
 
-    const video =
-        embedYouTube(
-            media.video
-        );
+    document.getElementById(
+        "contentGames"
+    ).innerHTML =
+        (gameData && typeof gameData === "object" && !Array.isArray(gameData))
+            ? (gameData[jalurDipilih] || gameData["Reguler"])
+            : gameData;
 
-
-    if(video){
-
-        contentVideo.innerHTML=`
-
-        <div class="media-card">
-
-        <h3>
-        🎥 Video ${esc(jalurDipilih)}
-        </h3>
-
-        <div class="video-wrapper">
-
-        <iframe
-        src="${esc(video)}"
-        allowfullscreen>
-        </iframe>
-
-        </div>
-
-        </div>
-
-        `;
-
-    }else{
-
-        contentVideo.innerHTML=`
-
-        <div class="media-card">
-
-        <h3>
-        🎥 Video Pembelajaran
-        </h3>
-
-        <div class="notice">
-
-        Link video belum ditambahkan.
-        Silakan isi bagian
-        <strong>media → video</strong>
-        pada data materi.
-
-        </div>
-
-        </div>
-
-        `;
-
-    }
-
-
-    contentGames.innerHTML =
-        data.game
-        ||
-        `
-
-        <div class="material-box">
-
-        <h3>
-        🎮 Games
-        </h3>
-
-        <p>
-        Belum ada games untuk materi ini.
-        </p>
-
-        </div>
-
-        `;
-
-
-    bukaSubmenu(
-        "material",
-        false
-    );
-
+    bukaSubmenu("material",false);
 }
 
+function bukaSubmenu(menu,catat=true){
 
-/* =====================================================
-TAB
-===================================================== */
+    const contentIds = {
+        material:"contentMaterial",
+        video:"contentVideo",
+        games:"contentGames"
+    };
 
-function bukaSubmenu(
-    nama,
-    scroll=true
-){
-
-    document
-    .querySelectorAll(".tab-content")
-    .forEach(
-        content=>
-        content.classList.remove(
-            "active"
-        )
-    );
-
+    const tabIds = {
+        material:"tabMaterial",
+        video:"tabVideo",
+        games:"tabGames"
+    };
 
     document
-    .querySelectorAll(".tab-btn")
-    .forEach(
-        button=>
-        button.classList.remove(
-            "active"
-        )
-    );
-
+        .querySelectorAll(".tab-content")
+        .forEach(content=>{
+            content.classList.remove("active");
+        });
 
     document
-    .getElementById(
-        "content"+
-        nama.charAt(0).toUpperCase()+
-        nama.slice(1)
-    )
-    .classList.add(
-        "active"
-    );
+        .querySelectorAll(".tab-btn")
+        .forEach(tab=>{
+            tab.classList.remove("active");
+        });
 
-
-    document
-    .getElementById(
-        "tab"+
-        nama.charAt(0).toUpperCase()+
-        nama.slice(1)
-    )
-    .classList.add(
-        "active"
-    );
-
-}
-
-
-/* =====================================================
-GAME
-===================================================== */
-
-function cekGame(jawaban){
-
-    const hasil =
+    const content =
         document.getElementById(
-            "gameResult"
+            contentIds[menu]
         );
 
+    const tab =
+        document.getElementById(
+            tabIds[menu]
+        );
 
-    if(!hasil){
+    if(content) content.classList.add("active");
+    if(tab) tab.classList.add("active");
 
-        return;
+    if(catat){
 
+        updateSession({
+            aktivitasTerakhir:
+                menu==="video"
+                    ? "Membuka Video"
+                    : menu==="games"
+                        ? "Membuka Games"
+                        : "Membuka Materi"
+        });
     }
+}
 
+function bukaVideo(){
 
-    hasil.classList.remove(
-        "hidden"
+    updateSession({
+        aktivitasTerakhir:"Video Dipelajari"
+    });
+
+    alert(
+        "Aktivitas video dicatat dalam sesi pembelajaran."
     );
+}
 
+function bukaGames(){
 
-    if(jawaban==="benar"){
+    updateSession({
+        aktivitasTerakhir:"Games Dicoba"
+    });
 
-        hasil.className=
+    alert(
+        "Aktivitas games dicatat dalam sesi pembelajaran."
+    );
+}
+
+function cekGame(button,status){
+
+    const box = button.closest(".game-box") || button.closest(".material-box");
+    const result = box ? box.querySelector(".gameResult") : null;
+
+    if(!result) return;
+
+    result.classList.remove("hidden");
+
+    if(status==="benar"){
+
+        result.className =
             "notice success";
 
-        hasil.textContent=
-            "🎉 Benar!";
+        result.textContent =
+            "🎉 Benar! Jawabanmu tepat.";
+
+        updateSession({
+            aktivitasTerakhir:"Games Benar"
+        });
 
     }else{
 
-        hasil.className=
+        result.className =
             "notice error";
 
-        hasil.textContent=
-            "Coba lagi.";
+        result.textContent =
+            "Coba lagi. Perhatikan konsep atau simbol yang ditanyakan.";
 
+        updateSession({
+            aktivitasTerakhir:"Games Dicoba"
+        });
     }
-
 }
 
 
-/* =====================================================
-LATIHAN
-===================================================== */
+/* =========================================================
+   LATIHAN
+   ========================================================= */
 
 function mulaiLatihan(){
 
+    if(referenceMode){
+        kembaliKeLKPD();
+        return;
+    }
+
+    latihanPernahDicoba = false;
+    latihanLulus = false;
+    skorLatihan = 0;
+
     buatSoalLatihan();
 
-    practiceResult.innerHTML="";
+    document.getElementById(
+        "practiceResult"
+    ).innerHTML = "";
 
-    practiceRetry.classList.add(
-        "hidden"
+    document.getElementById(
+        "practiceRetry"
+    ).classList.add("hidden");
+
+    document.getElementById(
+        "practicePass"
+    ).classList.add("hidden");
+
+    document.getElementById(
+        "practiceActions"
+    ).style.display = "flex";
+
+    document.body.classList.add(
+        "exercise-mode"
     );
 
-    practicePass.classList.add(
-        "hidden"
-    );
+    updateSession({
+        aktivitasTerakhir:"Mulai Latihan"
+    });
 
-    practiceActions.style.display=
-        "flex";
-
-
-    bukaHalaman(
-        "latihan"
-    );
-
+    bukaHalaman("latihan");
 }
-
 
 function buatSoalLatihan(){
 
     const data =
         getLatihanAktif();
 
+    const container =
+        document.getElementById(
+            "practiceQuestions"
+        );
 
-    practiceTitle.textContent=
-        `✏️ Latihan ${materiDipilih} — ${jalurDipilih}`;
+    container.innerHTML = "";
 
+    document.getElementById(
+        "practiceTitle"
+    ).textContent =
+        `✏️ Latihan ${materiDipilih}`;
 
-    practiceQuestions.innerHTML="";
+    data.forEach((soal,index)=>{
 
+        const question =
+            document.createElement("div");
 
-    data.forEach(
-        (soal,index)=>{
+        question.className =
+            "question";
 
-            const q =
-                document.createElement(
-                    "div"
-                );
+        let pilihanHTML = "";
 
+        soal.pilihan.forEach(
+            (pilihan,pilihanIndex)=>{
 
-            q.className="question";
+                pilihanHTML += `
+                    <label class="option">
+                        <input
+                            type="radio"
+                            name="latihan_${index}"
+                            value="${pilihanIndex}"
+                        >
+                        ${escapeHTML(pilihan)}
+                    </label>
+                `;
+            }
+        );
 
-
-            q.innerHTML=`
-
+        question.innerHTML = `
             <div class="question-number">
-            Soal ${index+1}
+                Soal ${index+1}
             </div>
 
-            <p>
-            <strong>
-            ${esc(soal.pertanyaan)}
-            </strong>
-            </p>
+            <div class="test-question-text">
+                ${formatTesPertanyaan(soal.pertanyaan)}
+            </div>
 
-            ${
-                soal.pilihan
-                .map(
-                    (opsi,j)=>
-                    `
+            ${pilihanHTML}
+        `;
 
-                    <label class="option">
-
-                    <input
-                    type="radio"
-                    name="lat${index}"
-                    value="${j}"
-                    >
-
-                    ${esc(opsi)}
-
-                    </label>
-
-                    `
-                )
-                .join("")
-            }
-
-            `;
-
-
-            practiceQuestions.appendChild(
-                q
-            );
-
-        }
-    );
-
+        container.appendChild(question);
+    });
 }
-
 
 function periksaLatihan(){
 
     const data =
         getLatihanAktif();
 
+    let benar = 0;
+    let terjawab = 0;
 
-    let benar=0;
-    let dijawab=0;
+    data.forEach((soal,index)=>{
 
+        const jawaban =
+            document.querySelector(
+                `input[name="latihan_${index}"]:checked`
+            );
 
-    data.forEach(
-        (soal,index)=>{
+        if(jawaban){
 
-            const jawaban =
-                document.querySelector(
-                    `input[name="lat${index}"]:checked`
-                );
+            terjawab++;
 
-
-            if(jawaban){
-
-                dijawab++;
-
-
-                if(
-                    Number(jawaban.value)
-                    ===
-                    soal.jawaban
-                ){
-
-                    benar++;
-
-                }
-
+            if(
+                Number(jawaban.value) ===
+                soal.jawaban
+            ){
+                benar++;
             }
-
         }
-    );
+    });
 
-
-    if(dijawab<data.length){
+    if(terjawab < data.length){
 
         alert(
-            `Masih ada ${data.length-dijawab} soal yang belum dijawab.`
+            `Masih ada ${data.length-terjawab} soal yang belum dijawab.`
         );
 
         return;
-
     }
-
 
     skorLatihan =
         Math.round(
-            benar/data.length*100
+            (benar/data.length)*100
         );
 
-
+    latihanPernahDicoba = true;
     latihanLulus =
-        skorLatihan>=70;
+        skorLatihan >= 70;
 
-
-    practiceResult.innerHTML=`
-
-    <div class="score-box">
-
-    <div>
-    Skor Latihan
-    </div>
-
-    <div class="score">
-    ${skorLatihan}
-    </div>
-
-    </div>
-
+    document.getElementById(
+        "practiceResult"
+    ).innerHTML = `
+        <div class="score-box">
+            <div>Skor Latihan</div>
+            <div class="score">${skorLatihan}</div>
+            <p>
+                ${latihanLulus
+                    ? "🎉 Latihan tuntas!"
+                    : "🌱 Latihan belum tuntas, pelajari kembali materi."
+                }
+            </p>
+        </div>
     `;
 
-
-    practiceActions.style.display=
-        "none";
-
+    document.getElementById(
+        "practiceActions"
+    ).style.display = "none";
 
     if(latihanLulus){
 
-        practicePass.classList.remove(
-            "hidden"
-        );
+        document.getElementById(
+            "practicePass"
+        ).classList.remove("hidden");
+
+        document.getElementById(
+            "practiceRetry"
+        ).classList.add("hidden");
 
     }else{
 
-        practiceRetry.classList.remove(
-            "hidden"
-        );
+        document.getElementById(
+            "practiceRetry"
+        ).classList.remove("hidden");
 
+        document.getElementById(
+            "practicePass"
+        ).classList.add("hidden");
     }
 
+    updateSession({
+        aktivitasTerakhir:
+            latihanLulus
+                ? "Latihan Tuntas"
+                : "Latihan Belum Tuntas",
+        skorLatihan,
+        statusLatihan:
+            latihanLulus
+                ? "Tuntas"
+                : "Belum Tuntas"
+    });
 }
-
-
-/* =====================================================
-PELAJARI KEMBALI
-===================================================== */
 
 function pelajariKembali(){
 
-    renderMateri();
+    referenceMode = false;
 
-    bukaHalaman(
-        "materi"
+    document.body.classList.remove(
+        "exercise-mode"
     );
 
-}
+    bukaHalaman("materi");
 
+    updateSession({
+        aktivitasTerakhir:"Pelajari Kembali"
+    });
+}
 
 function cobaLagi(){
 
-    mulaiLatihan();
+    document.body.classList.remove(
+        "exercise-mode"
+    );
 
+    mulaiLatihan();
 }
 
 
-/* =====================================================
-LKPD AKTIF
-===================================================== */
+/* =========================================================
+   LKPD
+   ========================================================= */
 
 function mulaiLKPD(){
 
     if(!latihanLulus){
 
         alert(
-            "Selesaikan latihan terlebih dahulu."
+            "LKPD baru dapat dibuka setelah latihan mencapai nilai ketuntasan."
         );
 
         return;
-
     }
 
-
-    const lkpd =
-        getLKPDAktif();
-
-
-    lkpdTitle.textContent =
-        `📋 LKPD ${materiDipilih} — ${jalurDipilih}`;
-
-
-    lkpdIntro.textContent =
-        `LKPD ini khusus untuk jalur ${jalurDipilih}. Tingkat bantuan dan tantangannya disesuaikan dengan kebutuhan belajarmu.`;
-
-
-    lkpdContent.innerHTML =
-        lkpd;
-
-
-    bukaHalaman(
-        "lkpd"
+    document.body.classList.remove(
+        "exercise-mode"
     );
 
+    const data =
+        getMateri();
+
+    document.getElementById(
+        "lkpdTitle"
+    ).textContent =
+        `📋 LKPD ${materiDipilih}`;
+
+    document.getElementById(
+        "lkpdIntro"
+    ).textContent =
+        `Terapkan konsep ${materiDipilih} melalui tugas berikut. Kamu boleh kembali ke Materi, Video, atau Games sebagai referensi.`;
+
+    document.getElementById(
+        "lkpdContent"
+    ).innerHTML =
+        data.lkpd;
+
+    updateSession({
+        aktivitasTerakhir:"Membuka LKPD"
+    });
+
+    bukaHalaman("lkpd");
 }
-
-
-/* =====================================================
-SELESAI LKPD
-===================================================== */
 
 function selesaiLKPD(){
 
-    sessionData.statusLKPD =
-        "Selesai";
+    updateSession({
+        aktivitasTerakhir:"Selesai LKPD",
+        statusLKPD:"Selesai"
+    });
 
-
-    localStorage.setItem(
-        "sessionData",
-        JSON.stringify(sessionData)
-    );
-
-
-    bukaHalaman(
-        "refleksi"
-    );
-
+    bukaHalaman("refleksi");
 }
-
-
-/* =====================================================
-REFERENSI
-===================================================== */
 
 function kembaliKeReferensi(){
 
-    renderMateri();
+    referenceMode = true;
 
-    bukaHalaman(
-        "materi"
+    document.body.classList.remove(
+        "exercise-mode"
     );
 
+    bukaHalaman("materi");
+
+    updateSession({
+        aktivitasTerakhir:"Membuka Referensi LKPD"
+    });
+}
+
+function kembaliKeLKPD(){
+
+    referenceMode = false;
+
+    document.getElementById(
+        "referenceBar"
+    ).classList.add("hidden");
+
+    bukaHalaman("lkpd");
+
+    updateSession({
+        aktivitasTerakhir:"Kembali ke LKPD"
+    });
 }
 
 
-/* =====================================================
-REFLEKSI
-===================================================== */
+/* =========================================================
+   PENGUMPULAN
+   ========================================================= */
+
+
+
+
+/* =========================================================
+   REFLEKSI
+   ========================================================= */
 
 function kirimRefleksi(){
 
     const paham =
-        refleksiPaham.value.trim();
+        document.getElementById(
+            "refleksiPaham"
+        ).value.trim();
 
     const sulit =
-        refleksiSulit.value.trim();
+        document.getElementById(
+            "refleksiSulit"
+        ).value.trim();
 
     const lanjut =
-        refleksiLanjut.value.trim();
+        document.getElementById(
+            "refleksiLanjut"
+        ).value.trim();
 
-
-    if(
-        !paham ||
-        !sulit ||
-        !lanjut
-    ){
+    if(!paham || !sulit || !lanjut){
 
         alert(
-            "Lengkapi refleksi terlebih dahulu."
+            "Silakan lengkapi seluruh bagian refleksi."
         );
 
         return;
-
     }
 
-
-    sessionData.waktuSelesai =
-        new Date().toISOString();
-
-    sessionData.statusPembelajaran =
-        "Selesai";
-
-    sessionData.refleksiPaham =
-        paham;
-
-    sessionData.refleksiSulit =
-        sulit;
-
-    sessionData.refleksiLanjut =
-        lanjut;
-
-
-    localStorage.setItem(
-        "sessionData",
-        JSON.stringify(sessionData)
-    );
-
-
-    kirimKeGoogleSheet();
-
-    tampilkanSelesai();
-
-    bukaHalaman(
-        "selesai"
-    );
-
-}
-
-
-/* =====================================================
-GOOGLE SHEETS
-===================================================== */
-
-function kirimKeGoogleSheet(){
-
-    if(sessionSent){
-
-        return;
-
-    }
-
-
-    const payload={
-
-        waktu:
-            sessionData.waktuSelesai
-            ||
-            new Date().toISOString(),
-
-        waktuMulai:
-            sessionData.waktuMulai
-            ||
-            "",
-
-        waktuSelesai:
-            sessionData.waktuSelesai
-            ||
-            "",
-
-        idSesi,
-
-        nama:
-            siswa.nama,
-
-        kelas:
-            siswa.kelas,
-
-        jurusan:
-            siswa.jurusan,
-
-        absen:
-            siswa.absen,
-
-        materi:
-            materiDipilih,
-
-        skorTes,
-
-        rekomendasi,
-
-        jalurDipilih,
-
-        skorLatihan,
-
-        statusLatihan:
-            latihanLulus
-            ?
-            "Tuntas"
-            :
-            "Belum Tuntas",
-
-        statusLKPD:
-            sessionData.statusLKPD
-            ||
-            "",
-
-        refleksiPaham:
-            sessionData.refleksiPaham
-            ||
-            "",
-
-        refleksiSulit:
-            sessionData.refleksiSulit
-            ||
-            "",
-
-        refleksiLanjut:
-            sessionData.refleksiLanjut
-            ||
-            "",
+    updateSession({
 
         aktivitasTerakhir:
             "Selesai Pembelajaran",
 
+        refleksiPaham:paham,
+        refleksiSulit:sulit,
+        refleksiLanjut:lanjut,
+
+        waktuSelesai:
+            new Date().toISOString(),
+
         statusPembelajaran:
             "Selesai"
+    });
 
+    kirimKeGoogleSheet();
+
+    bukaHalaman("selesai");
+}
+
+
+/* =========================================================
+   GOOGLE SHEETS
+   ========================================================= */
+
+/*
+   Catatan:
+   Apps Script membaca field:
+   waktu, nama, kelas, jurusan, absen, materi, skorTes,
+   rekomendasi, jalurDipilih, skorLatihan, statusLatihan,
+   statusLKPD, refleksiPaham, refleksiSulit, refleksiLanjut,
+   aktivitas.
+
+   Karena request menggunakan no-cors, browser tidak dapat membaca
+   isi respons Apps Script. Namun request POST tetap dikirim.
+*/
+
+function kirimKeGoogleSheet(){
+
+    if(sessionSent){
+        console.warn(
+            "Sesi ini sudah dikirim. Pengiriman kedua dicegah."
+        );
+        return;
+    }
+
+    if(!SCRIPT_URL){
+
+        console.error(
+            "SCRIPT_URL belum diisi."
+        );
+
+        return;
+    }
+
+    const payload = {
+
+        waktu:
+            sessionData.waktuSelesai ||
+            new Date().toISOString(),
+
+        waktuMulai:
+            sessionData.waktuMulai || "",
+
+        waktuSelesai:
+            sessionData.waktuSelesai || "",
+
+        idSesi:
+            idSesi,
+
+        nama:
+            siswa.nama || "",
+
+        kelas:
+            siswa.kelas || "",
+
+        jurusan:
+            siswa.jurusan || "",
+
+        absen:
+            siswa.absen || "",
+
+        materi:
+            materiDipilih || "",
+
+        skorTes:
+            skorTes,
+
+        rekomendasi:
+            rekomendasi || "",
+
+        jalurDipilih:
+            jalurDipilih || "",
+
+        skorLatihan:
+            skorLatihan,
+
+        statusLatihan:
+            latihanPernahDicoba
+                ? (
+                    latihanLulus
+                        ? "Tuntas"
+                        : "Belum Tuntas"
+                )
+                : "",
+
+        statusLKPD:
+            sessionData.statusLKPD || "",
+
+        refleksiPaham:
+            sessionData.refleksiPaham || "",
+
+        refleksiSulit:
+            sessionData.refleksiSulit || "",
+
+        refleksiLanjut:
+            sessionData.refleksiLanjut || "",
+
+        aktivitas:
+            sessionData.aktivitasTerakhir || "",
+
+        aktivitasTerakhir:
+            sessionData.aktivitasTerakhir || "",
+
+        statusPembelajaran:
+            sessionData.statusPembelajaran || "Selesai"
     };
 
+    console.log(
+        "📤 Mengirim satu sesi ke Google Sheets:",
+        payload
+    );
 
     fetch(
         SCRIPT_URL,
         {
-
             method:"POST",
-
             mode:"no-cors",
-
             headers:{
                 "Content-Type":
-                "text/plain;charset=utf-8"
+                    "text/plain;charset=utf-8"
             },
-
             body:
                 JSON.stringify(payload)
-
         }
     )
-    .then(
-        ()=>{
-            sessionSent=true;
-        }
-    )
-    .catch(
-        error=>{
-            console.error(
-                "Gagal mengirim data:",
-                error
-            );
-        }
-    );
+    .then(()=>{
 
+        console.log(
+            "✅ Request data sesi telah dikirim."
+        );
+
+        sessionSent = true;
+
+        safeStorage.removeItem(
+            "sessionData"
+        );
+
+    })
+    .catch(error=>{
+
+        console.error(
+            "❌ Gagal mengirim data:",
+            error
+        );
+
+    });
 }
 
 
-/* =====================================================
-HALAMAN SELESAI
-===================================================== */
+/* =========================================================
+   SELESAI
+   ========================================================= */
 
-function tampilkanSelesai(){
+function tampilkanHalamanSelesai(){
 
-    finishMessage.innerHTML=
-        `<strong>
-        ${esc(siswa.nama)}
-        </strong>,
-        kamu telah menyelesaikan pembelajaran.`;
+    document.getElementById(
+        "finishMessage"
+    ).innerHTML = `
+        <strong>${escapeHTML(siswa.nama)}</strong>,
+        kamu telah menyelesaikan pembelajaran
+        <strong>${escapeHTML(materiDipilih)}</strong>.
+    `;
 
-    finishMaterial.textContent=
+    document.getElementById(
+        "finishMaterial"
+    ).textContent =
         materiDipilih;
 
-    finishPath.textContent=
-        jalurDipilih;
+    document.getElementById(
+        "finishPath"
+    ).textContent =
+        jalurDipilih || "-";
 
-    finishTestScore.textContent=
+    document.getElementById(
+        "finishTestScore"
+    ).textContent =
         skorTes;
 
-    finishPracticeScore.textContent=
+    document.getElementById(
+        "finishPracticeScore"
+    ).textContent =
         skorLatihan;
-
 }
 
 
-/* =====================================================
-KEMBALI KE DAFTAR MATERI
-===================================================== */
+/* =========================================================
+   KEMBALI KE MATERI
+   ========================================================= */
 
 function kembaliKeMateri(){
 
-    window.location.href=
-        "materi.html";
+    const active =
+        document.querySelector(
+            ".page.active"
+        );
 
+    if(
+        active &&
+        (
+            active.id==="studentPage" ||
+            active.id==="testPage"
+        )
+    ){
+        window.location.href =
+            "materi.html";
+        return;
+    }
+
+    if(
+        active &&
+        active.id==="practicePage"
+    ){
+
+        if(
+            latihanPernahDicoba &&
+            !latihanLulus
+        ){
+
+            pelajariKembali();
+            return;
+        }
+
+        return;
+    }
+
+    window.location.href =
+        "materi.html";
 }
 
 
-/* =====================================================
-LOAD
-===================================================== */
+/* =========================================================
+   LOAD
+   ========================================================= */
 
 document.addEventListener(
     "DOMContentLoaded",
-    ()=>{
+    function(){
 
         const data =
             getMateri();
 
-
-        selectedMaterialName.textContent =
+        document.getElementById(
+            "selectedMaterialName"
+        ).textContent =
             materiDipilih;
 
-
-        studentHeroIcon.textContent =
+        document.getElementById(
+            "studentHeroIcon"
+        ).textContent =
             data.icon;
 
-
-        studentHeroTitle.textContent =
+        document.getElementById(
+            "studentHeroTitle"
+        ).textContent =
             `Belajar ${materiDipilih}`;
 
+        muatDataSiswa();
 
-        const saved =
-            localStorage.getItem(
-                "dataSiswa"
-            );
+        if(siswa.nama){
 
+            document.getElementById(
+                "namaSiswa"
+            ).value =
+                siswa.nama;
 
-        if(saved){
+            document.getElementById(
+                "kelasSiswa"
+            ).value =
+                siswa.kelas;
 
-            try{
+            document.getElementById(
+                "jurusanSiswa"
+            ).value =
+                siswa.jurusan;
 
-                siswa =
-                    JSON.parse(saved);
-
-
-                namaSiswa.value =
-                    siswa.nama
-                    ||
-                    "";
-
-                kelasSiswa.value =
-                    siswa.kelas
-                    ||
-                    "";
-
-                jurusanSiswa.value =
-                    siswa.jurusan
-                    ||
-                    "";
-
-                absenSiswa.value =
-                    siswa.absen
-                    ||
-                    "";
-
-            }catch(error){
-
-                console.error(error);
-
-            }
-
+            document.getElementById(
+                "absenSiswa"
+            ).value =
+                siswa.absen;
         }
 
-
-        tampilkanSiswa(
-            "studentInfoTest"
-        );
-
-
-        tampilkanSiswa(
-            "studentInfoMaterial"
-        );
-
-
-        bukaHalaman(
-            "data"
-        );
-
+        bukaHalaman("data");
     }
 );
-
 </script>
 
 </body>
