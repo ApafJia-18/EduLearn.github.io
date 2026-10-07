@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pilih Materi - EduLearn</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fredoka:wght@500;600;700&display=swap');
+
+:root{
+    --navy:#172554;
+    --orange:#ff795d;
+    --yellow:#ffd85c;
+    --blue:#75c9e8;
+    --green:#8bd3a8;
+    --purple:#c7b7f5;
+    --cream:#fffaf0;
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:'DM Sans',sans-serif;
+    background:var(--cream);
+    color:var(--navy);
+}
+
+h1,h2,h3,.logo{
+    font-family:'Fredoka',sans-serif;
+}
+
+.navbar{
+    height:82px;
+    padding:0 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:var(--cream);
+}
+
+.logo{
+    font-size:27px;
+}
+
+.logo span{
+    color:var(--orange);
+}
+
+.back{
+    text-decoration:none;
+    color:var(--navy);
+    font-weight:700;
+}
+
+.hero{
+    padding:60px 7% 45px;
+    text-align:center;
+}
+
+.hero .label{
+    display:inline-block;
+    padding:8px 18px;
+    background:var(--yellow);
+    border-radius:30px;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:50px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    max-width:650px;
+    margin:auto;
+    color:#65708b;
+    line-height:1.8;
+}
+
+.materials{
+    width:86%;
+    max-width:1150px;
+    margin:25px auto 100px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.card{
+    min-height:330px;
+    padding:30px;
+    border-radius:30px;
+    position:relative;
+    overflow:hidden;
+    transition:.25s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card:nth-child(1){
+    background:#ffe6d7;
+}
+
+.card:nth-child(2){
+    background:#dff5ff;
+}
+
+.card:nth-child(3){
+    background:#e7e0ff;
+}
+
+.card:nth-child(4){
+    background:#fff1b8;
+}
+
+.card:nth-child(5){
+    background:#dff3e5;
+}
+
+.card:nth-child(6){
+    background:#ffdce6;
+}
+
+.icon{
+    width:75px;
+    height:75px;
+    background:white;
+    border-radius:22px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:40px;
+    margin-bottom:25px;
+}
+
+.card h2{
+    font-size:25px;
+    margin-bottom:12px;
+}
+
+.card p{
+    color:#56627b;
+    line-height:1.7;
+    min-height:70px;
+}
+
+.start{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 20px;
+    border-radius:25px;
+    background:var(--navy);
+    color:white;
+    text-decoration:none;
+    font-weight:700;
+    border:none;
+    cursor:pointer;
+}
+
+.decor{
+    position:absolute;
+    right:-25px;
+    bottom:-35px;
+    width:110px;
+    height:110px;
+    border-radius:50%;
+    background:rgba(255,255,255,.5);
+}
+
+@media(max-width:850px){
+
+    .materials{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:40px;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        Edu<span>Learn</span> ✦
+    </div>
+
+    <a href="index.html" class="back">
+        ← Beranda
+    </a>
+
+</nav>
+
+
+<section class="hero">
+
+    <div class="label">
+        ✦ Let's Learn
+    </div>
+
+    <h1>
+        Selamat Datang di kelas Diferensiasi!
+    </h1>
+
+    <p>
+        Pilih satu materi Informatika yang ingin kamu pelajari.
+        Setelah itu, ikuti proses belajarmu.
+    </p>
+
+</section>
+
+
+<section class="materials">
+
+
+    <div class="card">
+
+        <div class="icon">🧩</div>
+
+        <h2>Berpikir Komputasional</h2>
+
+        <p>
+            Mengenal dekomposisi, pola,
+            abstraksi, dan algoritma.
+        </p>
+
+        <button class="start"
+                onclick="pilihMateri('Berpikir Komputasional')">
+            Mulai →
+        </button>
+
+        <div class="decor"></div>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="icon">🔀</div>
+
+        <h2>Flowchart</h2>
+
+        <p>
+            Belajar menyusun langkah penyelesaian
+            masalah dan menggambarkannya 
+            dengan Diagram Alir.
+        </p>
+
+        <button class="start"
+                onclick="pilihMateri('Flowchart')">
+            Mulai →
+        </button>
+
+        <div class="decor"></div>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="icon">💻</div>
+
+        <h2>Pseudocode</h2>
+
+        <p>
+            Belajar mini program dan algoritma
+            dengan Pseudocode.
+        </p>
+
+        <button class="start"
+                onclick="pilihMateri('Pseudocode')">
+            Mulai →
+        </button>
+
+        <div class="decor"></div>
+
+    </div>
+
+
+   
+</section>
+
+
+<script>
+
+function pilihMateri(materi){
+
+    localStorage.clear();
+
+    localStorage.setItem(
+        "materiDipilih",
+        materi
+    );
+
+    window.location.href="belajar.html";
+
+}
+
+</script>
+
+</body>
+</html>
