@@ -2517,7 +2517,6 @@ function simpanDataSiswa(){
     jalurDipilih = ""; rekomendasi = ""; skorTes = ""; skorLatihan = "";
     latihanLulus = false; latihanPernahDicoba = false; routeMode = "learning";
     updateSession({aktivitasTerakhir:"Data Siswa Diisi", statusPembelajaran:"Sedang Berlangsung"});
-    kirimKeGoogleSheet("siswa");
     bukaHalaman("pilihan");
 }
 
@@ -2525,7 +2524,6 @@ function mulaiTesKognitif(){
     routeMode = "learning";
     buatSoalTes();
     updateSession({aktivitasTerakhir:"Memulai Tes Kognitif"});
-    kirimKeGoogleSheet("siswa");
     bukaHalaman("tes");
 }
 
@@ -2713,7 +2711,6 @@ function periksaTes(){
         rekomendasi
     });
 
-    kirimKeGoogleSheet("siswa");
     bukaHalaman("jalur");
 }
 
@@ -2767,7 +2764,6 @@ function mulaiMateri(){
     }
 
     updateSession({aktivitasTerakhir:"Mulai Materi", jalurDipilih});
-    kirimKeGoogleSheet("siswa");
     bukaHalaman("materi");
 }
 
@@ -2788,7 +2784,6 @@ function updateInfoMateri(){
 
 function lanjutKeRefleksi(){
     updateSession({aktivitasTerakhir:"Selesai Mempelajari Materi"});
-    kirimKeGoogleSheet("siswa");
     bukaHalaman("refleksi");
 }
 
