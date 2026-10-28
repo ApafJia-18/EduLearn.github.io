@@ -578,6 +578,88 @@ tr:nth-child(even) td{background:#fffdf8}
         animation:none!important;
     }
 }
+
+.game-round{margin:14px 0;padding:14px;border:1px solid #ffd85c;border-radius:16px;background:#fffaf0}
+.game-round h3{margin:0 0 8px;color:#172554;font-size:1rem}
+.game-round .btn{margin:5px 5px 5px 0;white-space:normal}
+.game-box .gameResult{margin-top:12px}
+
+/* Arcade mini-games: browser-playable, no download required */
+.arcade-game{overflow:hidden;border:2px solid #75c9e8!important;background:linear-gradient(145deg,#fffaf0,#f1f8ff)!important;border-radius:22px!important;box-shadow:0 10px 0 rgba(23,37,84,.08)}
+.arcade-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.arcade-tag{background:#172554;color:#fffaf0;border-radius:999px;padding:7px 12px;font-size:.78rem;font-weight:800;letter-spacing:.04em}
+.arcade-score{background:#ffd85c;color:#172554;border-radius:999px;padding:7px 12px;font-weight:800}
+.arcade-progress{height:12px;background:#e4e9f2;border-radius:999px;overflow:hidden;margin:14px 0 20px}
+.arcade-fill{display:block;height:100%;width:0;background:linear-gradient(90deg,#75c9e8,#8bd3a8);border-radius:999px;transition:width .3s ease}
+.arcade-mission{background:#fff;border:2px dashed #b9dff0;border-radius:18px;padding:18px}
+.arcade-level{display:inline-block;font-weight:900;color:#f06f55;font-size:.78rem;letter-spacing:.07em;margin-bottom:8px}
+.arcade-prompt{color:#172554;line-height:1.45;margin:8px 0 16px}
+.arcade-choices{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px}
+.arcade-choices button{min-height:62px;border:2px solid #dce7f0;border-radius:14px;background:#fffaf0;color:#172554;font-weight:750;padding:12px;cursor:pointer;transition:transform .15s,border-color .15s,background .15s}
+.arcade-choices button:hover{transform:translateY(-2px);border-color:#75c9e8;background:#eefaff}
+.arcade-choices button:disabled{cursor:default;opacity:.78;transform:none}
+.arcade-choices button.arcade-correct{background:#dff7e8;border-color:#55b77d}
+.arcade-choices button.arcade-wrong{background:#ffe5e1;border-color:#f08a7c}
+.arcade-feedback{min-height:28px;font-weight:750;color:#172554;margin:14px 0 8px}
+.arcade-next:disabled{opacity:.45;cursor:not-allowed}
+.arcade-final{padding:14px;border-radius:14px;background:#fff0b8;color:#172554;font-weight:800;margin-top:12px}
+@media(max-width:560px){.arcade-mission{padding:12px}.arcade-choices{grid-template-columns:1fr}.arcade-choices button{min-height:52px}}
+
+
+
+.arcade-action-panel{position:relative;z-index:2;padding:12px;color:#172554;background:#fffaf0;border-radius:16px;margin:8px;max-height:100%;overflow:auto}
+.cpu-seq,.audit-evidence{text-align:center;font-weight:800;line-height:1.5;margin-bottom:12px}.cpu-seq p{margin:8px 0;color:#f06f55}.arcade-action-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.arcade-choice-tile{border:2px solid #75c9e8;border-radius:14px;padding:14px 10px;background:white;color:#172554;font-size:1rem;font-weight:900;cursor:pointer;min-height:58px}.arcade-choice-tile:hover{background:#eaf8ff;transform:translateY(-2px)}.audit-evidence>span{font-size:2.6rem}.audit-evidence .arcade-action-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.arcade-maze{position:relative;z-index:2;display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:2px;width:min(100%,390px);margin:0 auto;padding:8px;background:#0b1228;border-radius:12px}.maze-cell{aspect-ratio:1;display:grid;place-items:center;border-radius:4px;font-size:clamp(12px,2.6vw,22px);overflow:hidden}.maze-cell.wall{background:#284b91}.maze-cell.floor{background:#fffaf0}.maze-cell.player{background:#ffd85c;animation:playerPulse .45s ease-in-out infinite alternate}@keyframes playerPulse{to{transform:scale(.88);box-shadow:0 0 12px #ffd85c}}.arcade-catcher{position:absolute;z-index:3;bottom:0;font-size:42px;left:45%;width:54px;text-align:center;filter:drop-shadow(0 0 8px #ffd85c)}.arcade-stage .arcade-flyer{animation:arcadeFly var(--duration,7s) linear forwards,arcadeBob .9s ease-in-out infinite alternate}
+
+/* Real animated arcade arena */
+.arcade-game .arcade-progress,.arcade-game .arcade-mission{display:none!important}
+.arcade-game .arcade-intro{margin:0 0 14px}
+.arcade-arena{position:relative;min-height:340px;overflow:hidden;border:3px solid #172554;border-radius:22px;background:radial-gradient(circle at 20% 15%,#284b91 0,#172554 42%,#0b1228 100%);box-shadow:inset 0 0 35px #75c9e855;margin:16px 0;color:#fffaf0;isolation:isolate}
+.arcade-arena:before{content:"";position:absolute;inset:0;background-image:radial-gradient(#fff 1px,transparent 1px),radial-gradient(#75c9e8 1px,transparent 1px);background-size:41px 41px,67px 67px;background-position:0 0,18px 22px;opacity:.35;animation:arcadeStars 12s linear infinite;pointer-events:none}
+@keyframes arcadeStars{to{background-position:41px 41px,-49px 89px}}
+.arcade-hud{position:relative;z-index:2;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;padding:12px}
+.arcade-hud span{background:#fffaf0;color:#172554;border-radius:999px;padding:7px 11px;font-weight:900;font-size:.85rem}
+.arcade-stage{position:absolute;inset:100px 0 58px;overflow:hidden}
+.arcade-flyer{position:absolute;left:0;top:0;display:grid;place-items:center;width:64px;height:64px;border:3px solid #fffaf0;border-radius:18px;background:linear-gradient(145deg,#ffd85c,#ff795d);font-size:34px;cursor:pointer;box-shadow:0 5px 0 #0004,0 0 18px #ffd85c88;animation:arcadeFly var(--duration,4s) linear forwards,arcadeBob .65s ease-in-out infinite alternate;user-select:none;z-index:2;touch-action:manipulation}
+.arcade-flyer.good{background:linear-gradient(145deg,#8bd3a8,#75c9e8);box-shadow:0 5px 0 #0004,0 0 18px #8bd3a888}
+.arcade-flyer:hover{filter:brightness(1.15);transform:scale(1.08)}
+.arcade-flyer.pop{animation:arcadePop .24s ease-out forwards;pointer-events:none}
+@keyframes arcadeFly{from{transform:translateX(-75px) rotate(-8deg)}to{transform:translateX(min(78vw, 760px)) rotate(8deg)}}
+@keyframes arcadeBob{from{margin-top:0}to{margin-top:35px}}
+@keyframes arcadePop{to{opacity:0;transform:scale(1.8) rotate(25deg)}}
+.arcade-bottom{position:absolute;z-index:3;left:12px;right:12px;bottom:12px;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.arcade-bottom small{color:#d9f2ff;font-weight:700}
+.arcade-start{border:0;border-radius:999px;background:#ffd85c;color:#172554;padding:12px 20px;font-size:1rem;font-weight:950;cursor:pointer;box-shadow:0 4px 0 #b48d22;transition:transform .15s}
+.arcade-start:hover{transform:translateY(-2px)}
+.arcade-start:active{transform:translateY(2px);box-shadow:none}
+.arcade-message{padding:12px 14px;border-radius:14px;background:#eaf8ff;color:#172554;font-weight:800;margin:10px 0;min-height:46px;line-height:1.5}.arcade-goal{position:absolute;z-index:3;left:12px;right:12px;top:58px;padding:9px 12px;border-radius:12px;background:#fffaf0;color:#172554;font-weight:900;text-align:center;line-height:1.35}.arcade-stage .arcade-flyer{transition:filter .15s,scale .15s}.arcade-stage .arcade-flyer:focus-visible{outline:4px solid #ffd85c;outline-offset:3px}
+.arcade-result-pop{position:absolute;z-index:5;inset:0;display:grid;place-items:center;text-align:center;background:#101a35d9;padding:20px;animation:arcadeFade .25s ease-out}
+.arcade-result-pop strong{font-size:clamp(1.5rem,4vw,2.5rem);display:block;color:#ffd85c}
+.arcade-result-pop p{font-weight:800;color:white}
+@keyframes arcadeFade{from{opacity:0}to{opacity:1}}
+.arcade-game .arcade-head{margin-bottom:8px}
+@media(max-width:560px){.arcade-arena{min-height:390px}.arcade-flyer{width:50px;height:50px;font-size:25px}.arcade-hud span{font-size:.76rem;padding:6px 8px}}
+@media(prefers-reduced-motion:reduce){.arcade-arena:before,.arcade-flyer{animation:none!important}}
+
+
+.infografis-materi{margin:24px 0;padding:20px;border:2px solid #dbeafe;border-radius:18px;background:linear-gradient(135deg,#fffaf0,#eff8ff);color:#172554}
+.infografis-materi h3{margin:0 0 7px;color:#172554}
+.info-subtitle{margin:0 0 16px;color:#475569;font-size:.94rem}
+.info-flow{display:flex;align-items:stretch;justify-content:center;gap:9px;flex-wrap:wrap}
+.info-step{flex:1 1 130px;min-width:115px;max-width:220px;padding:14px 12px;border:1px solid #cbd5e1;border-radius:14px;background:#fff;text-align:center;box-shadow:0 4px 12px rgba(23,37,84,.06)}
+.info-step span{display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:30px;margin-bottom:8px;padding:0 7px;border-radius:50px;background:#75c9e8;color:#172554;font-weight:800}
+.info-step strong{display:block;margin-bottom:5px;font-size:1rem}
+.info-step small{display:block;color:#475569;line-height:1.45}
+.info-arrow{align-self:center;font-size:1.5rem;font-weight:800;color:#ff795d}
+.info-note{flex-basis:100%;margin:8px 0 0;padding:12px 14px;border-left:4px solid #ff795d;border-radius:8px;background:#fff;color:#334155}
+@media(max-width:640px){.infografis-materi{padding:14px}.info-step{flex-basis:40%;min-width:110px}.info-arrow{font-size:1.15rem}}
+
+
+/* AI case game: layout statis dan responsif, tanpa arena bergerak/labirin */
+.arcade-game[data-arcade="aiCase"] .arcade-mission{width:100%;max-width:100%;min-width:0;box-sizing:border-box;overflow-wrap:anywhere}
+.arcade-game[data-arcade="aiCase"] .arcade-choices{display:grid;grid-template-columns:repeat(1,minmax(0,1fr));gap:10px;width:100%;min-width:0}
+.arcade-game[data-arcade="aiCase"] .arcade-choices button{width:100%;max-width:100%;min-width:0;white-space:normal;overflow-wrap:anywhere;text-align:left;line-height:1.45;padding:12px 14px;box-sizing:border-box}
+.arcade-game[data-arcade="aiCase"] .arcade-prompt{overflow-wrap:anywhere;line-height:1.45}
+@media(min-width:720px){.arcade-game[data-arcade="aiCase"] .arcade-choices{grid-template-columns:repeat(3,minmax(0,1fr))}.arcade-game[data-arcade="aiCase"] .arcade-choices button{text-align:center}}
 </style>
 </head>
 
@@ -602,13 +684,12 @@ tr:nth-child(even) td{background:#fffdf8}
 <div class="progress-wrapper">
     <div class="progress">
         <div class="progress-step active" id="progress1">1<br>Data</div>
-        <div class="progress-step" id="progress2">2<br>Tes</div>
-        <div class="progress-step" id="progress3">3<br>Jalur</div>
-        <div class="progress-step" id="progress4">4<br>Materi</div>
-        <div class="progress-step" id="progress5">5<br>Latihan</div>
-        <div class="progress-step" id="progress6">6<br>LKPD</div>
-        <div class="progress-step" id="progress7">7<br>Refleksi</div>
-        <div class="progress-step" id="progress8">8<br>Selesai</div>
+        <div class="progress-step" id="progress2">2<br>Pilihan</div>
+        <div class="progress-step" id="progress3">3<br>Tes</div>
+        <div class="progress-step" id="progress4">4<br>Jalur</div>
+        <div class="progress-step" id="progress5">5<br>Belajar</div>
+        <div class="progress-step" id="progress6">6<br>Refleksi</div>
+        <div class="progress-step" id="progress7">7<br>Selesai</div>
     </div>
 </div>
 
@@ -657,12 +738,36 @@ tr:nth-child(even) td{background:#fffdf8}
     </div>
 </section>
 
-<!-- 2. TES -->
+<!-- 2. PILIH ALUR -->
+<section class="page" id="routePage">
+    <div class="card hero">
+        <div class="hero-icon">🧭</div>
+        <span class="section-label">PILIH ALUR BELAJAR</span>
+        <h1>Mulai dari Mana Hari Ini?</h1>
+        <p>Pilih salah satu alur sesuai kebutuhanmu. Kamu bisa mengikuti tes kognitif untuk mendapatkan rekomendasi jalur belajar, atau langsung mengerjakan latihan akhir.</p>
+    </div>
+    <div class="path-grid">
+        <div class="path-card" onclick="mulaiTesKognitif()">
+            <div class="path-icon">🧠</div><h3>Tes Kognitif</h3>
+            <span class="badge">Belajar sesuai kebutuhan</span>
+            <p>Kerjakan tes awal, lihat rekomendasi, pilih jalur belajar, lalu pelajari materi.</p>
+            <button class="btn btn-primary" type="button" onclick="event.stopPropagation(); mulaiTesKognitif()">Tes dan Belajar →</button>
+        </div>
+        <div class="path-card" onclick="latihanLangsung()">
+            <div class="path-icon">✏️</div><h3>Latihan Akhir</h3>
+            <span class="badge">Langsung mengerjakan</span>
+            <p>Lewati tes kognitif dan materi. Kerjakan latihan akhir untuk mengukur pemahamanmu saat ini.</p>
+            <button class="btn btn-secondary" type="button" onclick="event.stopPropagation(); latihanLangsung()">Mulai Latihan →</button>
+        </div>
+    </div>
+</section>
+
+<!-- 3. TES -->
 <section class="page" id="testPage">
     <div class="card">
         <div class="student-info" id="studentInfoTest"></div>
 
-        <span class="section-label">TAHAP 1 · KENALI PEMAHAMANMU</span>
+        <span class="section-label">TAHAP 2 · KENALI PEMAHAMANMU</span>
         <h1 id="testTitle">🧠 Tes Kognitif Awal</h1>
         <p>
             Jawablah setiap pertanyaan berdasarkan pemahamanmu.
@@ -683,7 +788,7 @@ tr:nth-child(even) td{background:#fffdf8}
 <!-- 3. JALUR -->
 <section class="page" id="pathPage">
     <div class="card">
-        <span class="section-label">TAHAP 2 · TENTUKAN JALUR</span>
+        <span class="section-label">TAHAP 3 · TENTUKAN JALUR</span>
         <h1>🎯 Pilih Jalur Belajarmu</h1>
         <p>
             Sistem memberikan rekomendasi berdasarkan tes awal.
@@ -738,7 +843,7 @@ tr:nth-child(even) td{background:#fffdf8}
     <div class="card">
         <div class="student-info" id="studentInfoMaterial"></div>
 
-        <span class="section-label">TAHAP 3 · BELAJAR</span>
+        <span class="section-label">TAHAP 4 · BELAJAR</span>
         <h1 id="materialTitle">Materi</h1>
         <p>
             Materi:
@@ -746,13 +851,7 @@ tr:nth-child(even) td{background:#fffdf8}
         </p>
         <p id="materialDescription"></p>
         <p id="jalurInfo"></p>
-
-        <div id="referenceBar" class="reference-bar hidden">
-            📌 Mode referensi LKPD — kamu dapat membaca materi, menonton video,
-            atau mencoba games. Setelah selesai, kembali ke LKPD.
-        </div>
-
-        <div class="tab-buttons" id="materialTabs">
+<div class="tab-buttons" id="materialTabs">
             <button class="tab-btn active" id="tabMaterial" onclick="bukaSubmenu('material')">
                 📖 Materi
             </button>
@@ -769,79 +868,27 @@ tr:nth-child(even) td{background:#fffdf8}
         <div class="tab-content" id="contentGames"></div>
 
         <div class="button-row" id="materialActions">
-            <button class="btn btn-primary" onclick="mulaiLatihan()">
-                Lanjut ke Latihan →
+            <button class="btn btn-primary" onclick="lanjutKeRefleksi()">
+                Selesai Belajar →
             </button>
         </div>
     </div>
 </section>
 
-<!-- 5. LATIHAN -->
+<!-- LATIHAN AKHIR (BISA DIPILIH LANGSUNG DARI AWAL) -->
 <section class="page" id="practicePage">
     <div class="card">
-        <span class="section-label">TAHAP 4 · LATIHAN</span>
-        <h1 id="practiceTitle">✏️ Latihan</h1>
-        <p>
-            Kerjakan latihan secara mandiri. Saat latihan berlangsung,
-            menu lain dikunci agar kamu dapat fokus.
-        </p>
-
+        <span class="section-label">LATIHAN AKHIR</span>
+        <h1 id="practiceTitle">✏️ Latihan Akhir</h1>
+        <p>Jawablah semua pertanyaan. Hasil latihan akan dicatat pada tab <strong>Hasil Latihan</strong> di Google Sheets.</p>
         <div id="practiceQuestions"></div>
         <div id="practiceResult"></div>
-
         <div class="button-row" id="practiceActions">
-            <button class="btn btn-primary" onclick="periksaLatihan()">
-                Periksa Latihan
-            </button>
+            <button class="btn btn-primary" onclick="periksaLatihan()">Periksa Jawaban →</button>
         </div>
-
-        <div id="practiceRetry" class="hidden">
-            <div class="notice error">
-                Latihan belum tuntas. Pelajari kembali materi yang masih sulit,
-                lalu coba latihan lagi.
-            </div>
-
-            <div class="button-row">
-                <button class="btn btn-warning" onclick="pelajariKembali()">
-                    🔄 Pelajari Kembali
-                </button>
-                <button class="btn btn-primary" onclick="cobaLagi()">
-                    Coba Lagi →
-                </button>
-            </div>
-        </div>
-
-        <div id="practicePass" class="hidden">
-            <div class="notice success">
-                🎉 Latihan tuntas! LKPD sekarang sudah terbuka.
-            </div>
-
-            <div class="button-row">
-                <button class="btn btn-success" onclick="mulaiLKPD()">
-                    Lanjut ke LKPD →
-                </button>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- 6. LKPD -->
-<section class="page" id="lkpdPage">
-    <div class="card">
-        <span class="section-label">TAHAP 5 · TERAPKAN</span>
-        <h1 id="lkpdTitle">📋 LKPD</h1>
-        <p id="lkpdIntro"></p>
-
-        <div id="lkpdContent"></div>
-
-        <div class="notice">
-            Kerjakan LKPD pada lembar yang diberikan guru. Setelah selesai, lanjutkan ke refleksi pembelajaran.
-        </div>
-
-        <div class="button-row">
-            <button class="btn btn-primary" onclick="selesaiLKPD()">
-                Selesai LKPD →
-            </button>
+        <div id="practiceFinish" class="hidden">
+            <div class="notice success">Jawaban latihan sudah diperiksa. Terima kasih sudah mencoba!</div>
+            <div class="button-row"><button class="btn btn-success" onclick="selesaiLatihanLangsung()">Selesai →</button></div>
         </div>
     </div>
 </section>
@@ -849,7 +896,7 @@ tr:nth-child(even) td{background:#fffdf8}
 <!-- 7. REFLEKSI -->
 <section class="page" id="reflectionPage">
     <div class="card">
-        <span class="section-label">TAHAP 7 · REFLEKSI</span>
+        <span class="section-label">TAHAP 5 · REFLEKSI</span>
         <h1>💭 Refleksi Pembelajaran</h1>
         <p>
             Tidak ada jawaban benar atau salah. Gunakan refleksi ini untuk
@@ -977,7 +1024,7 @@ const safeStorage = {
    ========================================================= */
 
 const materiDipilih =
-    safeStorage.getItem("materiDipilih") || "Berpikir Komputasional";
+    safeStorage.getItem("materiDipilih") || "Pseudocode";
 
 
 /* =========================================================
@@ -1029,6 +1076,21 @@ const mediaPembelajaran = {
             "Pengayaan": "https://youtu.be/5HlmceV7A6M?si=AZ0zDf59PoBeW2Vt"
         }
     }
+    ,"Model Von Neumann": {
+        gambar: {
+            "Penguatan": "https://placehold.co/900x506/75c9e8/172554?text=Model+Von+Neumann+-+Penguatan",
+            "Reguler": "https://placehold.co/900x506/8bd3a8/172554?text=Model+Von+Neumann+-+Reguler",
+            "Pengayaan": "https://placehold.co/900x506/c7b7f5/172554?text=Model+Von+Neumann+-+Pengayaan"
+        }, video: {"Penguatan":"", "Reguler":"", "Pengayaan":""}
+    },
+    "Konsep Dasar AI": {
+        gambar: {
+            "Penguatan": "https://placehold.co/900x506/75c9e8/172554?text=Konsep+Dasar+AI+-+Penguatan",
+            "Reguler": "https://placehold.co/900x506/8bd3a8/172554?text=Konsep+Dasar+AI+-+Reguler",
+            "Pengayaan": "https://placehold.co/900x506/c7b7f5/172554?text=Konsep+Dasar+AI+-+Pengayaan"
+        }, video: {"Penguatan":"", "Reguler":"", "Pengayaan":""}
+    }
+
 };
 
 function getMediaPembelajaran(namaMateri, jalur) {
@@ -1088,6 +1150,8 @@ let latihanLulus = false;
 let latihanPernahDicoba = false;
 
 let referenceMode = false;
+let routeMode = "learning";
+let sheetSendQueue = Promise.resolve();
 let sessionSent = false;
 
 let idSesi =
@@ -1150,7 +1214,7 @@ const materiData = {
 
                     
                 </div>
-            `,
+            <section class="material-box extra-materi"><h2>📘 Materi Tambahan: Mengenal Artificial Intelligence</h2><h3>a. Pengertian Artificial Intelligence</h3><p><strong>Artificial Intelligence (AI)</strong> atau kecerdasan buatan adalah bidang dalam ilmu komputer yang berfokus pada pengembangan sistem atau mesin yang mampu melakukan tugas yang biasanya membutuhkan kemampuan kecerdasan manusia.</p><p>AI dapat membantu komputer mengenali gambar, memahami bahasa, mengenali suara, memberikan rekomendasi, membuat prediksi, dan membantu mengambil keputusan.</p><h3>b. Contoh AI dalam kehidupan sehari-hari</h3><ol><li><strong>Google Maps:</strong> memberikan rekomendasi rute perjalanan dengan mempertimbangkan kondisi lalu lintas.</li><li><strong>YouTube:</strong> memberikan rekomendasi video berdasarkan pola tontonan dan interaksi pengguna.</li><li><strong>Pengenalan wajah:</strong> membantu mengenali karakteristik wajah untuk mendukung proses membuka perangkat.</li><li><strong>Chatbot AI:</strong> membantu menjawab pertanyaan, menjelaskan materi, menyusun ide, dan menghasilkan teks.</li></ol><h3>c. Cara sederhana memahami AI</h3><p>Bayangkan sistem yang mengenali gambar kucing dan anjing:</p><ol><li>Komputer menerima banyak gambar kucing dan anjing sebagai data.</li><li>Sistem mempelajari pola dari gambar tersebut.</li><li>Sistem menggunakan pola yang dipelajari untuk mengenali gambar baru.</li><li>Sistem menghasilkan prediksi, misalnya gambar tersebut kemungkinan merupakan kucing.</li></ol><h3>d. Manfaat AI</h3><ul><li>Mempercepat pencarian informasi.</li><li>Membantu menyelesaikan pekerjaan.</li><li>Memberikan rekomendasi sesuai kebutuhan.</li><li>Membantu mengenali pola dan membuat prediksi.</li><li>Mendukung pekerjaan di industri, pendidikan, kesehatan, dan transportasi.</li></ul><div class="notice">AI tetap perlu digunakan secara bijak. Hasilnya tidak selalu benar sehingga pengguna perlu memeriksa informasi yang diberikan.</div><h3>e. Latihan Penguatan</h3><ol><li>Apa yang dimaksud dengan Artificial Intelligence?</li><li>Sebutkan tiga contoh penerapan AI yang pernah kamu gunakan.</li><li>Apa manfaat AI pada aplikasi Google Maps?</li><li>Bagaimana chatbot AI dapat membantu peserta didik belajar?</li></ol><div class="notice"><strong>Hasil belajar:</strong> mampu menjelaskan pengertian AI dan menyebutkan contoh penerapannya dalam kehidupan sehari-hari.</div></section>`,
 
             "Reguler": `
                 <div class="material-box">
@@ -1175,7 +1239,7 @@ const materiData = {
 
                     
                 </div>
-            `,
+            <section class="material-box extra-materi"><h2>📘 Materi Tambahan: Cara Kerja AI</h2><h3>a. Pengertian dan sejarah singkat AI</h3><p>Artificial Intelligence adalah bidang ilmu komputer yang mengembangkan sistem untuk melakukan tugas yang biasanya membutuhkan kemampuan kecerdasan manusia, seperti mengenali pola, memahami bahasa, memprediksi, dan membantu mengambil keputusan.</p><ul><li><strong>1950:</strong> Alan Turing memperkenalkan gagasan mengenai kemampuan mesin menunjukkan perilaku yang menyerupai kecerdasan manusia, termasuk konsep Turing Test.</li><li><strong>1956:</strong> istilah Artificial Intelligence digunakan secara formal dalam kegiatan penelitian Dartmouth Summer Research Project on Artificial Intelligence.</li></ul><p>Perkembangan komputer, internet, ketersediaan data, dan kemampuan pemrosesan turut mendorong kemajuan AI.</p><h3>b. Bagaimana AI bekerja?</h3><ol><li><strong>Data:</strong> informasi berupa teks, angka, gambar, suara, atau lokasi.</li><li><strong>Pemrosesan data:</strong> data disiapkan agar dapat digunakan sistem.</li><li><strong>Pembelajaran atau pengenalan pola:</strong> sistem tertentu mempelajari pola dari data.</li><li><strong>Model AI:</strong> hasil pembelajaran digunakan untuk menjalankan tugas tertentu.</li><li><strong>Prediksi atau keputusan:</strong> sistem memberikan keluaran berdasarkan data yang diterima.</li></ol><p>Contohnya, AI untuk mengenali kendaraan menerima gambar kendaraan, memproses gambar, menggunakan model yang telah dilatih, lalu menghasilkan prediksi mengenai jenis kendaraan.</p><h3>c. Pentingnya data dalam AI</h3><p>Kualitas hasil AI dipengaruhi oleh kualitas data yang digunakan. Data yang baik sebaiknya:</p><ul><li><strong>Relevan:</strong> sesuai tujuan penggunaan AI.</li><li><strong>Cukup banyak:</strong> menyediakan contoh yang memadai untuk pembelajaran.</li><li><strong>Beragam:</strong> mencakup berbagai kondisi yang mungkin ditemukan.</li><li><strong>Akurat:</strong> memiliki informasi yang benar.</li><li><strong>Representatif:</strong> mencerminkan kondisi yang ingin dikenali sistem.</li></ul><p>Contoh: jika data pelatihan untuk mendeteksi kerusakan produk hanya berisi satu jenis kerusakan, AI mungkin kesulitan mengenali jenis kerusakan lainnya.</p><h3>d. Perbedaan AI, Machine Learning, dan Deep Learning</h3><table><thead><tr><th>Istilah</th><th>Pengertian</th><th>Contoh</th></tr></thead><tbody><tr><td>Artificial Intelligence (AI)</td><td>Bidang yang mengembangkan sistem untuk melakukan tugas yang membutuhkan kemampuan kecerdasan.</td><td>Chatbot, pengenalan suara, sistem rekomendasi.</td></tr><tr><td>Machine Learning (ML)</td><td>Bagian dari AI yang memungkinkan sistem mempelajari pola berdasarkan data melalui pelatihan.</td><td>Decision tree dan model klasifikasi.</td></tr><tr><td>Deep Learning (DL)</td><td>Bagian dari Machine Learning yang menggunakan jaringan saraf berlapis untuk mempelajari pola kompleks.</td><td>Pengenalan wajah dan pengolahan gambar.</td></tr></tbody></table><p>Hubungannya: Deep Learning merupakan bagian dari Machine Learning, sedangkan Machine Learning merupakan bagian dari AI.</p><h3>e. Latihan Reguler</h3><ol><li>Jelaskan tahapan kerja AI mulai dari data hingga menghasilkan prediksi.</li><li>Mengapa kualitas data berpengaruh terhadap hasil AI?</li><li>Apa perbedaan AI, Machine Learning, dan Deep Learning?</li><li>Sebuah sistem AI dilatih menggunakan gambar kendaraan yang hanya diambil pada siang hari. Apa kemungkinan masalah ketika sistem digunakan pada malam hari?</li><li>Jelaskan bagaimana AI dapat membantu pekerjaan di bidang Teknik Kendaraan Ringan (TKR).</li></ol><div class="notice"><strong>Hasil belajar:</strong> mampu menjelaskan alur kerja AI, mengidentifikasi pentingnya kualitas data, dan membedakan konsep AI, Machine Learning, serta Deep Learning.</div></section>`,
 
             "Pengayaan": `
                 <div class="material-box">
@@ -1220,7 +1284,7 @@ const materiData = {
                     <button class="btn btn-secondary" onclick="cekGame(this,'salah')">Pengenalan Pola</button>
                     <div class="gameResult notice hidden"></div>
                 </div>
-            `,
+            <section class="material-box extra-materi"><h2>📘 Materi Tambahan: Analisis dan Evaluasi Penerapan AI</h2><h3>a. Analisis hubungan data dan hasil AI</h3><p>AI menghasilkan prediksi atau keputusan berdasarkan data yang digunakan. Hasil AI dapat dipengaruhi oleh kelengkapan, keakuratan, dan keberagaman data.</p><p>Misalnya, jika data pelatihan untuk mendeteksi kerusakan komponen hanya berisi foto kerusakan parah, AI mungkin kesulitan mengenali kerusakan ringan. Jika foto hanya diambil dari satu sudut, sistem juga mungkin kesulitan menganalisis foto dari sudut berbeda.</p><p>Untuk meningkatkan kualitas hasil, data sebaiknya mencakup:</p><ul><li>Komponen dalam kondisi normal dan rusak.</li><li>Berbagai tingkat kerusakan.</li><li>Beragam sudut pengambilan gambar.</li><li>Pencahayaan dan kondisi lingkungan yang berbeda.</li><li>Label atau keterangan kondisi komponen yang akurat.</li></ul><h3>b. Analisis penerapan AI di berbagai bidang</h3><table><thead><tr><th>Bidang</th><th>Contoh penerapan</th><th>Manfaat</th><th>Hal yang perlu diperhatikan</th></tr></thead><tbody><tr><td>Pendidikan</td><td>Chatbot pembelajaran</td><td>Membantu menjelaskan materi dan memberi ide.</td><td>Jawaban perlu diverifikasi.</td></tr><tr><td>Transportasi</td><td>Prediksi lalu lintas</td><td>Membantu memilih rute perjalanan.</td><td>Kondisi jalan dapat berubah.</td></tr><tr><td>Industri</td><td>Deteksi kerusakan produk</td><td>Membantu pemeriksaan kualitas.</td><td>Hasil bergantung pada kualitas data.</td></tr><tr><td>E-commerce</td><td>Rekomendasi produk</td><td>Membantu menemukan produk relevan.</td><td>Rekomendasi dapat membatasi variasi pilihan.</td></tr><tr><td>Kesehatan</td><td>Analisis citra medis</td><td>Membantu tenaga kesehatan menganalisis informasi.</td><td>Hasil memerlukan penilaian tenaga profesional.</td></tr></tbody></table><h3>c. Studi kasus: AI untuk pemeriksaan kendaraan</h3><p>Sebuah bengkel ingin menggunakan AI untuk mengidentifikasi kondisi ban berdasarkan foto. Sistem mengelompokkan foto ke kategori normal, aus, atau rusak. Namun, setelah diuji, sistem sering salah mengenali ban aus sebagai ban normal.</p><ol><li>Apa saja kemungkinan penyebab kesalahan prediksi AI?</li><li>Bagaimana kualitas dan keberagaman data pelatihan dapat memengaruhi hasil?</li><li>Data tambahan apa yang perlu dikumpulkan agar sistem lebih mampu mengenali kondisi ban?</li><li>Bagaimana cara menguji apakah sistem sudah menghasilkan prediksi yang cukup baik?</li><li>Apakah hasil AI sebaiknya langsung digunakan untuk menentukan kondisi ban tanpa pemeriksaan manusia? Jelaskan alasanmu.</li></ol><h3>d. Tugas Pengayaan</h3><p>Buat infografis digital atau laporan singkat tentang rancangan penerapan AI untuk menyelesaikan satu permasalahan di lingkungan sekolah, bengkel, atau industri. Karya harus memuat:</p><ol><li>Permasalahan yang ingin diselesaikan.</li><li>Tujuan penggunaan AI.</li><li>Data yang diperlukan.</li><li>Gambaran alur kerja AI.</li><li>Manfaat yang diharapkan.</li><li>Kemungkinan kesalahan atau keterbatasan AI.</li><li>Cara memeriksa dan mengevaluasi hasil AI.</li></ol><div class="notice"><strong>Hasil belajar:</strong> mampu menganalisis kasus penerapan AI, menghubungkan kualitas data dengan ketepatan hasil, serta mengusulkan solusi berbasis AI disertai pertimbangan manfaat dan keterbatasannya.</div></section>`,
             "Reguler": `
                 <div class="material-box game-box">
                     <h2>🎮 Game Reguler: Susun Langkah!</h2>
@@ -2087,6 +2151,62 @@ Perintah yang paling tepat untuk mengisi bagian kosong adalah ....`,
         `
     }
 
+,
+    "Model Von Neumann": {
+        icon:"🖥️",
+        deskripsi:"Mengenal organisasi komputer model Von Neumann, komponen utama, dan alur kerja instruksi.",
+        jalur:{
+            "Penguatan": `<div class="material-box"><h2>🌱 Penguatan: Mengenal Komponen Komputer</h2><p>Model Von Neumann menggambarkan komputer dengan program dan data disimpan pada memori yang sama.</p><ul><li><strong>Input:</strong> memasukkan data, misalnya keyboard.</li><li><strong>Memori:</strong> menyimpan data dan instruksi.</li><li><strong>CPU:</strong> memproses instruksi; terdiri dari ALU dan unit kontrol.</li><li><strong>Output:</strong> menampilkan hasil, misalnya monitor.</li></ul><div class="notice">Alur sederhana: Input → Memori/CPU memproses → Output. Data dan instruksi disimpan dalam memori.</div></div><section class="material-box extra-materi"><h2>📘 Materi Tambahan: Model Von Neumann</h2><h3>a. Pengertian Model Von Neumann</h3><p>Arsitektur Von Neumann merupakan model dasar yang menjelaskan bagaimana komputer menerima masukan, mengolah data, menyimpan informasi, dan menghasilkan keluaran. Model ini diperkenalkan oleh John von Neumann pada tahun 1945 dan menjadi salah satu fondasi komputer modern.</p><p>Ciri utamanya adalah data dan instruksi program disimpan dalam ruang memori yang sama. Konsep ini disebut <em>stored-program</em>.</p><h3>b. Komponen utama komputer</h3><ol><li><strong>CPU (Central Processing Unit):</strong> menjalankan instruksi dan mengolah data; sering disebut otak komputer.</li><li><strong>Memori utama (RAM):</strong> menyimpan sementara data dan instruksi yang sedang digunakan. Isinya dapat hilang ketika listrik dimatikan.</li><li><strong>Perangkat input:</strong> memasukkan data atau perintah, misalnya keyboard, mouse, mikrofon, dan kamera.</li><li><strong>Perangkat output:</strong> menampilkan hasil pengolahan, misalnya monitor, speaker, dan printer.</li></ol><h3>c. Alur kerja komputer</h3><div class="notice"><strong>Input</strong> — data dimasukkan → <strong>Process</strong> — data diolah CPU → <strong>Output</strong> — hasil ditampilkan.</div><p>Contoh: pengguna mengetik angka pada keyboard, CPU mengolah perhitungan, lalu hasilnya muncul di monitor.</p><h3>d. Analogi komputer sebagai restoran</h3><table><thead><tr><th>Restoran</th><th>Komputer</th></tr></thead><tbody><tr><td>Bahan makanan</td><td>Data input</td></tr><tr><td>Resep masakan</td><td>Instruksi program</td></tr><tr><td>Koki</td><td>CPU</td></tr><tr><td>Meja dapur</td><td>RAM</td></tr><tr><td>Masakan yang disajikan</td><td>Output</td></tr></tbody></table><p>Komputer memerlukan data, instruksi, tempat penyimpanan sementara, dan bagian yang melakukan pengolahan.</p><h3>e. Latihan Penguatan</h3><ol><li>Apa yang dimaksud dengan arsitektur Von Neumann?</li><li>Sebutkan fungsi CPU.</li><li>Apa perbedaan perangkat input dan output? Berikan masing-masing dua contoh.</li><li>Pada kegiatan menghitung menggunakan komputer, bagian manakah yang melakukan pengolahan data?</li></ol><div class="notice"><strong>Hasil belajar:</strong> mampu menjelaskan konsep dasar dan mengenali komponen utama komputer dengan benar.</div></section>`,
+            "Reguler": `<div class="material-box"><h2>📚 Reguler: Cara Kerja Model Von Neumann</h2><p>CPU menjalankan siklus instruksi yang sering dijelaskan sebagai <strong>fetch–decode–execute</strong>.</p><ol><li><strong>Fetch:</strong> mengambil instruksi dari memori.</li><li><strong>Decode:</strong> unit kontrol menerjemahkan instruksi.</li><li><strong>Execute:</strong> CPU menjalankan instruksi; ALU melakukan operasi aritmetika atau logika jika diperlukan.</li><li>Hasil dapat disimpan kembali ke memori atau dikirim ke perangkat output.</li></ol><p>Contoh: aplikasi kalkulator mengambil angka, menjalankan operasi penjumlahan, lalu menampilkan hasil.</p></div><section class="material-box extra-materi"><h2>📘 Materi Tambahan: Konsep dan Siklus Von Neumann</h2><h3>a. Konsep Stored-Program</h3><p>Arsitektur Von Neumann menggunakan satu ruang memori untuk menyimpan data dan instruksi program. CPU mengambil instruksi dari memori, menerjemahkannya, kemudian menjalankannya. Karena data dan instruksi menggunakan jalur yang sama, aksesnya dapat berlangsung secara bergantian.</p><h3>b. Komponen arsitektur Von Neumann</h3><table><thead><tr><th>Komponen</th><th>Fungsi</th></tr></thead><tbody><tr><td>CPU</td><td>Menjalankan instruksi dan mengolah data.</td></tr><tr><td>Control Unit (CU)</td><td>Mengatur aliran data dan menerjemahkan instruksi agar dapat dijalankan.</td></tr><tr><td>Arithmetic Logic Unit (ALU)</td><td>Melakukan operasi aritmetika, seperti penjumlahan dan pengurangan, serta operasi logika.</td></tr><tr><td>Register</td><td>Menyimpan data sementara yang sedang diproses CPU dengan sangat cepat.</td></tr><tr><td>Memori utama (RAM)</td><td>Menyimpan sementara data dan instruksi yang sedang aktif digunakan.</td></tr><tr><td>Input unit</td><td>Memasukkan data dan perintah ke komputer.</td></tr><tr><td>Output unit</td><td>Menampilkan hasil pengolahan data.</td></tr><tr><td>Bus</td><td>Jalur komunikasi antara CPU, memori, dan perangkat input/output.</td></tr></tbody></table><h3>c. Jenis-jenis bus</h3><ul><li><strong>Data Bus:</strong> membawa data yang dipindahkan antarkomponen.</li><li><strong>Address Bus:</strong> menentukan lokasi memori yang akan diakses.</li><li><strong>Control Bus:</strong> membawa sinyal kendali untuk mengatur aktivitas antarkomponen.</li></ul><h3>d. Siklus kerja CPU</h3><ol><li><strong>Fetch (mengambil):</strong> CPU mengambil instruksi dari memori utama.</li><li><strong>Decode (menerjemahkan):</strong> Control Unit menerjemahkan instruksi untuk mengetahui tindakan yang harus dilakukan.</li><li><strong>Execute (menjalankan):</strong> CPU menjalankan instruksi. ALU melakukan operasi aritmetika atau logika jika diperlukan.</li><li><strong>Store (menyimpan hasil):</strong> hasil dapat disimpan kembali ke memori atau diteruskan ke perangkat output.</li></ol><h3>e. Contoh penerapan</h3><p>Ketika peserta didik mengetik <code>25 + 15</code> pada aplikasi kalkulator, keyboard memasukkan angka dan operator, CPU mengambil serta menerjemahkan instruksi, ALU melakukan penjumlahan, lalu hasil <strong>40</strong> ditampilkan pada layar.</p><h3>f. Latihan Reguler</h3><ol><li>Jelaskan perbedaan fungsi CU dan ALU.</li><li>Mengapa RAM disebut sebagai memori sementara?</li><li>Jelaskan fungsi Data Bus, Address Bus, dan Control Bus.</li><li>Urutkan tahapan fetch–decode–execute–store dan jelaskan fungsi setiap tahap.</li><li>Analisis proses kerja arsitektur Von Neumann ketika seseorang mengetik dokumen dan mencetaknya menggunakan printer.</li></ol><div class="notice"><strong>Hasil belajar:</strong> mampu menguraikan fungsi komponen, menjelaskan siklus CPU, dan menerapkannya untuk menganalisis aktivitas komputer sehari-hari.</div></section>`,
+            "Pengayaan": `<div class="material-box"><h2>🚀 Pengayaan: Analisis Alur Pemrosesan</h2><p>Dalam model Von Neumann, data dan instruksi berbagi ruang memori serta jalur komunikasi. Hal ini menyederhanakan rancangan, tetapi perpindahan data/instruksi dapat menjadi hambatan kinerja yang dikenal sebagai <em>Von Neumann bottleneck</em>.</p><h3>Tantangan</h3><p>Analisis proses ketika komputer membuka file besar sambil menjalankan aplikasi lain. Jelaskan peran memori, unit kontrol, ALU, dan perangkat input/output; lalu uraikan kemungkinan dampak jika perpindahan data menjadi lambat.</p></div>`
+        },
+        video:"",
+        game:{
+            "Penguatan":`<div class="material-box game-box arcade-game" data-arcade="komponen"><div class="arcade-head"><span class="arcade-tag">🎮 MINI GAME 01</span><span class="arcade-score">Skor: <b class="arcade-points">0</b>/5</span></div><h2>🌱 Tangkap Komponen!</h2><p>Robot Byte butuh bantuanmu. Baca misi, lalu klik komponen yang tepat sebelum lanjut ke misi berikutnya.</p><div class="arcade-progress"><span class="arcade-fill" style="width:0%"></span></div><div class="arcade-mission"><small class="arcade-level">MISI 1 DARI 5</small><h3 class="arcade-prompt">Komponen apa yang dipakai untuk mengetik?</h3><div class="arcade-choices"><button onclick="arcadeTap(this,1,'komponen')">⌨️ Keyboard</button><button onclick="arcadeTap(this,0,'komponen')">🖥️ Monitor</button><button onclick="arcadeTap(this,0,'komponen')">🔊 Speaker</button><button onclick="arcadeTap(this,0,'komponen')">🧠 CPU</button></div><p class="arcade-feedback" aria-live="polite">Pilih jawabanmu!</p><button class="btn btn-primary arcade-next" onclick="arcadeNext('komponen')" disabled>Gas ke misi berikutnya ➜</button></div></div>`,
+            "Reguler":`<div class="material-box game-box arcade-game" data-arcade="cpu"><div class="arcade-head"><span class="arcade-tag">🎮 MINI GAME 02</span><span class="arcade-score">Urutan: <b class="arcade-points">0</b>/4</span></div><h2>📚 CPU Rush!</h2><p>Susun siklus kerja komputer dengan memilih kartu sesuai urutan. Jangan sampai CPU nge-lag!</p><div class="arcade-progress"><span class="arcade-fill" style="width:0%"></span></div><div class="arcade-mission"><small class="arcade-level">LANGKAH 1 DARI 4</small><h3 class="arcade-prompt">Apa yang dilakukan CPU pertama kali?</h3><div class="arcade-choices"><button onclick="arcadeTap(this,0,'cpu')">⚙️ Execute</button><button onclick="arcadeTap(this,1,'cpu')">📥 Fetch</button><button onclick="arcadeTap(this,0,'cpu')">💾 Store</button><button onclick="arcadeTap(this,0,'cpu')">🔎 Decode</button></div><p class="arcade-feedback" aria-live="polite">Pilih langkah pertama!</p><button class="btn btn-primary arcade-next" onclick="arcadeNext('cpu')" disabled>Lanjutkan ➜</button></div></div>`,
+            "Pengayaan":`<div class="material-box game-box arcade-game" data-arcade="escape"><div class="arcade-head"><span class="arcade-tag">🎮 MINI GAME 03</span><span class="arcade-score">Kunci: <b class="arcade-points">0</b>/3</span></div><h2>🚀 Escape Room: Ruang Komputer</h2><p>Alarm menyala! Pecahkan 3 teka-teki untuk membuka pintu ruang server. Setiap jawaban benar membuka kunci berikutnya.</p><div class="arcade-progress"><span class="arcade-fill" style="width:0%"></span></div><div class="arcade-mission"><small class="arcade-level">KUNCI 1 DARI 3</small><h3 class="arcade-prompt">Data dan instruksi program disimpan bersama di mana?</h3><div class="arcade-choices"><button onclick="arcadeTap(this,1,'escape')">🗄️ Memori utama</button><button onclick="arcadeTap(this,0,'escape')">🖨️ Printer</button><button onclick="arcadeTap(this,0,'escape')">🎧 Speaker</button></div><p class="arcade-feedback" aria-live="polite">Temukan kode yang benar!</p><button class="btn btn-primary arcade-next" onclick="arcadeNext('escape')" disabled>Buka kunci ➜</button></div></div>`
+        },
+        latihan:[
+            {pertanyaan:"Dalam model Von Neumann, data dan instruksi disimpan di ....",pilihan:["Perangkat output saja","Memori yang sama","Keyboard","Monitor"],jawaban:1},
+            {pertanyaan:"Komponen yang mengendalikan pelaksanaan instruksi adalah ....",pilihan:["Unit kontrol","Monitor","Keyboard","Printer"],jawaban:0},
+            {pertanyaan:"ALU terutama bertugas melakukan ....",pilihan:["Operasi aritmetika dan logika","Mencetak dokumen","Menyimpan file secara permanen saja","Memasukkan suara"],jawaban:0},
+            {pertanyaan:"Kepanjangan siklus instruksi yang umum digunakan adalah ....",pilihan:["Fetch–Decode–Execute","Input–Print–Delete","Save–Open–Close","Start–Stop–Pause"],jawaban:0},
+            {pertanyaan:"Perangkat yang termasuk input adalah ....",pilihan:["Monitor","Keyboard","Speaker","Proyektor"],jawaban:1},
+            {pertanyaan:"Fungsi memori dalam model Von Neumann adalah ....",pilihan:["Menyimpan data dan instruksi","Menghasilkan suara saja","Mencetak hasil","Menggerakkan kursor secara fisik"],jawaban:0},
+            {pertanyaan:"Setelah instruksi diambil dari memori, tahap berikutnya adalah ....",pilihan:["Decode","Print","Delete","Shutdown"],jawaban:0},
+            {pertanyaan:"Hasil pemrosesan dapat dikirim ke perangkat ....",pilihan:["Output","Input saja","Penyimpanan instruksi saja","Jaringan listrik"],jawaban:0},
+            {pertanyaan:"Istilah Von Neumann bottleneck berkaitan dengan ....",pilihan:["Hambatan perpindahan data dan instruksi","Kerusakan monitor","Ketiadaan sistem operasi","Kesalahan mengetik"],jawaban:0},
+            {pertanyaan:"Contoh perangkat output adalah ....",pilihan:["Keyboard","Mouse","Monitor","Mikrofon"],jawaban:2}
+        ]
+    },
+    "Konsep Dasar AI": {
+        icon:"🤖",
+        deskripsi:"Mengenal kecerdasan buatan, data, model, manfaat, keterbatasan, dan penggunaan AI yang bertanggung jawab.",
+        jalur:{
+            "Penguatan": `<div class="material-box"><h2>🌱 Penguatan: Apa Itu AI?</h2><p><strong>Kecerdasan buatan (Artificial Intelligence/AI)</strong> adalah teknologi yang membuat komputer dapat melakukan tugas yang biasanya membutuhkan kemampuan manusia, seperti mengenali pola, memahami bahasa, atau membuat rekomendasi.</p><ul><li><strong>Data:</strong> contoh atau informasi yang digunakan sistem.</li><li><strong>Model:</strong> pola yang dipelajari sistem dari data atau aturan.</li><li><strong>Output:</strong> hasil, misalnya rekomendasi atau jawaban.</li></ul><div class="notice">Contoh: aplikasi peta memperkirakan rute, atau email menyaring pesan spam. AI dapat salah, jadi hasilnya perlu diperiksa.</div></div>`,
+            "Reguler": `<div class="material-box"><h2>📚 Reguler: Cara Kerja AI secara Umum</h2><p>Sistem AI menerima input, memprosesnya menggunakan aturan atau model, lalu menghasilkan output. Pada pembelajaran mesin, model mempelajari pola dari data pelatihan.</p><ol><li>Menentukan masalah yang ingin diselesaikan.</li><li>Mengumpulkan dan menyiapkan data yang relevan.</li><li>Melatih atau mengonfigurasi model.</li><li>Menguji hasil menggunakan data yang sesuai.</li><li>Mengevaluasi kesalahan, bias, dan manfaatnya.</li></ol><p>AI generatif dapat membuat teks, gambar, atau kode, tetapi dapat menghasilkan informasi keliru. Periksa fakta dan lindungi data pribadi.</p></div>`,
+            "Pengayaan": `<div class="material-box"><h2>🚀 Pengayaan: Evaluasi Penggunaan AI</h2><p>AI dapat membantu otomasi dan pengambilan keputusan, tetapi kualitas hasil dipengaruhi data, desain model, konteks penggunaan, dan evaluasi manusia. Data yang tidak mewakili kelompok tertentu dapat menimbulkan bias.</p><h3>Tantangan</h3><p>Sebuah sekolah menggunakan AI untuk merekomendasikan materi remedial berdasarkan nilai latihan. Analisis manfaat, risiko bias, privasi data siswa, kemungkinan kesalahan rekomendasi, serta mekanisme pengawasan manusia yang perlu disiapkan.</p></div>`
+        },
+        video:"",
+        game:{
+            "Penguatan":`<div class="material-box game-box arcade-game" data-arcade="detektifai"><div class="arcade-head"><span class="arcade-tag">🎮 MINI GAME 04</span><span class="arcade-score">Poin: <b class="arcade-points">0</b>/8</span></div><h2>🤖 AI atau Bukan?</h2><p>Jadilah pemburu AI! Klik ikon yang memanfaatkan AI dan hindari benda biasa. Kejar skor tertinggi!</p><div class="arcade-progress"><span class="arcade-fill" style="width:0%"></span></div><div class="arcade-mission"><small class="arcade-level">KARTU 1 DARI 5</small><h3 class="arcade-prompt">📍 Aplikasi peta memprediksi kemacetan dan menyarankan rute</h3><div class="arcade-choices"><button onclick="arcadeTap(this,1,'detektifai')">🧠 Menggunakan AI</button><button onclick="arcadeTap(this,0,'detektifai')">🧱 Bukan AI</button></div><p class="arcade-feedback" aria-live="polite">Pilih kategori!</p><button class="btn btn-primary arcade-next" onclick="arcadeNext('detektifai')" disabled>Kartu berikutnya ➜</button></div></div>`,
+            "Reguler":`<div class="material-box game-box arcade-game" data-arcade="aiSequence"><div class="arcade-head"><span class="arcade-tag">🎮 MINI GAME 05</span><span class="arcade-score">Urutan: <b class="arcade-points">0</b>/4</span></div><h2>🧩 AI Pipeline Rush</h2><p>Susun kartu tahapan kerja AI dari menentukan masalah hingga mengevaluasi hasil. Urutan yang tepat akan menjalankan misi!</p><div class="arcade-progress"><span class="arcade-fill" style="width:0%"></span></div><div class="arcade-mission"><small class="arcade-level">LANGKAH 1 DARI 4</small><h3 class="arcade-prompt">Susun tahapan umum pengembangan AI.</h3><div class="arcade-choices"><button onclick="arcadeTap(this,1,'aiSequence')">🧩 Menentukan masalah & data</button><button onclick="arcadeTap(this,0,'aiSequence')">🚀 Langsung menerapkan hasil</button><button onclick="arcadeTap(this,0,'aiSequence')">🧹 Mengabaikan evaluasi</button></div><p class="arcade-feedback" aria-live="polite">Mulai susun tahapan!</p><button class="btn btn-primary arcade-next" onclick="arcadeNext('aiSequence')" disabled>Lanjutkan ➜</button></div></div>`,
+            "Pengayaan":`<div class="material-box game-box arcade-game" data-arcade="aiEscape"><div class="arcade-head"><span class="arcade-tag">🎮 MINI GAME 06 · PENGAYAAN</span><span class="arcade-score">Kunci: <b class="arcade-points">0</b>/4</span></div><h2>🕵️ Detektif Kasus AI</h2><p>Jelajahi laboratorium AI, pecahkan empat tantangan, dan kumpulkan semua kunci untuk menuntaskan investigasi.</p><div class="arcade-progress"><span class="arcade-fill" style="width:0%"></span></div><div class="arcade-mission"><small class="arcade-level">KASUS 1 DARI 4</small><h3 class="arcade-prompt">Bagaimana memastikan AI digunakan secara bertanggung jawab?</h3><div class="arcade-choices"><button onclick="arcadeTap(this,1,'aiEscape')">🔎 Periksa data, uji hasil, dan tinjau risiko</button><button onclick="arcadeTap(this,0,'aiEscape')">🎨 Pilih tampilan yang paling menarik</button><button onclick="arcadeTap(this,0,'aiEscape')">🚀 Percayai semua hasil tanpa pemeriksaan</button></div><p class="arcade-feedback" aria-live="polite">Mulai investigasi kasus AI!</p><button class="btn btn-primary arcade-next" onclick="arcadeNext('aiEscape')" disabled>Kasus berikutnya ➜</button></div></div>`
+        },
+        latihan:[
+            {pertanyaan:"AI merupakan singkatan dari ....",pilihan:["Automatic Internet","Artificial Intelligence","Advanced Input","Applied Interface"],jawaban:1},
+            {pertanyaan:"Contoh penggunaan AI adalah ....",pilihan:["Sistem rekomendasi film","Kertas kosong","Kabel listrik biasa","Kursi tanpa sensor"],jawaban:0},
+            {pertanyaan:"Dalam sistem AI, data dapat berfungsi sebagai ....",pilihan:["Contoh untuk mengenali pola","Pengganti seluruh perangkat keras","Jaminan hasil selalu benar","Penghapus kesalahan otomatis"],jawaban:0},
+            {pertanyaan:"Keluaran yang dihasilkan sistem disebut ....",pilihan:["Input","Output","Kabel","Papan ketik"],jawaban:1},
+            {pertanyaan:"Mengapa hasil AI perlu diperiksa kembali?",pilihan:["Karena AI dapat menghasilkan kesalahan","Karena AI selalu tidak berguna","Karena data tidak pernah diperlukan","Karena semua hasil pasti palsu"],jawaban:0},
+            {pertanyaan:"AI generatif dapat membantu membuat ....",pilihan:["Teks atau gambar","Hanya benda fisik","Listrik tanpa sumber energi","Semua fakta tanpa kesalahan"],jawaban:0},
+            {pertanyaan:"Risiko ketika data tidak mewakili pengguna adalah ....",pilihan:["Bias","Hasil selalu akurat","Tidak ada risiko","Memori komputer hilang"],jawaban:0},
+            {pertanyaan:"Informasi yang sebaiknya tidak dimasukkan sembarangan ke layanan AI adalah ....",pilihan:["Data pribadi sensitif","Topik umum pelajaran","Pertanyaan konsep umum","Contoh fiktif"],jawaban:0},
+            {pertanyaan:"Tahap penting setelah melatih model AI adalah ....",pilihan:["Pengujian dan evaluasi","Mengabaikan hasil","Menghapus proses pengujian","Menyebarkan tanpa pemeriksaan"],jawaban:0},
+            {pertanyaan:"Penggunaan AI yang bertanggung jawab sebaiknya melibatkan ....",pilihan:["Pemeriksaan manusia dan perlindungan privasi","Kepercayaan mutlak pada semua jawaban","Pengumpulan semua data tanpa izin","Pengabaian dampak"],jawaban:0}
+        ]
+    }
+
 };
 
 
@@ -2120,6 +2240,32 @@ const testData = {
         {pertanyaan:"Urutan sederhana yang tepat adalah ...",pilihan:["Mulai → Input → Proses → Output → Selesai","Output → Mulai → Input → Selesai","Proses → Output → Mulai → Input","Input → Selesai → Mulai → Proses"],jawaban:0},
         {pertanyaan:"Jika nilai siswa 80 dan kondisi flowchart adalah nilai ≥ 75, alur seharusnya menuju ...",pilihan:["Tidak Lulus","Lulus","Mulai","Input ulang"],jawaban:1},
         {pertanyaan:"Manakah pasangan simbol dan fungsi yang tepat?",pilihan:["Oval = keputusan","Belah ketupat = proses","Jajar genjang = input/output","Persegi panjang = mulai"],jawaban:2}
+    ],
+
+    "Model Von Neumann":[
+        {pertanyaan:"Sebuah komputer menyimpan instruksi program dan data yang sedang diolah di ruang memori yang sama. Prinsip utama yang ditunjukkan adalah ....",pilihan:["Stored-program dalam arsitektur Von Neumann","Pemisahan total memori instruksi dan data","Pemrosesan hanya dilakukan oleh perangkat output","Penggantian CPU oleh unit kontrol"],jawaban:0},
+        {pertanyaan:"CPU mengambil instruksi dari memori, tetapi tidak memahami arti instruksi tersebut sebelum instruksi diterjemahkan. Komponen yang menjalankan fungsi penerjemahan dan pengaturan ini adalah ....",pilihan:["ALU","Control Unit (CU)","Register alamat saja","Perangkat input"],jawaban:1},
+        {pertanyaan:"Ketika komputer menghitung total belanja dan membandingkan apakah total tersebut melebihi batas tertentu, bagian CPU yang paling langsung melakukan operasi itu adalah ....",pilihan:["RAM","Control Unit","ALU","Bus alamat"],jawaban:2},
+        {pertanyaan:"Komputer terasa lambat ketika CPU harus menunggu data dan instruksi berpindah melalui jalur komunikasi yang sama. Kondisi ini paling tepat disebut ....",pilihan:["Stored-program","Instruction decoding","Register overflow","Von Neumann bottleneck"],jawaban:3},
+        {pertanyaan:"CPU perlu mengambil data dari lokasi memori tertentu. Jalur yang membawa informasi mengenai lokasi/alamat memori yang akan diakses adalah ....",pilihan:["Bus alamat","Bus data","Bus kontrol","Perangkat output"],jawaban:0},
+        {pertanyaan:"Saat instruksi sedang diproses, CPU membutuhkan tempat penyimpanan sangat cepat untuk menampung sementara instruksi atau data yang sedang digunakan. Komponen yang paling sesuai adalah ....",pilihan:["Hard disk eksternal","Register","Printer","Bus alamat"],jawaban:1},
+        {pertanyaan:"Urutan yang paling tepat untuk menggambarkan siklus instruksi dasar pada arsitektur Von Neumann adalah ....",pilihan:["Execute–Store–Decode–Fetch","Decode–Fetch–Store–Execute","Fetch–Decode–Execute–Store","Store–Fetch–Execute–Decode"],jawaban:2},
+        {pertanyaan:"Pada sistem kasir, hasil perhitungan total belanja perlu ditampilkan kepada pengguna. Dalam alur kerja komputer, monitor berperan sebagai ....",pilihan:["Unit pemroses aritmetika","Memori utama","Perangkat input","Perangkat output"],jawaban:3},
+        {pertanyaan:"Mengapa penggunaan satu memori untuk data dan instruksi dapat menimbulkan hambatan kinerja pada arsitektur Von Neumann?",pilihan:["Data dan instruksi dapat berebut akses ke jalur komunikasi yang sama","CPU tidak memiliki ALU","Semua instruksi harus dicetak sebelum diproses","Perangkat input tidak dapat mengirim data ke memori"],jawaban:0},
+        {pertanyaan:"Sebuah instruksi meminta CPU menjumlahkan dua nilai yang telah diambil dari memori. Pembagian tugas yang paling tepat antara CU dan ALU adalah ....",pilihan:["CU menjumlahkan nilai, sedangkan ALU menyimpan instruksi","CU mengatur jalannya instruksi, sedangkan ALU melakukan penjumlahan","CU menampilkan hasil ke monitor, sedangkan ALU menerima ketikan","CU dan ALU hanya berfungsi sebagai memori"],jawaban:1}
+    ],
+
+    "Konsep Dasar AI":[
+        {pertanyaan:"Sebuah aplikasi rekomendasi musik menyarankan lagu berdasarkan riwayat lagu yang sering didengarkan pengguna. Penjelasan yang paling tepat tentang cara kerja sistem tersebut adalah ....",pilihan:["Sistem memanfaatkan pola pada data perilaku untuk menghasilkan rekomendasi","Sistem membaca pikiran pengguna tanpa memerlukan data","Sistem memilih lagu secara pasti tanpa proses pengolahan","Sistem menyimpan semua lagu di dalam CPU lalu memutarnya berurutan"],jawaban:0},
+        {pertanyaan:"Dua model AI dilatih untuk mengenali kerusakan kendaraan. Model A menggunakan banyak gambar yang beragam, sedangkan Model B hanya menggunakan gambar kendaraan berwarna merah. Jika Model B sering gagal mengenali kendaraan berwarna lain, penyebab yang paling mungkin adalah ....",pilihan:["Data latih kurang beragam sehingga model sulit melakukan generalisasi","Model B memiliki terlalu banyak jenis data yang tidak relevan","Semua model AI hanya dapat mengenali satu warna","Model AI tidak membutuhkan data untuk belajar"],jawaban:0},
+        {pertanyaan:"Sebuah model AI memperoleh akurasi 98% pada data pelatihan, tetapi hanya 62% pada data baru. Kesimpulan paling masuk akal adalah ....",pilihan:["Model mungkin terlalu menyesuaikan diri dengan data pelatihan (overfitting)","Model pasti sudah bekerja sempurna pada semua situasi","Data baru harus selalu dihapus agar akurasi meningkat","Akurasi data pelatihan membuktikan tidak ada kesalahan model"],jawaban:0},
+        {pertanyaan:"Sekolah ingin menggunakan AI untuk membantu menyaring calon penerima beasiswa. Langkah yang paling bertanggung jawab adalah ....",pilihan:["Memeriksa kriteria, kualitas data, potensi bias, dan tetap melibatkan penilaian manusia","Menyerahkan semua keputusan kepada AI karena hasilnya selalu objektif","Menggunakan data pribadi sebanyak mungkin tanpa persetujuan","Menerima rekomendasi AI tanpa menguji ketepatannya"],jawaban:0},
+        {pertanyaan:"Ketika AI generatif memberikan referensi buku yang ternyata tidak pernah diterbitkan, tindakan terbaik pengguna adalah ....",pilihan:["Memverifikasi referensi melalui katalog atau sumber tepercaya sebelum menggunakannya","Menganggap referensi benar karena ditulis dengan bahasa meyakinkan","Menyebarkan referensi agar orang lain ikut memeriksa nanti","Meminta AI mengulang jawaban yang sama lalu langsung mempercayainya"],jawaban:0},
+        {pertanyaan:"Perhatikan alur sederhana sistem AI: data masukan → model → hasil prediksi. Jika data masukan mengandung banyak kesalahan label, dampak yang paling mungkin adalah ....",pilihan:["Model dapat mempelajari pola yang keliru dan menghasilkan prediksi kurang tepat","Model otomatis memperbaiki semua label tanpa proses tambahan","Hasil prediksi pasti benar karena model berada di tengah alur","Kesalahan label hanya memengaruhi tampilan antarmuka"],jawaban:0},
+        {pertanyaan:"Sebuah kelompok ingin membuat chatbot untuk menjawab pertanyaan tentang tata tertib sekolah. Mengapa pengujian dengan pertanyaan yang beragam perlu dilakukan sebelum chatbot digunakan siswa?",pilihan:["Untuk menilai ketepatan, konsistensi, dan respons chatbot pada berbagai konteks","Agar chatbot dapat menggantikan semua peran guru dan petugas sekolah","Supaya chatbot tidak perlu diperbarui setelah diluncurkan","Untuk memastikan setiap jawaban menjadi benar hanya dengan satu kali uji"],jawaban:0},
+        {pertanyaan:"Manakah contoh data yang sebaiknya tidak dimasukkan ke layanan AI publik tanpa kebutuhan dan perlindungan yang jelas?",pilihan:["Nomor identitas, alamat rumah, dan data kesehatan pribadi seseorang","Contoh soal fiktif tentang algoritma","Pertanyaan umum mengenai konsep kecerdasan artifisial","Data buatan yang tidak berkaitan dengan orang nyata"],jawaban:0},
+        {pertanyaan:"Sebuah sistem pengenal gambar bekerja baik pada foto terang, tetapi sering salah pada foto gelap. Perbaikan yang paling relevan adalah ....",pilihan:["Menguji dan menambah data yang mewakili variasi kondisi pencahayaan, lalu mengevaluasi ulang model","Menghapus seluruh foto terang tanpa menganalisis penyebabnya","Menganggap kesalahan pada foto gelap tidak penting untuk semua pengguna","Mengubah nama model tanpa mengubah data atau proses pengujian"],jawaban:0},
+        {pertanyaan:"Pernyataan yang paling tepat membedakan AI generatif dari sistem AI yang hanya mengklasifikasikan data adalah ....",pilihan:["AI generatif dapat menghasilkan konten baru berdasarkan pola yang dipelajari, sedangkan klasifikasi menetapkan data ke kategori","AI generatif selalu benar, sedangkan klasifikasi selalu salah","AI generatif tidak membutuhkan masukan atau pola dari data","Klasifikasi selalu membuat teks dan gambar baru, sedangkan AI generatif hanya memberi label"],jawaban:0}
     ],
 
     "Pseudocode":[
@@ -2319,7 +2465,7 @@ function escapeHTML(text){
 
 function getMateri(){
     return materiData[materiDipilih] ||
-           materiData["Berpikir Komputasional"];
+           materiData["Pseudocode"];
 }
 
 function getLatihanAktif(){
@@ -2340,92 +2486,27 @@ function getLatihanAktif(){
    ========================================================= */
 
 function bukaHalaman(nama){
-
-    const halaman = {
-        data:"studentPage",
-        tes:"testPage",
-        jalur:"pathPage",
-        materi:"materialPage",
-        latihan:"practicePage",
-        lkpd:"lkpdPage",
-        refleksi:"reflectionPage",
-        selesai:"finishPage"
-    };
-
-    document
-        .querySelectorAll(".page")
-        .forEach(page=>{
-            page.classList.remove("active");
-        });
-
-    const target =
-        document.getElementById(
-            halaman[nama]
-        );
-
-    if(!target){
-        console.error("Halaman tidak ditemukan:",nama);
-        return;
-    }
-
+    const halaman = {data:"studentPage", pilihan:"routePage", tes:"testPage", jalur:"pathPage", materi:"materialPage", latihan:"practicePage", refleksi:"reflectionPage", selesai:"finishPage"};
+    document.querySelectorAll(".page").forEach(page=>page.classList.remove("active"));
+    const target = document.getElementById(halaman[nama]);
+    if(!target){ console.error("Halaman tidak ditemukan:", nama); return; }
     target.classList.add("active");
     updateProgress(nama);
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
-
-    if(nama==="tes"){
-        tampilkanDataSiswa("studentInfoTest");
-    }
-
-    if(nama==="materi"){
-        tampilkanDataSiswa("studentInfoMaterial");
-        updateInfoMateri();
-        renderMateri();
-    }
-
-    if(nama==="selesai"){
-        tampilkanHalamanSelesai();
-    }
+    window.scrollTo({top:0, behavior:"smooth"});
+    if(nama==="tes") tampilkanDataSiswa("studentInfoTest");
+    if(nama==="materi") { tampilkanDataSiswa("studentInfoMaterial"); updateInfoMateri(); renderMateri(); }
+    if(nama==="selesai") tampilkanHalamanSelesai();
 }
 
 function updateProgress(page){
-
-    const mapping = {
-        data:1,
-        tes:2,
-        jalur:3,
-        materi:4,
-        latihan:5,
-        lkpd:6,
-        refleksi:7,
-        selesai:8
-    };
-
-    const current =
-        mapping[page] || 1;
-
-    for(let i=1;i<=8;i++){
-
-        const element =
-            document.getElementById(
-                "progress"+i
-            );
-
+    const mapping = {data:1, pilihan:2, tes:3, jalur:4, materi:5, latihan:5, refleksi:6, selesai:7};
+    const current = mapping[page] || 1;
+    for(let i=1;i<=7;i++){
+        const element=document.getElementById("progress"+i);
         if(!element) continue;
-
-        element.classList.remove(
-            "active",
-            "done"
-        );
-
-        if(i<current){
-            element.classList.add("done");
-        }else if(i===current){
-            element.classList.add("active");
-        }
+        element.classList.remove("active","done");
+        if(i<current) element.classList.add("done");
+        else if(i===current) element.classList.add("active");
     }
 }
 
@@ -2435,51 +2516,37 @@ function updateProgress(page){
    ========================================================= */
 
 function simpanDataSiswa(){
-
-    const nama =
-        document.getElementById("namaSiswa").value.trim();
-
-    const kelas =
-        document.getElementById("kelasSiswa").value.trim();
-
-    const jurusan =
-        document.getElementById("jurusanSiswa").value.trim();
-
-    const absen =
-        document.getElementById("absenSiswa").value.trim();
-
+    const nama = document.getElementById("namaSiswa").value.trim();
+    const kelas = document.getElementById("kelasSiswa").value.trim();
+    const jurusan = document.getElementById("jurusanSiswa").value.trim();
+    const absen = document.getElementById("absenSiswa").value.trim();
     if(!nama || !kelas || !jurusan || !absen){
-
-        alert(
-            "Silakan lengkapi semua data siswa."
-        );
-
-        return;
+        alert("Silakan lengkapi semua data siswa."); return;
     }
-
-    siswa = {
-        nama,
-        kelas,
-        jurusan,
-        absen
-    };
-
-    safeStorage.setItem(
-        "dataSiswa",
-        JSON.stringify(siswa)
-    );
-
+    siswa = {nama, kelas, jurusan, absen};
+    safeStorage.setItem("dataSiswa", JSON.stringify(siswa));
     buatSesiBaru();
+    jalurDipilih = ""; rekomendasi = ""; skorTes = ""; skorLatihan = "";
+    latihanLulus = false; latihanPernahDicoba = false; routeMode = "learning";
+    updateSession({aktivitasTerakhir:"Data Siswa Diisi", statusPembelajaran:"Sedang Berlangsung"});
+    kirimKeGoogleSheet("siswa");
+    bukaHalaman("pilihan");
+}
 
-    jalurDipilih = "";
-    rekomendasi = "";
-    skorTes = 0;
-    skorLatihan = 0;
-    latihanLulus = false;
-    latihanPernahDicoba = false;
-
+function mulaiTesKognitif(){
+    routeMode = "learning";
     buatSoalTes();
+    updateSession({aktivitasTerakhir:"Memulai Tes Kognitif"});
+    kirimKeGoogleSheet("siswa");
     bukaHalaman("tes");
+}
+
+function latihanLangsung(){
+    routeMode = "direct-practice";
+    jalurDipilih = "Reguler"; // bank latihan jalur reguler dipakai untuk latihan langsung
+    skorTes = ""; rekomendasi = "";
+    updateSession({aktivitasTerakhir:"Memilih Latihan Akhir Langsung", jalurDipilih:"Latihan Akhir (langsung)"});
+    mulaiLatihan();
 }
 
 function tampilkanDataSiswa(elementId){
@@ -2529,59 +2596,50 @@ function formatTesPertanyaan(teks){
     }).join("");
 }
 
+function acakPilihanSoal(pilihan, jawabanBenar){
+    const hasil = pilihan.map((teks, indeks) => ({teks, benar: indeks === jawabanBenar}));
+    for(let i = hasil.length - 1; i > 0; i--){
+        const j = Math.floor(Math.random() * (i + 1));
+        [hasil[i], hasil[j]] = [hasil[j], hasil[i]];
+    }
+    return {
+        pilihan: hasil.map(item => item.teks),
+        jawaban: hasil.findIndex(item => item.benar)
+    };
+}
+
+function acakPilihanSoal(pilihan, jawabanBenar){
+    const hasil = pilihan.map((teks, indeks) => ({teks, benar: indeks === jawabanBenar}));
+    for(let i = hasil.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [hasil[i], hasil[j]] = [hasil[j], hasil[i]]; }
+    return {pilihan: hasil.map(item => item.teks), jawaban: hasil.findIndex(item => item.benar)};
+}
+
 function buatSoalTes(){
-
-    const data =
-        testData[materiDipilih] ||
-        testData["Berpikir Komputasional"];
-
-    const container =
-        document.getElementById("testQuestions");
-
+    const data = testData[materiDipilih] || testData["Pseudocode"];
+    const container = document.getElementById("testQuestions");
     if(!container) return;
-
     container.innerHTML = "";
-
     data.forEach((soal,index)=>{
-
-        const question =
-            document.createElement("div");
-
-        question.className =
-            "question";
-
+        const opsiAcak = ["Model Von Neumann", "Konsep Dasar AI"].includes(materiDipilih)
+            ? acakPilihanSoal(soal.pilihan, soal.jawaban)
+            : {pilihan: soal.pilihan, jawaban: soal.jawaban};
+        const question = document.createElement("div");
+        question.className = "question";
         let pilihanHTML = "";
-
-        soal.pilihan.forEach(
-            (pilihan,pilihanIndex)=>{
-
-                pilihanHTML += `
-                    <label class="option">
-                        <input
-                            type="radio"
-                            name="tes_${index}"
-                            value="${pilihanIndex}"
-                        >
-                        ${escapeHTML(pilihan)}
-                    </label>
-                `;
-            }
-        );
-
+        opsiAcak.pilihan.forEach((pilihan,pilihanIndex)=>{
+            pilihanHTML += `
+                <label class="option">
+                    <input type="radio" name="tes_${index}" value="${pilihanIndex}">
+                    ${escapeHTML(pilihan)}
+                </label>
+            `;
+        });
+        question.dataset.jawabanBenar = String(opsiAcak.jawaban);
         question.innerHTML = `
-            <div class="question-number">
-                Soal ${index+1}
-            </div>
-
-            <div class="test-question-text">
-                <strong>
-                    ${formatTesPertanyaan(soal.pertanyaan)}
-                </strong>
-            </div>
-
+            <div class="question-number">Soal ${index+1}</div>
+            <div class="test-question-text"><strong>${formatTesPertanyaan(soal.pertanyaan)}</strong></div>
             ${pilihanHTML}
         `;
-
         container.appendChild(question);
     });
 }
@@ -2590,7 +2648,7 @@ function periksaTes(){
 
     const data =
         testData[materiDipilih] ||
-        testData["Berpikir Komputasional"];
+        testData["Pseudocode"];
 
     let benar = 0;
     let terjawab = 0;
@@ -2606,9 +2664,13 @@ function periksaTes(){
 
             terjawab++;
 
+            const question = document.querySelectorAll("#testQuestions .question")[index];
+            const kunciJawaban = ["Model Von Neumann", "Konsep Dasar AI"].includes(materiDipilih)
+                ? Number(question?.dataset.jawabanBenar)
+                : soal.jawaban;
             if(
                 Number(jawaban.value) ===
-                soal.jawaban
+                kunciJawaban
             ){
                 benar++;
             }
@@ -2663,6 +2725,7 @@ function periksaTes(){
         rekomendasi
     });
 
+    kirimKeGoogleSheet("siswa");
     bukaHalaman("jalur");
 }
 
@@ -2670,6 +2733,7 @@ function periksaTes(){
 /* =========================================================
    PILIH JALUR
    ========================================================= */
+
 
 function pilihJalur(jalur){
 
@@ -2714,20 +2778,8 @@ function mulaiMateri(){
         jalurDipilih = rekomendasi || "Reguler";
     }
 
-    referenceMode = false;
-
-    const tombol =
-        document.getElementById("btnMulaiMateri");
-
-    if(tombol){
-        tombol.disabled = false;
-    }
-
-    updateSession({
-        aktivitasTerakhir:"Mulai Materi",
-        jalurDipilih
-    });
-
+    updateSession({aktivitasTerakhir:"Mulai Materi", jalurDipilih});
+    kirimKeGoogleSheet("siswa");
     bukaHalaman("materi");
 }
 
@@ -2737,83 +2789,70 @@ function mulaiMateri(){
    ========================================================= */
 
 function updateInfoMateri(){
+    const data=getMateri();
+    document.getElementById("materialTitle").textContent=`${data.icon} ${dataName()}`;
+    document.getElementById("materialName").textContent=dataName();
+    document.getElementById("materialDescription").textContent=data.deskripsi;
+    document.getElementById("jalurInfo").innerHTML=`Jalur belajar: <strong>${escapeHTML(jalurDipilih)}</strong>`;
+    const actions=document.getElementById("materialActions");
+    actions.innerHTML=`<button class="btn btn-primary" onclick="lanjutKeRefleksi()">Selesai Belajar →</button>`;
+}
 
-    const data = getMateri();
-
-    document.getElementById(
-        "materialTitle"
-    ).textContent =
-        `${data.icon} ${dataName()}`;
-
-    document.getElementById(
-        "materialName"
-    ).textContent =
-        dataName();
-
-    document.getElementById(
-        "materialDescription"
-    ).textContent =
-        data.deskripsi;
-
-    document.getElementById(
-        "jalurInfo"
-    ).innerHTML =
-        `Jalur belajar: <strong>${escapeHTML(jalurDipilih)}</strong>`;
-
-    document.getElementById(
-        "materialDescription"
-    ).textContent =
-        data.deskripsi;
-
-    document.getElementById(
-        "referenceBar"
-    ).classList.toggle(
-        "hidden",
-        !referenceMode
-    );
-
-    const actions =
-        document.getElementById(
-            "materialActions"
-        );
-
-    if(referenceMode){
-
-        actions.innerHTML = `
-            <button
-                class="btn btn-warning"
-                onclick="kembaliKeLKPD()"
-            >
-                ← Kembali ke LKPD
-            </button>
-        `;
-
-    }else{
-
-        actions.innerHTML = `
-            <button
-                class="btn btn-primary"
-                onclick="mulaiLatihan()"
-            >
-                Lanjut ke Latihan →
-            </button>
-        `;
-    }
+function lanjutKeRefleksi(){
+    updateSession({aktivitasTerakhir:"Selesai Mempelajari Materi"});
+    kirimKeGoogleSheet("siswa");
+    bukaHalaman("refleksi");
 }
 
 function dataName(){
     return materiDipilih;
 }
 
+function buatInfografisSVG(materi, jalur){
+    const navy='#172554', orange='#ff795d', yellow='#ffd85c', blue='#75c9e8', green='#8bd3a8', cream='#fffaf0', pink='#ffd9d2';
+    const ai = materi === 'Konsep Dasar AI';
+    const title = ai ? 'KONSEP DASAR AI' : 'MODEL VON NEUMANN';
+    let subtitle='', nodes=[], footer='';
+    if(!ai && jalur==='Penguatan'){
+        subtitle='Kenali alur kerja komputer';
+        nodes=[['01','INPUT','Keyboard • mouse',blue],['02','MEMORI','Data + instruksi',yellow],['03','CPU','CU mengatur • ALU mengolah',green],['04','OUTPUT','Monitor • printer',pink]];
+        footer='Data dan instruksi disimpan pada memori yang sama.';
+    } else if(!ai && jalur==='Reguler'){
+        subtitle='Siklus instruksi pada CPU';
+        nodes=[['1','FETCH','Ambil instruksi',blue],['2','DECODE','CU menafsirkan',yellow],['3','EXECUTE','Jalankan operasi',green],['4','STORE','Simpan hasil bila perlu',pink]];
+        footer='Siklus berulang selama program dijalankan.';
+    } else if(!ai){
+        subtitle='Memori, CPU, dan jalur komunikasi';
+        nodes=[['RAM','MEMORI','Data dan instruksi',yellow],['BUS','JALUR BUS','Alamat • data • kontrol',blue],['CPU','PEMROSES','CU + ALU',green]];
+        footer='Von Neumann bottleneck: data dan instruksi berbagi jalur komunikasi.';
+    } else if(jalur==='Penguatan'){
+        subtitle='AI belajar dari contoh untuk menghasilkan keluaran';
+        nodes=[['01','DATA','Contoh / informasi',blue],['02','MODEL AI','Mengenali pola',yellow],['03','OUTPUT','Prediksi / rekomendasi',green]];
+        footer='Periksa kembali hasil AI karena sistem dapat keliru.';
+    } else if(jalur==='Reguler'){
+        subtitle='Tahapan umum pengembangan sistem AI';
+        nodes=[['1','INPUT','Tentukan masalah + data',blue],['2','LATIH','Model mempelajari pola',yellow],['3','UJI','Evaluasi data baru',green],['4','TINJAU','Cek kesalahan dan bias',pink]];
+        footer='Hasil perlu diverifikasi dan data pribadi harus dilindungi.';
+    } else {
+        subtitle='Evaluasi AI secara kritis dan bertanggung jawab';
+        nodes=[['A','DATA','Relevan & representatif',blue],['B','EVALUASI','Akurasi • bias • uji',yellow],['C','ETIKA','Privasi + pengawasan',green]];
+        footer='Kinerja pada data pelatihan belum menjamin hasil pada data baru.';
+    }
+    const n=nodes.length, cardW= (n===4?190:220), gap=22, total=n*cardW+(n-1)*gap, left=(1100-total)/2;
+    const cards=nodes.map((a,i)=>{const x=left+i*(cardW+gap);return `<g><rect x="${x}" y="220" width="${cardW}" height="176" rx="22" fill="${a[3]}" stroke="${navy}" stroke-width="2.5"/><circle cx="${x+cardW/2}" cy="250" r="18" fill="${navy}"/><text x="${x+cardW/2}" y="256" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">${a[0]}</text><text x="${x+cardW/2}" y="300" text-anchor="middle" font-size="${n===4?19:21}" font-weight="800" fill="${navy}">${a[1]}</text><foreignObject x="${x+12}" y="315" width="${cardW-24}" height="58"><div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Arial,sans-serif;font-size:15px;line-height:1.3;text-align:center;color:${navy};font-weight:600">${a[2]}</div></foreignObject></g>`}).join('');
+    const arrows=nodes.slice(0,-1).map((_,i)=>{const x=left+(i+1)*cardW+i*gap+3;return `<path d="M ${x} 308 h ${gap-7}" stroke="${orange}" stroke-width="5" stroke-linecap="round"/><path d="M ${x+gap-15} 299 l 10 9 -10 9" fill="none" stroke="${orange}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>`}).join('');
+    const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="520" viewBox="0 0 1100 520"><rect width="1100" height="520" rx="30" fill="${cream}"/><circle cx="1010" cy="75" r="48" fill="${pink}"/><circle cx="70" cy="455" r="35" fill="${blue}"/><path d="M0 145 Q270 105 530 145 T1100 130" fill="none" stroke="${blue}" stroke-width="3" opacity=".55"/><text x="550" y="65" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" letter-spacing="4" fill="${orange}">RUANG BELAJAR INFORMATIKA</text><text x="550" y="112" text-anchor="middle" font-family="Arial,sans-serif" font-size="34" font-weight="900" fill="${navy}">${title}</text><rect x="350" y="132" width="400" height="42" rx="21" fill="${navy}"/><text x="550" y="159" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#ffffff">JALUR ${jalur.toUpperCase()}</text><text x="550" y="199" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="${navy}">${subtitle}</text>${cards}${arrows}<rect x="95" y="425" width="910" height="58" rx="18" fill="#ffffff" stroke="${green}" stroke-width="3"/><text x="550" y="460" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="${navy}">${footer}</text></svg>`;
+    return 'data:image/svg+xml;charset=UTF-8,'+encodeURIComponent(svg);
+}
+
 function renderGambarJalur(){
-    const media = getMediaPembelajaran(materiDipilih, jalurDipilih);
-    if(!media.gambar) return "";
+    const gambar = buatInfografisSVG(materiDipilih, jalurDipilih);
     return `
         <div class="jalur-gambar">
             <h3>🖼️ Gambar Pendukung</h3>
             <div class="jalur-gambar-card">
-                <img src="${media.gambar}" alt="Gambar pendukung ${escapeHTML(materiDipilih)} ${escapeHTML(jalurDipilih)}" onclick="bukaGambarPopup(this.src)">
-                <p class="jalur-gambar-note">Klik gambar untuk memperbesar.</p>
+                <img src="${gambar}" alt="Infografis ${escapeHTML(materiDipilih)} untuk jalur ${escapeHTML(jalurDipilih)}" onclick="bukaGambarPopup(this.src)">
+                <p class="jalur-gambar-note">Infografis ringkas sesuai jalur belajar. Klik gambar untuk memperbesar.</p>
             </div>
         </div>
     `;
@@ -2834,6 +2873,49 @@ function bukaGambarPopup(src){
         <img src="${src}" alt="Gambar diperbesar">
     `;
     document.body.appendChild(popup);
+}
+
+function renderInfografis(materi, jalur){
+    const labelJalur = escapeHTML(jalur || "Reguler");
+    if(materi === "Model Von Neumann"){
+        const isi = jalur === "Penguatan" ? `
+            <div class="info-step"><span>1</span><strong>Input</strong><small>Keyboard, mouse, sensor</small></div><div class="info-arrow">→</div>
+            <div class="info-step"><span>2</span><strong>Memori</strong><small>Menyimpan data & instruksi</small></div><div class="info-arrow">→</div>
+            <div class="info-step"><span>3</span><strong>CPU</strong><small>CU mengatur, ALU menghitung</small></div><div class="info-arrow">→</div>
+            <div class="info-step"><span>4</span><strong>Output</strong><small>Monitor, printer, speaker</small></div>`
+        : jalur === "Pengayaan" ? `
+            <div class="info-step"><span>RAM</span><strong>Memori bersama</strong><small>Menyimpan data dan instruksi</small></div><div class="info-arrow">⇄</div>
+            <div class="info-step"><span>BUS</span><strong>Jalur komunikasi</strong><small>Bus data, alamat, dan kontrol</small></div><div class="info-arrow">⇄</div>
+            <div class="info-step"><span>CPU</span><strong>CU + ALU</strong><small>Menjalankan instruksi</small></div>
+            <p class="info-note">Potensi bottleneck: data dan instruksi dapat berebut jalur komunikasi menuju CPU.</p>`
+        : `
+            <div class="info-step"><span>1</span><strong>Fetch</strong><small>Mengambil instruksi</small></div><div class="info-arrow">→</div>
+            <div class="info-step"><span>2</span><strong>Decode</strong><small>CU menafsirkan instruksi</small></div><div class="info-arrow">→</div>
+            <div class="info-step"><span>3</span><strong>Execute</strong><small>CPU menjalankan operasi</small></div><div class="info-arrow">→</div>
+            <div class="info-step"><span>4</span><strong>Store</strong><small>Menyimpan hasil bila diperlukan</small></div>
+            <p class="info-note">Siklus instruksi berlangsung berulang selama program berjalan.</p>`;
+        return `<section class="infografis-materi"><h3>📊 Infografis Model Von Neumann — Jalur ${labelJalur}</h3><p class="info-subtitle">Ringkasan visual untuk membantu memahami alur kerja komputer.</p><div class="info-flow">${isi}</div></section>`;
+    }
+    if(materi === "Konsep Dasar AI"){
+        const isi = jalur === "Penguatan" ? `
+            <div class="info-step"><span>1</span><strong>Data</strong><small>Contoh yang diberikan</small></div><div class="info-arrow">→</div>
+            <div class="info-step"><span>2</span><strong>AI belajar</strong><small>Mencari pola dalam data</small></div><div class="info-arrow">→</div>
+            <div class="info-step"><span>3</span><strong>Hasil</strong><small>Prediksi atau rekomendasi</small></div>
+            <p class="info-note">Hasil AI tetap perlu diperiksa manusia.</p>`
+        : jalur === "Pengayaan" ? `
+            <div class="info-step"><span>A</span><strong>Kualitas data</strong><small>Representatif, relevan, aman</small></div><div class="info-arrow">→</div>
+            <div class="info-step"><span>B</span><strong>Model & evaluasi</strong><small>Uji akurasi, bias, generalisasi</small></div><div class="info-arrow">→</div>
+            <div class="info-step"><span>C</span><strong>Penggunaan etis</strong><small>Verifikasi, privasi, pengawasan</small></div>
+            <p class="info-note">Kinerja yang baik pada data pelatihan belum menjamin kinerja pada data baru.</p>`
+        : `
+            <div class="info-step"><span>1</span><strong>Input</strong><small>Data atau perintah pengguna</small></div><div class="info-arrow">→</div>
+            <div class="info-step"><span>2</span><strong>Model AI</strong><small>Mengolah pola yang dipelajari</small></div><div class="info-arrow">→</div>
+            <div class="info-step"><span>3</span><strong>Output</strong><small>Prediksi atau konten</small></div><div class="info-arrow">→</div>
+            <div class="info-step"><span>4</span><strong>Evaluasi</strong><small>Cek akurasi dan bias</small></div>
+            <p class="info-note">AI dapat keliru; verifikasi informasi dan lindungi data pribadi.</p>`;
+        return `<section class="infografis-materi"><h3>📊 Infografis Konsep Dasar AI — Jalur ${labelJalur}</h3><p class="info-subtitle">Ringkasan visual tentang data, model AI, hasil, dan tanggung jawab pengguna.</p><div class="info-flow">${isi}</div></section>`;
+    }
+    return "";
 }
 
 function renderMateri(){
@@ -2865,6 +2947,7 @@ function renderMateri(){
             ? (gameData[jalurDipilih] || gameData["Reguler"])
             : gameData;
 
+    initArcadeVisible();
     bukaSubmenu("material",false);
 }
 
@@ -2942,6 +3025,177 @@ function bukaGames(){
     );
 }
 
+
+const arcadeLevels = {
+ komponen:[
+  {q:'Komponen apa yang dipakai untuk mengetik?',a:['⌨️ Keyboard','🖥️ Monitor','🔊 Speaker','🧠 CPU'],c:0,why:'Keyboard adalah perangkat input.'},
+  {q:'Hasil pengolahan ingin ditampilkan ke pengguna. Pilih komponen!',a:['🖱️ Mouse','🖥️ Monitor','🎙️ Mikrofon','📷 Kamera'],c:1,why:'Monitor menampilkan informasi sebagai output.'},
+  {q:'Komponen yang menjalankan instruksi adalah ...',a:['🧠 CPU','🖨️ Printer','⌨️ Keyboard','🔊 Speaker'],c:0,why:'CPU memproses dan menjalankan instruksi.'},
+  {q:'Tempat data dan instruksi disimpan sementara saat digunakan?',a:['🗄️ RAM','🖥️ Monitor','🖱️ Mouse','🎧 Headset'],c:0,why:'Memori utama menyimpan data dan instruksi yang sedang digunakan.'},
+  {q:'Komputer mengeluarkan suara hasil proses. Perangkat outputnya?',a:['🎤 Mikrofon','🔊 Speaker','⌨️ Keyboard','📷 Kamera'],c:1,why:'Speaker menghasilkan keluaran berupa suara.'}
+ ],
+ cpu:[
+  {q:'Apa yang dilakukan CPU pertama kali?',a:['⚙️ Execute','📥 Fetch','💾 Store','🔎 Decode'],c:1,why:'Fetch mengambil instruksi dari memori.'},
+  {q:'Instruksi yang diambil kemudian ...',a:['🔎 Decode','🖨️ Print','🧹 Delete','🔌 Unplug'],c:0,why:'Decode menerjemahkan instruksi agar dipahami CPU.'},
+  {q:'Pada tahap ini CPU menjalankan operasi/perintah.',a:['📥 Fetch','🔎 Decode','⚙️ Execute','⏸️ Pause'],c:2,why:'Execute adalah tahap pelaksanaan instruksi.'},
+  {q:'Hasil proses disimpan kembali. Tahap ini disebut ...',a:['💾 Store','📥 Fetch','🔎 Decode','🧭 Input'],c:0,why:'Store menyimpan hasil pemrosesan.'}
+ ],
+ escape:[
+  {q:'Data dan instruksi program disimpan bersama di ...',a:['🗄️ Memori utama','🖨️ Printer','🎧 Speaker'],c:0,why:'Inilah konsep stored-program pada arsitektur Von Neumann.'},
+  {q:'Komponen CPU yang melakukan operasi hitung dan logika?',a:['🎮 Control Unit','➗ ALU','🖱️ Mouse'],c:1,why:'ALU menangani operasi aritmetika dan logika.'},
+  {q:'Mengapa akses data bisa menjadi hambatan pada model Von Neumann?',a:['🚦 Data dan instruksi berbagi jalur','🎨 Warna monitor','🔋 Bentuk keyboard'],c:0,why:'Berbagi jalur dapat membatasi kecepatan perpindahan data dan instruksi.'}
+ ],
+ detektifai:[
+  {q:'📍 Aplikasi peta memprediksi kemacetan dan menyarankan rute',a:['🧠 Menggunakan AI','🧱 Bukan AI'],c:0,why:'Prediksi rute dapat memanfaatkan data dan model AI.'},
+  {q:'💡 Lampu biasa menyala hanya karena sakelar ditekan',a:['🧠 Menggunakan AI','🧱 Bukan AI'],c:1,why:'Lampu biasa tanpa sistem cerdas hanya menjalankan fungsi sederhana.'},
+  {q:'📸 Ponsel mengenali wajah untuk membuka kunci',a:['🧠 Menggunakan AI','🧱 Bukan AI'],c:0,why:'Pengenalan wajah merupakan contoh penerapan AI.'},
+  {q:'🧮 Kalkulator sederhana menghitung 2 + 2 dengan aturan tetap',a:['🧠 Menggunakan AI','🧱 Bukan AI'],c:1,why:'Kalkulator sederhana mengikuti operasi yang telah ditentukan.'},
+  {q:'🎬 Aplikasi merekomendasikan film dari kebiasaan menonton',a:['🧠 Menggunakan AI','🧱 Bukan AI'],c:0,why:'Sistem rekomendasi dapat mempelajari pola preferensi pengguna.'}
+ ],
+ latihai:[
+  {q:'🛞 Ban dengan alur tapak masih dalam dan utuh',a:['✅ Ban normal','⚠️ Ban aus'],c:0,why:'Alur tapak yang masih dalam dan utuh menunjukkan kondisi normal.'},
+  {q:'🛞 Alur ban hampir hilang dan permukaannya rata',a:['✅ Ban normal','⚠️ Ban aus'],c:1,why:'Alur yang hampir hilang merupakan tanda ban aus.'},
+  {q:'🛞 Ban tampak retak di sisi-sisinya',a:['✅ Ban normal','⚠️ Ban perlu diperiksa'],c:1,why:'Retakan perlu ditandai untuk pemeriksaan lebih lanjut.'},
+  {q:'🛞 Alur tapak jelas, tidak ada retakan yang terlihat',a:['✅ Ban normal','⚠️ Ban aus'],c:0,why:'Data ini cocok dengan label ban normal.'},
+  {q:'🤖 Agar AI lebih andal, data latih sebaiknya ...',a:['🌈 Beragam dan berlabel tepat','📷 Hanya satu foto yang sama'],c:0,why:'Data yang beragam dan label yang tepat membantu model belajar lebih baik.'}
+ ],
+ auditai:[
+  {q:'AI seleksi kerja lebih sering menolak pelamar dari kelompok tertentu. Langkah pertama?',a:['🔍 Audit data dan hasil untuk mencari bias','🚀 Langsung gunakan tanpa pemeriksaan','🗑️ Sembunyikan hasil buruk'],c:0,why:'Audit membantu menemukan bias dan ketidakadilan.'},
+  {q:'AI bengkel sering salah mengenali ban aus. Perbaikan terbaik?',a:['📚 Tambahkan data beragam dan label tepat','🖼️ Latih dengan satu foto saja','🙈 Abaikan kesalahan'],c:0,why:'Contoh yang beragam dan representatif dapat memperbaiki model.'},
+  {q:'AI meminta data pribadi pelanggan yang tidak relevan. Kamu sebaiknya ...',a:['🔐 Batasi data dan lindungi privasi','📤 Bagikan semua data','📣 Unggah ke ruang publik'],c:0,why:'Penggunaan AI harus menjaga privasi dan meminimalkan data.'},
+  {q:'AI memberi rekomendasi penting untuk keselamatan kendaraan. Berikutnya?',a:['🧑‍🔧 Periksa hasil dengan manusia dan uji model','🤖 Percaya 100% tanpa pemeriksaan','🧹 Hapus catatan kesalahan'],c:0,why:'Pengawasan manusia dan evaluasi penting untuk keputusan berisiko.'}
+ ],
+ aiCase:[
+  {q:'AI sekolah menyarankan materi remedial untuk siswa. Apa langkah awal yang paling tepat?',a:['🔎 Periksa kualitas data nilai dan kesesuaian rekomendasi','🎨 Pilih rekomendasi dari tampilan paling menarik','🚀 Terapkan semua rekomendasi tanpa ditinjau'],c:0,why:'Data dan hasil perlu diperiksa agar rekomendasi sesuai kebutuhan siswa.'},
+  {q:'Model AI dilatih hanya menggunakan foto ban dari satu kondisi pencahayaan. Risiko yang paling mungkin adalah ...',a:['⚖️ Model kurang andal pada kondisi berbeda','🎯 Model pasti benar untuk semua foto','🔐 Privasi otomatis terlindungi'],c:0,why:'Data yang kurang beragam dapat membatasi kemampuan model pada situasi baru.'},
+  {q:'Aplikasi AI meminta alamat rumah dan NIK, padahal hanya memberi saran belajar. Sikap terbaik?',a:['🔐 Batasi pengumpulan data pada yang benar-benar diperlukan','📤 Kumpulkan semua data untuk berjaga-jaga','📣 Bagikan data agar model cepat belajar'],c:0,why:'Prinsip minimisasi data membantu melindungi privasi pengguna.'},
+  {q:'Hasil AI menunjukkan akurasi tinggi, tetapi sering keliru pada kelompok tertentu. Apa yang harus dilakukan?',a:['🧪 Evaluasi hasil per kelompok dan audit kemungkinan bias','🏆 Abaikan karena nilai akurasi keseluruhan tinggi','🗑️ Hapus data kelompok yang sering salah'],c:0,why:'Evaluasi terperinci dapat mengungkap masalah yang tertutup oleh nilai rata-rata.'},
+  {q:'AI memberi saran yang berpengaruh pada keselamatan kendaraan. Keputusan akhir sebaiknya ...',a:['🧑‍🔧 diverifikasi manusia dengan bukti dan pengujian yang memadai','🤖 diserahkan sepenuhnya kepada AI','⏩ langsung diterapkan tanpa pemeriksaan'],c:0,why:'AI mendukung pengambilan keputusan, tetapi keputusan berisiko membutuhkan verifikasi manusia.'}
+ ]
+};
+function initArcade(box){
+ const id=box.dataset.arcade, levels=arcadeLevels[id]; if(!levels||box.dataset.ready==='1')return;
+ box.dataset.ready='1'; box.dataset.level='0'; box.dataset.score='0'; box.dataset.answered='0';
+ arcadeRender(box); initMovingArcade(box);
+}
+function arcadeRender(box){
+ const id=box.dataset.arcade, levels=arcadeLevels[id], n=Number(box.dataset.level), item=levels[n];
+ const points=box.querySelector('.arcade-points'), fill=box.querySelector('.arcade-fill'), level=box.querySelector('.arcade-level'), prompt=box.querySelector('.arcade-prompt'), choices=box.querySelector('.arcade-choices'), feedback=box.querySelector('.arcade-feedback'), next=box.querySelector('.arcade-next');
+ points.textContent=box.dataset.score; fill.style.width=(n/levels.length*100)+'%';
+ if(!item){
+  level.textContent='MISI SELESAI'; prompt.textContent='🏆 Misi berhasil dituntaskan!'; choices.innerHTML=''; feedback.textContent='Skor akhir: '+box.dataset.score+' dari '+levels.length+'. '+(Number(box.dataset.score)===levels.length?'Sempurna! Kamu menguasai misi ini!':'Main lagi untuk mengalahkan skor terbaikmu!'); next.disabled=false; next.textContent='🔁 Main lagi'; next.onclick=()=>arcadeRestart(id); fill.style.width='100%';
+  let final=box.querySelector('.arcade-final'); if(!final){final=document.createElement('div');final.className='arcade-final';box.querySelector('.arcade-mission').appendChild(final)} final.textContent='⭐ '+box.dataset.score+' / '+levels.length+' poin'; updateSession({aktivitasTerakhir:'Games Selesai'}); return;
+ }
+ level.textContent=((id==='escape'||id==='aiEscape')?'KUNCI ':id==='detektifai'?'KARTU ':id==='latihai'?'DATA LATIH ':id==='auditai'?'KASUS ':id==='cpu'?'LANGKAH ':'MISI ')+(n+1)+' DARI '+levels.length;
+ prompt.textContent=item.q; choices.innerHTML=''; item.a.forEach((label,i)=>{const b=document.createElement('button');b.type='button';b.textContent=label;b.onclick=()=>arcadeTap(b,i===item.c?1:0,id);choices.appendChild(b)});
+ feedback.textContent='Pilih jawabanmu!'; next.disabled=true; next.textContent=n===levels.length-1?'Lihat hasil 🏆':(id==='escape'?'Buka kunci ➜':id==='detektifai'?'Kartu berikutnya ➜':'Lanjut ➜'); next.onclick=()=>arcadeNext(id);
+ box.dataset.answered='0'; const final=box.querySelector('.arcade-final');if(final)final.remove();
+}
+function arcadeTap(button,correct,id){
+ const box=button.closest('.arcade-game'); if(!box||box.dataset.answered==='1')return;
+ const n=Number(box.dataset.level), item=arcadeLevels[id][n], feedback=box.querySelector('.arcade-feedback');
+ if(correct){box.dataset.answered='1';box.dataset.score=String(Number(box.dataset.score)+1);button.classList.add('arcade-correct');box.querySelectorAll('.arcade-choices button').forEach(b=>b.disabled=true);feedback.textContent='🎉 Tepat! '+item.why;feedback.style.color='#176b3a';box.querySelector('.arcade-next').disabled=false;box.querySelector('.arcade-points').textContent=box.dataset.score;updateSession({aktivitasTerakhir:'Games Benar'});}
+ else {button.classList.add('arcade-wrong');feedback.textContent='💡 Belum tepat! Coba pilihan lain, kamu masih punya kesempatan.';feedback.style.color='#b9382c';updateSession({aktivitasTerakhir:'Games Dicoba'});}
+}
+function arcadeNext(id){const box=document.querySelector('.arcade-game[data-arcade="'+id+'"]');if(!box)return;if(box.dataset.answered!=='1')return;box.dataset.level=String(Number(box.dataset.level)+1);arcadeRender(box)}
+function arcadeRestart(id){const box=document.querySelector('.arcade-game[data-arcade="'+id+'"]');if(!box)return;box.dataset.level='0';box.dataset.score='0';box.dataset.answered='0';arcadeRender(box)}
+function initArcadeVisible(){document.querySelectorAll('.arcade-game').forEach(box=>window.initArcade(box))}
+document.addEventListener('DOMContentLoaded',initArcadeVisible);
+setTimeout(initArcadeVisible,0);
+
+
+const movingArcadeConfig={
+ komponen:{title:'Tangkap Komponen!',goal:'MISI: Tangkap perangkat INPUT (⌨️ 🖱️ 🎙️ 📷). Hindari perangkat OUTPUT dan CPU.',targets:['⌨️','🖱️','🎙️','📷'],decoys:['🖥️','🔊','🖨️','🧠','💾'],targetLabel:'PERANGKAT INPUT'},
+ cpu:{title:'CPU Rush!',goal:'MISI: Bantu CPU memproses instruksi. Baca petunjuk setiap langkah, lalu pilih tahap yang paling tepat. Urutannya tidak ditampilkan!',targets:['📥','🔎','⚙️','💾'],decoys:['🖨️','🎧','🧃','🛑'],sequence:['📥','🔎','⚙️','💾'],step:0,targetLabel:'URUTAN SIKLUS CPU'},
+ escape:{title:'Escape Room: Ruang Komputer',goal:'MISI: Kumpulkan 8 kunci 🔑 untuk membuka pintu server. Hindari virus 🦠 dan ranjau 💣.',targets:['🔑'],decoys:['🦠','💣','⚡','🕷️'],targetLabel:'KUMPULKAN KUNCI'},
+ detektifai:{title:'AI atau Bukan?',goal:'MISI: Tangkap contoh yang menggunakan AI (🗺️ 🤖 📸 🎧). Hindari benda biasa!',targets:['🗺️','🤖','📸','🎧','✨'],decoys:['📏','🪑','📄','✏️','🧱'],targetLabel:'CONTOH YANG MENGGUNAKAN AI'},
+ latihai:{title:'Latih Robot AI',goal:'MISI: Bantu robot mengumpulkan data ban AUS (🛞). Hindari kendaraan yang bukan contoh ban aus.',targets:['🛞'],decoys:['🚗','🏍️','🛴','🚌'],targetLabel:'DATA BAN AUS'},
+ auditai:{title:'Detektif AI',goal:'MISI: Kumpulkan bukti masalah AI: bias ⚖️, privasi 🔐, dan kesalahan ⚠️. Hindari petunjuk palsu!',targets:['⚖️','🔐','⚠️','🔍'],decoys:['🙈','🚀','🎉','🗑️'],targetLabel:'BUKTI AUDIT AI'}
+};
+function initMovingArcade(box){
+ if(box.dataset.movingReady==='1')return; box.dataset.movingReady='1';
+ const id=box.dataset.arcade,c=movingArcadeConfig[id]; if(!c)return;
+ const arena=document.createElement('div'); arena.className='arcade-arena';
+ arena.innerHTML='<div class="arcade-hud"><span>⭐ Skor: <b class="move-score">0</b></span><span>⏱️ Waktu: <b class="move-time">40</b> dtk</span><span>🎯 Target: <b class="move-target">0</b>/'+(id==='escape'?8:10)+'</span></div><div class="arcade-goal">'+c.goal+'</div><div class="arcade-stage"></div><div class="arcade-bottom"><small class="move-hint">Baca misi di atas, lalu tekan Mulai.</small><button type="button" class="arcade-start">▶ MULAI MAIN</button></div>';
+ const intro=box.querySelector('p'); if(intro)intro.insertAdjacentElement('afterend',arena); else box.prepend(arena);
+ const msg=box.querySelector('.arcade-message');if(msg)msg.remove();
+ arena.querySelector('.arcade-start').addEventListener('click',()=>startMovingArcade(box));
+}
+function startMovingArcade(box){
+ const id=box.dataset.arcade,c=movingArcadeConfig[id],arena=box.querySelector('.arcade-arena'),stage=arena.querySelector('.arcade-stage');
+ if(box._moveTimer)clearInterval(box._moveTimer); if(box._spawnTimer)clearInterval(box._spawnTimer); if(box._spawnDelay)clearTimeout(box._spawnDelay); if(box._gameLoop)clearInterval(box._gameLoop); if(box._keyHandler)document.removeEventListener('keydown',box._keyHandler);
+ stage.innerHTML=''; const old=arena.querySelector('.arcade-result-pop');if(old)old.remove();
+ const mode=({komponen:'tap',cpu:'sequence',escape:'maze',detektifai:'tap',latihai:'catch',auditai:'sort'})[id];
+ const goal=({komponen:8,cpu:4,escape:4,detektifai:8,latihai:8,auditai:4})[id];
+ box._move={score:0,time:50,hits:0,step:0,miss:0,ended:false,goal,mode,keys:0};
+ arena.querySelector('.move-score').textContent='0';arena.querySelector('.move-time').textContent='50';arena.querySelector('.move-target').textContent='0';
+ arena.querySelector('.arcade-start').textContent='↻ MULAI ULANG';
+ const hint=arena.querySelector('.move-hint');
+ const setHint=t=>hint.textContent=t;
+ const hud=arena.querySelector('.move-target').parentElement;hud.innerHTML='🎯 Progres: <b class="move-target">0</b>/'+goal;
+ const update=()=>{arena.querySelector('.move-score').textContent=box._move.score;arena.querySelector('.move-target').textContent=box._move.hits;};
+ const good=(points=10)=>{const st=box._move;st.hits++;st.score+=points;update();updateSession({aktivitasTerakhir:'Games Benar'});if(st.hits>=st.goal&&st.mode!=='maze')finishMovingArcade(box,true);};
+ const bad=(message='Kurang tepat! Coba lagi ya.')=>{box._move.score=Math.max(0,box._move.score-1);update();setHint('💡 '+message);updateSession({aktivitasTerakhir:'Games Dicoba'});};
+ const flyer=(emoji,cls='')=>{const el=document.createElement('button');el.type='button';el.className='arcade-flyer '+cls;el.textContent=emoji;el.setAttribute('aria-label','Objek '+emoji);el.title='Pilih '+emoji;return el;};
+ if(mode==='tap'){
+   setHint(id==='komponen'?'Klik perangkat INPUT yang bergerak. Hindari objek lain!':'Klik contoh yang menggunakan AI. Hindari benda biasa!');
+   const spawn=()=>{if(box._move.ended)return;const isGood=Math.random()<.57;const pool=isGood?c.targets:c.decoys;const emoji=pool[Math.floor(Math.random()*pool.length)];const el=flyer(emoji,isGood?'good':'');const rect=stage.getBoundingClientRect();el.style.top=(8+Math.random()*Math.max(8,rect.height-72))+'px';el.style.setProperty('--duration',(7+Math.random()*2)+'s');stage.appendChild(el);const rm=setTimeout(()=>el.remove(),9300);el.addEventListener('click',e=>{e.preventDefault();if(box._move.ended)return;clearTimeout(rm);el.classList.add('pop');setTimeout(()=>el.remove(),180);if(c.targets.includes(emoji)){good();setHint('✨ Tepat! Cari target berikutnya.')}else bad('Itu bukan target misi.');});};
+   box._spawnDelay=setTimeout(()=>{spawn();box._spawnTimer=setInterval(spawn,1850);},1200);
+ } else if(mode==='sequence'){
+   const seq=[['📥','FETCH'],['🔎','DECODE'],['⚙️','EXECUTE'],['💾','STORE']];
+   const panel=document.createElement('div');panel.className='arcade-action-panel';panel.innerHTML='<div class="cpu-seq"></div><div class="arcade-action-grid"></div>';stage.appendChild(panel);
+   const clues=["CPU harus mengambil instruksi dari memori sebelum bisa memprosesnya. Tahap apa yang dilakukan?","Instruksi sudah diambil. Sekarang CPU perlu menerjemahkan instruksi agar memahami perintahnya. Tahap apa ini?","CPU sudah memahami instruksi. Sekarang perintah perlu dijalankan. Tahap apa yang tepat?","Perintah sudah dijalankan. Hasilnya perlu disimpan agar dapat digunakan atau ditampilkan. Tahap apa ini?"];const draw=()=>{if(box._move.ended)return;panel.querySelector('.cpu-seq').innerHTML='<p><strong>Petunjuk '+(box._move.step+1)+' dari 4</strong></p><p>'+clues[box._move.step]+'</p>';const grid=panel.querySelector('.arcade-action-grid');grid.innerHTML='';[['💾','STORE'],['⚙️','EXECUTE'],['📥','FETCH'],['🔎','DECODE']].sort(()=>Math.random()-.5).forEach(x=>{const b=document.createElement('button');b.type='button';b.className='arcade-choice-tile';b.textContent=x[0]+' '+x[1];b.onclick=()=>{if(box._move.ended)return;if(x[1]===seq[box._move.step][1]){box._move.step++;good(15);setHint('⚡ Tepat! Lanjutkan dengan membaca petunjuk berikutnya.');if(box._move.step<4)draw();else finishMovingArcade(box,true);}else bad('Belum tepat. Pahami fungsi tiap tahap, lalu coba lagi.');};grid.appendChild(b);});};draw();setHint('Baca petunjuknya, lalu pilih satu kartu. Jawaban tidak diberi tahu sebelum kamu mencoba.');
+ } else if(mode==='maze'){
+   setHint('Escape Room: gerakkan 🧑‍💻 dengan tombol panah atau WASD, kumpulkan 🔑 lalu menuju 🚪.');
+   const board=document.createElement('div');board.className='arcade-maze';stage.appendChild(board);
+   const map=['##########','#..#....K#','#..#.#...#','#....#.#.#','##.#...#.#','#K...#...#','#.##...#K#','#....#...#','#K..#....E','##########'];
+   let pos={x:1,y:1};const cells=[];map.forEach((row,y)=>[...row].forEach((ch,x)=>{const cell=document.createElement('div');cell.className='maze-cell '+(ch==='#'?'wall':'floor');cell.textContent=ch==='#'?'🧱':ch==='K'?'🔑':ch==='E'?'🚪':'';board.appendChild(cell);cells.push({x,y,ch,el:cell});}));
+   const paint=()=>cells.forEach(cel=>{cel.el.textContent=(cel.x===pos.x&&cel.y===pos.y)?'🧑‍💻':cel.ch==='#'?'🧱':cel.ch==='K'?'🔑':cel.ch==='E'?'🚪':'';cel.el.className='maze-cell '+(cel.ch==='#'?'wall':'floor')+((cel.x===pos.x&&cel.y===pos.y)?' player':'');});paint();
+   box._keyHandler=e=>{if(box._move.ended||!['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','w','a','s','d','W','A','S','D'].includes(e.key))return;e.preventDefault();let dx=0,dy=0;if(e.key==='ArrowUp'||e.key.toLowerCase()==='w')dy=-1;if(e.key==='ArrowDown'||e.key.toLowerCase()==='s')dy=1;if(e.key==='ArrowLeft'||e.key.toLowerCase()==='a')dx=-1;if(e.key==='ArrowRight'||e.key.toLowerCase()==='d')dx=1;const nx=pos.x+dx,ny=pos.y+dy,ch=map[ny]?.[nx];if(!ch||ch==='#')return;pos={x:nx,y:ny};if(ch==='K'){map[ny]=map[ny].slice(0,nx)+'.'+map[ny].slice(nx+1);good(20);setHint('🔑 Kunci ditemukan! Lanjutkan menjelajah.');}else if(ch==='E'){if(box._move.hits>=goal)finishMovingArcade(box,true);else setHint('🚪 Pintu terkunci. Kumpulkan semua kunci dulu!');}paint();};document.addEventListener('keydown',box._keyHandler);
+ } else if(mode==='catch'){
+   setHint('Gerakkan keranjang dengan ← → atau A/D untuk menangkap data ban AUS 🛞. Hindari kendaraan lain.');
+   const catcher=document.createElement('div');catcher.className='arcade-catcher';catcher.textContent='🧺';catcher.style.left='45%';stage.appendChild(catcher);let x=.45;const items=[];
+   box._keyHandler=e=>{if(box._move.ended)return;if(['ArrowLeft','ArrowRight','a','d','A','D'].includes(e.key)){e.preventDefault();x=Math.max(0,Math.min(.88,x+((e.key==='ArrowLeft'||e.key.toLowerCase()==='a')?-.06:.06)));catcher.style.left=(x*100)+'%';}};document.addEventListener('keydown',box._keyHandler);
+   const spawn=()=>{if(box._move.ended)return;const goodItem=Math.random()<.58,emoji=goodItem?'🛞':c.decoys[Math.floor(Math.random()*c.decoys.length)];const el=flyer(emoji,goodItem?'good':'');el.style.left=(Math.random()*85)+'%';el.style.top='0px';el.classList.add('arcade-falling');stage.appendChild(el);items.push({el,good:goodItem,y:0,x:parseFloat(el.style.left)/100});};
+   box._spawnDelay=setTimeout(()=>{spawn();box._spawnTimer=setInterval(spawn,1550);},1000);
+   box._gameLoop=setInterval(()=>{items.slice().forEach(it=>{if(!it.el.isConnected){items.splice(items.indexOf(it),1);return;}it.y+=2.3;it.el.style.top=it.y+'px';if(it.y>stage.clientHeight-80&&it.y<stage.clientHeight-20&&Math.abs(it.x-x)<.12){if(it.good){good();setHint('🤖 Data ban aus berhasil dikumpulkan!');}else bad('Data keliru tertangkap. Coba hindari kendaraan lain.');it.el.remove();items.splice(items.indexOf(it),1);}else if(it.y>stage.clientHeight){it.el.remove();items.splice(items.indexOf(it),1);}});},35);
+ } else if(mode==='sort'){
+   setHint('Audit AI: baca bukti yang muncul, lalu pilih kategori masalah yang tepat.');
+   const cases=[{e:'⚖️',q:'Sistem seleksi bias terhadap kelompok tertentu.',a:'Bias'},{e:'🔐',q:'Aplikasi meminta data pribadi yang tidak relevan.',a:'Privasi'},{e:'⚠️',q:'AI salah menilai kondisi ban kendaraan.',a:'Kesalahan'},{e:'🔎',q:'Data latih tidak mewakili semua kondisi.',a:'Bias'}];
+   const panel=document.createElement('div');panel.className='arcade-action-panel';stage.appendChild(panel);
+   const drawCase=()=>{const item=cases[box._move.step];if(!item)return;panel.innerHTML='<div class="audit-evidence"><span>'+item.e+'</span><h3>'+item.q+'</h3><p>Pilih jenis masalahnya:</p><div class="arcade-action-grid"><button class="arcade-choice-tile">⚖️ Bias</button><button class="arcade-choice-tile">🔐 Privasi</button><button class="arcade-choice-tile">⚠️ Kesalahan</button></div></div>';panel.querySelectorAll('button').forEach((b,i)=>b.onclick=()=>{const answer=['Bias','Privasi','Kesalahan'][i];if(answer===item.a){box._move.step++;good(20);setHint('🕵️ Bukti terklasifikasi dengan tepat!');if(box._move.step<cases.length)drawCase();else finishMovingArcade(box,true);}else bad('Kategori belum tepat. Periksa petunjuk kasus.');});};drawCase();
+ }
+ box._moveTimer=setInterval(()=>{const st=box._move;if(!st||st.ended)return;st.time--;arena.querySelector('.move-time').textContent=st.time;if(st.time<=0)finishMovingArcade(box,false);},1000);
+}
+function finishMovingArcade(box,won){
+ const st=box._move;if(!st||st.ended)return;st.ended=true;clearInterval(box._moveTimer);clearInterval(box._spawnTimer);clearInterval(box._gameLoop);clearTimeout(box._spawnDelay);if(box._keyHandler)document.removeEventListener('keydown',box._keyHandler);box.querySelectorAll('.arcade-flyer').forEach(e=>e.remove());
+ const arena=box.querySelector('.arcade-arena'),pop=document.createElement('div');pop.className='arcade-result-pop';pop.innerHTML='<div><strong>'+(won?'🏆 MISI SELESAI!':'⏰ WAKTU HABIS!')+'</strong><p>Skor kamu: '+st.score+' poin</p><p>Progres: '+st.hits+'/'+st.goal+'</p><p>'+(won?'Hebat! Kamu menuntaskan misi.':'Belum selesai, tidak apa-apa. Coba lagi dan gunakan petunjuk di arena.')+'</p><button type="button" class="arcade-start">▶ MAIN LAGI</button></div>';arena.appendChild(pop);pop.querySelector('button').addEventListener('click',()=>startMovingArcade(box));updateSession({aktivitasTerakhir:'Games Selesai'});
+}
+
+function jawabTantangan(button, benar, pesan){
+    const box = button.closest(".game-box");
+    if(!box) return;
+    const round = button.closest(".game-round");
+    const result = box.querySelector(".gameResult");
+    if(!result) return;
+    if(round && round.dataset.answered === "true") return;
+    result.classList.remove("hidden");
+    if(benar){
+        button.style.background = "#8bd3a8";
+        button.style.color = "#172554";
+        result.className = "gameResult notice success";
+        result.textContent = "🎉 " + pesan;
+        if(round) round.dataset.answered = "true";
+        updateSession({aktivitasTerakhir:"Games Benar"});
+    }else{
+        button.style.background = "#ffd9d2";
+        button.style.color = "#172554";
+        result.className = "gameResult notice error";
+        result.textContent = "💡 Belum tepat. Coba pilihan lain!";
+        updateSession({aktivitasTerakhir:"Games Dicoba"});
+    }
+}
+
 function cekGame(button,status){
 
     const box = button.closest(".game-box") || button.closest(".material-box");
@@ -2983,371 +3237,67 @@ function cekGame(button,status){
    ========================================================= */
 
 function mulaiLatihan(){
-
-    if(referenceMode){
-        kembaliKeLKPD();
-        return;
-    }
-
-    latihanPernahDicoba = false;
-    latihanLulus = false;
-    skorLatihan = 0;
-
+    latihanPernahDicoba=false; latihanLulus=false; skorLatihan="";
     buatSoalLatihan();
-
-    document.getElementById(
-        "practiceResult"
-    ).innerHTML = "";
-
-    document.getElementById(
-        "practiceRetry"
-    ).classList.add("hidden");
-
-    document.getElementById(
-        "practicePass"
-    ).classList.add("hidden");
-
-    document.getElementById(
-        "practiceActions"
-    ).style.display = "flex";
-
-    document.body.classList.add(
-        "exercise-mode"
-    );
-
-    updateSession({
-        aktivitasTerakhir:"Mulai Latihan"
-    });
-
+    document.getElementById("practiceResult").innerHTML="";
+    document.getElementById("practiceFinish").classList.add("hidden");
+    document.getElementById("practiceActions").style.display="flex";
+    document.body.classList.add("exercise-mode");
+    updateSession({aktivitasTerakhir:"Mulai Latihan Akhir"});
     bukaHalaman("latihan");
 }
 
 function buatSoalLatihan(){
-
-    const data =
-        getLatihanAktif();
-
-    const container =
-        document.getElementById(
-            "practiceQuestions"
-        );
-
-    container.innerHTML = "";
-
-    document.getElementById(
-        "practiceTitle"
-    ).textContent =
-        `✏️ Latihan ${materiDipilih}`;
-
+    const data=getLatihanAktif();
+    const container=document.getElementById("practiceQuestions");
+    container.innerHTML="";
+    document.getElementById("practiceTitle").textContent=`✏️ Latihan Akhir ${materiDipilih}`;
     data.forEach((soal,index)=>{
-
-        const question =
-            document.createElement("div");
-
-        question.className =
-            "question";
-
-        let pilihanHTML = "";
-
-        soal.pilihan.forEach(
-            (pilihan,pilihanIndex)=>{
-
-                pilihanHTML += `
-                    <label class="option">
-                        <input
-                            type="radio"
-                            name="latihan_${index}"
-                            value="${pilihanIndex}"
-                        >
-                        ${escapeHTML(pilihan)}
-                    </label>
-                `;
-            }
-        );
-
-        question.innerHTML = `
-            <div class="question-number">
-                Soal ${index+1}
-            </div>
-
-            <div class="test-question-text">
-                ${formatTesPertanyaan(soal.pertanyaan)}
-            </div>
-
-            ${pilihanHTML}
-        `;
-
+        const question=document.createElement("div"); question.className="question";
+        let pilihanHTML="";
+        soal.pilihan.forEach((pilihan,pilihanIndex)=>{
+            pilihanHTML+=`<label class="option"><input type="radio" name="latihan_${index}" value="${pilihanIndex}"> ${escapeHTML(pilihan)}</label>`;
+        });
+        question.innerHTML=`<div class="question-number">Soal ${index+1}</div><div class="test-question-text">${formatTesPertanyaan(soal.pertanyaan)}</div>${pilihanHTML}`;
         container.appendChild(question);
     });
 }
 
 function periksaLatihan(){
-
-    const data =
-        getLatihanAktif();
-
-    let benar = 0;
-    let terjawab = 0;
-
+    const data=getLatihanAktif(); let benar=0, terjawab=0;
     data.forEach((soal,index)=>{
-
-        const jawaban =
-            document.querySelector(
-                `input[name="latihan_${index}"]:checked`
-            );
-
-        if(jawaban){
-
-            terjawab++;
-
-            if(
-                Number(jawaban.value) ===
-                soal.jawaban
-            ){
-                benar++;
-            }
-        }
+        const jawaban=document.querySelector(`input[name="latihan_${index}"]:checked`);
+        if(jawaban){terjawab++; if(Number(jawaban.value)===soal.jawaban) benar++;}
     });
-
-    if(terjawab < data.length){
-
-        alert(
-            `Masih ada ${data.length-terjawab} soal yang belum dijawab.`
-        );
-
-        return;
-    }
-
-    skorLatihan =
-        Math.round(
-            (benar/data.length)*100
-        );
-
-    latihanPernahDicoba = true;
-    latihanLulus =
-        skorLatihan >= 70;
-
-    document.getElementById(
-        "practiceResult"
-    ).innerHTML = `
-        <div class="score-box">
-            <div>Skor Latihan</div>
-            <div class="score">${skorLatihan}</div>
-            <p>
-                ${latihanLulus
-                    ? "🎉 Latihan tuntas!"
-                    : "🌱 Latihan belum tuntas, pelajari kembali materi."
-                }
-            </p>
-        </div>
-    `;
-
-    document.getElementById(
-        "practiceActions"
-    ).style.display = "none";
-
-    if(latihanLulus){
-
-        document.getElementById(
-            "practicePass"
-        ).classList.remove("hidden");
-
-        document.getElementById(
-            "practiceRetry"
-        ).classList.add("hidden");
-
-    }else{
-
-        document.getElementById(
-            "practiceRetry"
-        ).classList.remove("hidden");
-
-        document.getElementById(
-            "practicePass"
-        ).classList.add("hidden");
-    }
-
-    updateSession({
-        aktivitasTerakhir:
-            latihanLulus
-                ? "Latihan Tuntas"
-                : "Latihan Belum Tuntas",
-        skorLatihan,
-        statusLatihan:
-            latihanLulus
-                ? "Tuntas"
-                : "Belum Tuntas"
-    });
+    if(terjawab<data.length){alert(`Masih ada ${data.length-terjawab} soal yang belum dijawab.`);return;}
+    skorLatihan=Math.round((benar/data.length)*100);
+    latihanPernahDicoba=true; latihanLulus=skorLatihan>=70;
+    document.getElementById("practiceResult").innerHTML=`<div class="score-box"><div>Skor Latihan Akhir</div><div class="score">${skorLatihan}</div><p>${latihanLulus?"🎉 Hasilmu mencapai 70 atau lebih.":"Terima kasih sudah mencoba. Gunakan hasil ini untuk mengetahui bagian yang perlu dipelajari lagi."}</p></div>`;
+    document.getElementById("practiceActions").style.display="none";
+    document.getElementById("practiceFinish").classList.remove("hidden");
+    updateSession({aktivitasTerakhir:"Latihan Akhir Selesai", skorLatihan, statusLatihan:latihanLulus?"Tuntas":"Belum Tuntas", statusPembelajaran:"Selesai - Latihan Langsung", waktuSelesai:new Date().toISOString()});
+    kirimKeGoogleSheet("latihan");
 }
 
-function pelajariKembali(){
-
-    referenceMode = false;
-
-    document.body.classList.remove(
-        "exercise-mode"
-    );
-
-    bukaHalaman("materi");
-
-    updateSession({
-        aktivitasTerakhir:"Pelajari Kembali"
-    });
+function selesaiLatihanLangsung(){
+    document.body.classList.remove("exercise-mode");
+    updateSession({aktivitasTerakhir:"Selesai Latihan Langsung", statusPembelajaran:"Selesai - Latihan Langsung", waktuSelesai:sessionData.waktuSelesai||new Date().toISOString()});
+    bukaHalaman("selesai");
 }
-
-function cobaLagi(){
-
-    document.body.classList.remove(
-        "exercise-mode"
-    );
-
-    mulaiLatihan();
-}
-
-
-/* =========================================================
-   LKPD
-   ========================================================= */
-
-function mulaiLKPD(){
-
-    if(!latihanLulus){
-
-        alert(
-            "LKPD baru dapat dibuka setelah latihan mencapai nilai ketuntasan."
-        );
-
-        return;
-    }
-
-    document.body.classList.remove(
-        "exercise-mode"
-    );
-
-    const data =
-        getMateri();
-
-    document.getElementById(
-        "lkpdTitle"
-    ).textContent =
-        `📋 LKPD ${materiDipilih}`;
-
-    document.getElementById(
-        "lkpdIntro"
-    ).textContent =
-        `Terapkan konsep ${materiDipilih} melalui tugas berikut. Kamu boleh kembali ke Materi, Video, atau Games sebagai referensi.`;
-
-    document.getElementById(
-        "lkpdContent"
-    ).innerHTML =
-        data.lkpd;
-
-    updateSession({
-        aktivitasTerakhir:"Membuka LKPD"
-    });
-
-    bukaHalaman("lkpd");
-}
-
-function selesaiLKPD(){
-
-    updateSession({
-        aktivitasTerakhir:"Selesai LKPD",
-        statusLKPD:"Selesai"
-    });
-
-    bukaHalaman("refleksi");
-}
-
-function kembaliKeReferensi(){
-
-    referenceMode = true;
-
-    document.body.classList.remove(
-        "exercise-mode"
-    );
-
-    bukaHalaman("materi");
-
-    updateSession({
-        aktivitasTerakhir:"Membuka Referensi LKPD"
-    });
-}
-
-function kembaliKeLKPD(){
-
-    referenceMode = false;
-
-    document.getElementById(
-        "referenceBar"
-    ).classList.add("hidden");
-
-    bukaHalaman("lkpd");
-
-    updateSession({
-        aktivitasTerakhir:"Kembali ke LKPD"
-    });
-}
-
-
-/* =========================================================
-   PENGUMPULAN
-   ========================================================= */
-
-
-
 
 /* =========================================================
    REFLEKSI
    ========================================================= */
 
 function kirimRefleksi(){
-
-    const paham =
-        document.getElementById(
-            "refleksiPaham"
-        ).value.trim();
-
-    const sulit =
-        document.getElementById(
-            "refleksiSulit"
-        ).value.trim();
-
-    const lanjut =
-        document.getElementById(
-            "refleksiLanjut"
-        ).value.trim();
-
-    if(!paham || !sulit || !lanjut){
-
-        alert(
-            "Silakan lengkapi seluruh bagian refleksi."
-        );
-
-        return;
-    }
-
-    updateSession({
-
-        aktivitasTerakhir:
-            "Selesai Pembelajaran",
-
-        refleksiPaham:paham,
-        refleksiSulit:sulit,
-        refleksiLanjut:lanjut,
-
-        waktuSelesai:
-            new Date().toISOString(),
-
-        statusPembelajaran:
-            "Selesai"
-    });
-
-    kirimKeGoogleSheet();
-
+    const paham=document.getElementById("refleksiPaham").value.trim();
+    const sulit=document.getElementById("refleksiSulit").value.trim();
+    const lanjut=document.getElementById("refleksiLanjut").value.trim();
+    if(!paham||!sulit||!lanjut){alert("Silakan lengkapi seluruh bagian refleksi.");return;}
+    updateSession({aktivitasTerakhir:"Selesai Pembelajaran", refleksiPaham:paham, refleksiSulit:sulit, refleksiLanjut:lanjut, waktuSelesai:new Date().toISOString(), statusPembelajaran:"Selesai"});
+    kirimKeGoogleSheet("siswa");
     bukaHalaman("selesai");
 }
-
 
 /* =========================================================
    GOOGLE SHEETS
@@ -3365,138 +3315,43 @@ function kirimRefleksi(){
    isi respons Apps Script. Namun request POST tetap dikirim.
 */
 
-function kirimKeGoogleSheet(){
-
-    if(sessionSent){
-        console.warn(
-            "Sesi ini sudah dikirim. Pengiriman kedua dicegah."
-        );
-        return;
-    }
-
-    if(!SCRIPT_URL){
-
-        console.error(
-            "SCRIPT_URL belum diisi."
-        );
-
-        return;
-    }
-
-    const payload = {
-
-        waktu:
-            sessionData.waktuSelesai ||
-            new Date().toISOString(),
-
-        waktuMulai:
-            sessionData.waktuMulai || "",
-
-        waktuSelesai:
-            sessionData.waktuSelesai || "",
-
-        idSesi:
-            idSesi,
-
-        nama:
-            siswa.nama || "",
-
-        kelas:
-            siswa.kelas || "",
-
-        jurusan:
-            siswa.jurusan || "",
-
-        absen:
-            siswa.absen || "",
-
-        materi:
-            materiDipilih || "",
-
-        skorTes:
-            skorTes,
-
-        rekomendasi:
-            rekomendasi || "",
-
-        jalurDipilih:
-            jalurDipilih || "",
-
-        skorLatihan:
-            skorLatihan,
-
-        statusLatihan:
-            latihanPernahDicoba
-                ? (
-                    latihanLulus
-                        ? "Tuntas"
-                        : "Belum Tuntas"
-                )
-                : "",
-
-        statusLKPD:
-            sessionData.statusLKPD || "",
-
-        refleksiPaham:
-            sessionData.refleksiPaham || "",
-
-        refleksiSulit:
-            sessionData.refleksiSulit || "",
-
-        refleksiLanjut:
-            sessionData.refleksiLanjut || "",
-
-        aktivitas:
-            sessionData.aktivitasTerakhir || "",
-
-        aktivitasTerakhir:
-            sessionData.aktivitasTerakhir || "",
-
-        statusPembelajaran:
-            sessionData.statusPembelajaran || "Selesai"
+function kirimKeGoogleSheet(jenisData="siswa"){
+    if(!SCRIPT_URL){console.error("SCRIPT_URL belum diisi.");return;}
+    if(!idSesi){console.error("ID sesi tidak tersedia; data tidak dikirim.");return;}
+    const payload={
+        jenisData,
+        waktu:new Date().toISOString(),
+        waktuMulai:sessionData.waktuMulai||"",
+        waktuSelesai:sessionData.waktuSelesai||"",
+        idSesi,
+        nama:siswa.nama||"", kelas:siswa.kelas||"", jurusan:siswa.jurusan||"", absen:siswa.absen||"",
+        materi:materiDipilih||"",
+        aktivitas:sessionData.aktivitasTerakhir||"",
+        status:sessionData.statusPembelajaran||"Sedang Berlangsung",
+        statusPembelajaran:sessionData.statusPembelajaran||"Sedang Berlangsung",
+        skorTes:skorTes===""?"":skorTes,
+        rekomendasi:rekomendasi||"",
+        jalurDipilih:routeMode === "direct-practice" ? "Latihan Akhir (langsung)" : (jalurDipilih||""),
+        skorLatihan:skorLatihan===""?"":skorLatihan,
+        statusLatihan:latihanPernahDicoba?(latihanLulus?"Tuntas":"Belum Tuntas"):"",
+        refleksiPaham:sessionData.refleksiPaham||"",
+        refleksiSulit:sessionData.refleksiSulit||"",
+        refleksiLanjut:sessionData.refleksiLanjut||""
     };
-
-    console.log(
-        "📤 Mengirim satu sesi ke Google Sheets:",
-        payload
-    );
-
-    fetch(
-        SCRIPT_URL,
-        {
-            method:"POST",
-            mode:"no-cors",
-            headers:{
-                "Content-Type":
-                    "text/plain;charset=utf-8"
-            },
-            body:
-                JSON.stringify(payload)
-        }
-    )
-    .then(()=>{
-
-        console.log(
-            "✅ Request data sesi telah dikirim."
-        );
-
-        sessionSent = true;
-
-        safeStorage.removeItem(
-            "sessionData"
-        );
-
-    })
-    .catch(error=>{
-
-        console.error(
-            "❌ Gagal mengirim data:",
-            error
-        );
-
-    });
+    console.log("Mengirim data ke Google Sheets:",payload);
+    // Antrekan request agar update sesi dikirim berurutan dan mengurangi risiko
+    // aktivitas lama menimpa aktivitas terbaru di spreadsheet.
+    sheetSendQueue = sheetSendQueue
+      .then(() => fetch(SCRIPT_URL, {
+        method:"POST",
+        mode:"no-cors",
+        headers:{"Content-Type":"text/plain;charset=utf-8"},
+        body:JSON.stringify(payload)
+      }))
+      .then(() => console.log("Permintaan pengiriman data telah dikirim."))
+      .catch(error => console.error("Gagal mengirim data ke Google Sheets:", error));
+    return sheetSendQueue;
 }
-
 
 /* =========================================================
    SELESAI
@@ -3508,7 +3363,7 @@ function tampilkanHalamanSelesai(){
         "finishMessage"
     ).innerHTML = `
         <strong>${escapeHTML(siswa.nama)}</strong>,
-        kamu telah menyelesaikan pembelajaran
+        kamu telah menyelesaikan ${routeMode === "direct-practice" ? "latihan akhir" : "pembelajaran"}
         <strong>${escapeHTML(materiDipilih)}</strong>.
     `;
 
@@ -3522,15 +3377,8 @@ function tampilkanHalamanSelesai(){
     ).textContent =
         jalurDipilih || "-";
 
-    document.getElementById(
-        "finishTestScore"
-    ).textContent =
-        skorTes;
-
-    document.getElementById(
-        "finishPracticeScore"
-    ).textContent =
-        skorLatihan;
+    document.getElementById("finishTestScore").textContent = skorTes === "" ? "Tidak dikerjakan" : skorTes;
+    document.getElementById("finishPracticeScore").textContent = skorLatihan === "" ? "Tidak dikerjakan" : skorLatihan;
 }
 
 
@@ -3539,43 +3387,8 @@ function tampilkanHalamanSelesai(){
    ========================================================= */
 
 function kembaliKeMateri(){
-
-    const active =
-        document.querySelector(
-            ".page.active"
-        );
-
-    if(
-        active &&
-        (
-            active.id==="studentPage" ||
-            active.id==="testPage"
-        )
-    ){
-        window.location.href =
-            "materi.html";
-        return;
-    }
-
-    if(
-        active &&
-        active.id==="practicePage"
-    ){
-
-        if(
-            latihanPernahDicoba &&
-            !latihanLulus
-        ){
-
-            pelajariKembali();
-            return;
-        }
-
-        return;
-    }
-
-    window.location.href =
-        "materi.html";
+    safeStorage.removeItem("materiDipilih");
+    window.location.href="materi.html";
 }
 
 
@@ -3587,8 +3400,11 @@ document.addEventListener(
     "DOMContentLoaded",
     function(){
 
-        const data =
-            getMateri();
+        const allowedMaterials = ["Pseudocode", "Model Von Neumann", "Konsep Dasar AI"];
+        if (!allowedMaterials.includes(materiDipilih)) {
+            console.warn("Materi tidak dikenal, menggunakan Pseudocode.");
+        }
+        const data = getMateri();
 
         document.getElementById(
             "selectedMaterialName"
@@ -3635,5 +3451,280 @@ document.addEventListener(
 );
 </script>
 
+<script>
+/* REVISI GAMEPLAY: mekanik permainan, bukan kuis pilihan ganda */
+(function(){
+ const cfg={
+  komponen:{goal:8,title:'Tangkap Komponen',desc:'Klik perangkat INPUT yang muncul. Hindari output dan komponen lain.',good:['⌨️','🖱️','🎙️','📷'],bad:['🖥️','🔊','🖨️','🧠','💾']},
+  cpu:{goal:1,title:'CPU Rush: Rakit Siklus',desc:'Seret kartu proses ke slot kosong. Urutan kartu diacak dan slot belum memberi petunjuk jawaban.',cards:[['📥','FETCH'],['🔎','DECODE'],['⚙️','EXECUTE'],['💾','STORE']]},
+  aiSequence:{goal:1,title:'AI Pipeline Rush',desc:'Susun kartu tahapan AI dari masalah dan data, pelatihan, pengujian, lalu evaluasi.',cards:[['🎯','TENTUKAN MASALAH + DATA'],['🧠','LATIH MODEL'],['🧪','UJI MODEL'],['🔎','EVALUASI HASIL']]},
+  aiEscape:{goal:4,title:'Escape Room: Laboratorium AI',desc:'Kumpulkan 4 kunci dengan menjawab tantangan tentang data, model, evaluasi, dan etika AI.'},
+  escape:{goal:4,title:'Escape Room: Buka Ruang Server',desc:'TUJUAN: Gerakkan 🧑‍💻 satu kotak per langkah. Sentuh setiap 🔑 untuk mengambilnya, lalu sentuh 🚪 setelah 4 kunci terkumpul. 🧱 adalah tembok. Gunakan tombol panah/WASD atau tombol arah di bawah labirin.',},
+  detektifai:{goal:8,title:'Pemburu AI',desc:'Klik ikon aplikasi yang memanfaatkan AI dan hindari benda biasa.',good:['🗺️','🤖','📸','🎧','✨'],bad:['📏','🪑','📄','✏️','🧱']},
+  latihai:{goal:8,title:'Latih Robot AI',desc:'Geser keranjang dengan ← → atau A/D. Tangkap ban aus, hindari kendaraan lain.',},
+  auditai:{goal:3,title:'Detektif AI: Kelompokkan Bukti',desc:'TUJUAN: Baca 3 bukti kasus AI bengkel. Klik satu kartu bukti, lalu pilih kategori BIAS, PRIVASI, atau AKURASI. Jika salah, kartu tetap ada dan bisa dicoba lagi.',}
+ };
+ const $=(el,s)=>el.querySelector(s);
+ window.initArcade=function(box){
+  if(!box||box.dataset.ready==='1')return; box.dataset.ready='1';box.dataset.level='0';box.dataset.score='0';
+  const mission=$(box,'.arcade-mission');if(mission)mission.style.display='none';const progress=$(box,'.arcade-progress');if(progress)progress.style.display='none';
+  const intro=box.querySelector(':scope > p'); if(intro)intro.textContent=cfg[box.dataset.arcade]?.desc||'Selesaikan misi permainan!';
+  window.initMovingArcade(box);
+ };
+ window.initMovingArcade=function(box){
+  const id=box.dataset.arcade,c=cfg[id];if(!c||box.dataset.movingReady==='1')return;box.dataset.movingReady='1';
+  const arena=document.createElement('section');arena.className='arcade-arena';arena.innerHTML='<div class="arcade-hud"><span>⭐ Skor: <b class="move-score">0</b></span><span>⏱️ <b class="move-time">60</b> dtk</span><span>🎯 Progres: <b class="move-target">0</b>/'+c.goal+'</span></div><div class="arcade-goal">'+c.desc+'</div><div class="arcade-stage" tabindex="0" aria-label="Area permainan"></div><div class="arcade-bottom"><small class="move-hint">Siap? Tekan Mulai untuk bermain.</small><button type="button" class="arcade-start">▶ MULAI MAIN</button></div>';
+  const h2=$(box,'h2');
+  if(['escape','auditai','aiEscape'].includes(box.dataset.arcade)){
+   const brief=document.createElement('section');brief.className='game-learning-brief';
+   brief.innerHTML=box.dataset.arcade==='escape'
+    ? '<strong>📘 Bekal materi: Model Von Neumann</strong><p>Komputer menerima data melalui <b>input</b>, menyimpan data dan instruksi di <b>memori</b>, lalu CPU memproses instruksi. CPU memiliki <b>Control Unit (CU)</b> untuk mengatur proses dan <b>ALU</b> untuk operasi aritmetika/logika. Hasil dapat ditampilkan melalui <b>output</b>.</p><p><b>Hubungkan dengan misi:</b> temukan jalan menuju semua kunci dan pintu server. Setelah bermain, jelaskan mengapa memori dan CPU penting saat komputer menjalankan program.</p>'
+    : box.dataset.arcade==='aiEscape' ? '<strong>📘 Bekal materi: Konsep Dasar AI</strong><p>AI mempelajari pola dari data melalui model dan menghasilkan prediksi atau rekomendasi. Kualitas data, pengujian, bias, akurasi, dan privasi memengaruhi penggunaan AI yang bertanggung jawab.</p><p><b>Hubungkan dengan misi:</b> kumpulkan kunci di labirin dengan menjawab tantangan AI, lalu jelaskan mengapa hasil AI perlu diuji dan diperiksa manusia.</p>'
+    : '<strong>📘 Bekal materi: Evaluasi penggunaan AI</strong><p>Hasil AI dipengaruhi kualitas dan keterwakilan data. <b>Bias</b> muncul saat data/hasil tidak adil atau tidak mewakili kondisi tertentu; <b>privasi</b> berkaitan dengan perlindungan data pribadi; <b>akurasi</b> berkaitan dengan ketepatan prediksi.</p><p><b>Hubungkan dengan misi:</b> kelompokkan bukti kasus AI bengkel. Setelah bermain, usulkan cara memperbaiki data, melindungi data pribadi, dan memeriksa prediksi AI oleh manusia.</p>';
+   if(h2)h2.insertAdjacentElement('afterend',brief);else box.prepend(brief);
+  }
+  const learningBrief=$(box,'.game-learning-brief');const anchor=learningBrief||h2;if(anchor)anchor.insertAdjacentElement('afterend',arena);else box.prepend(arena);
+  const oldIntro=box.querySelector(':scope > p');if(oldIntro)oldIntro.style.display='none';
+  $(arena,'.arcade-start').addEventListener('click',()=>window.startMovingArcade(box));
+ };
+ window.startMovingArcade=function(box){
+  const id=box.dataset.arcade,c=cfg[id],arena=$(box,'.arcade-arena'),stage=$(arena,'.arcade-stage');
+  if(box._moveTimer)clearInterval(box._moveTimer);if(box._spawnTimer)clearInterval(box._spawnTimer);if(box._gameLoop)clearInterval(box._gameLoop);if(box._spawnDelay)clearTimeout(box._spawnDelay);if(box._keyHandler)document.removeEventListener('keydown',box._keyHandler);
+  stage.innerHTML='';const prior=$(arena,'.arcade-result-pop');if(prior)prior.remove();const start=$(arena,'.arcade-start');start.textContent='↻ MULAI ULANG';
+  box._move={score:0,time:(id==='escape'||id==='aiEscape')?120:60,hits:0,goal:c.goal,ended:false,step:0};
+  const hint=$(arena,'.move-hint'),say=t=>hint.textContent=t,score=$(arena,'.move-score'),time=$(arena,'.move-time'),target=$(arena,'.move-target');time.textContent=box._move.time;
+  const update=()=>{score.textContent=box._move.score;target.textContent=box._move.hits;};
+  const hit=(n=10)=>{if(box._move.ended)return;box._move.hits++;box._move.score+=n;update();updateSession({aktivitasTerakhir:'Games Dicoba'});if(box._move.hits>=box._move.goal&&!['escape','auditai','aiEscape'].includes(id))window.finishMovingArcade(box,true);};
+  const miss=t=>{if(box._move.ended)return;box._move.score=Math.max(0,box._move.score-2);update();say(t);};
+  const btn=(text,cls='')=>{const b=document.createElement('button');b.type='button';b.className='arcade-flyer '+cls+' arcade-pop-in';b.textContent=text;return b;};
+  if(id==='komponen'||id==='detektifai'){
+   const good=c.good,bad=c.bad;say('Klik hanya target misi. Objek muncul di arena; jangan klik objek pengalih.');
+   const spawn=()=>{if(box._move.ended)return;const ok=Math.random()<.56,pool=ok?good:bad,em=pool[Math.floor(Math.random()*pool.length)],el=btn(em,ok?'good':'');el.style.position='absolute';el.style.left=(4+Math.random()*82)+'%';el.style.top=(6+Math.random()*72)+'%';stage.appendChild(el);el.addEventListener('click',()=>{if(box._move.ended)return;el.remove();if(good.includes(em)){hit();say('✨ Target ditemukan! Lanjut berburu.');}else miss('Objek itu bukan target. Hati-hati memilih!');});setTimeout(()=>{if(el.isConnected)el.remove();},4200);};
+   for(let i=0;i<4;i++)spawn();box._spawnTimer=setInterval(spawn,1000);
+  } else if(id==='cpu'||id==='aiSequence'){
+   say(id==='aiSequence'?'Seret kartu tahapan AI ke slot menurut urutan yang tepat. Pada layar sentuh, ketuk kartu lalu ketuk slot tujuan.':'Seret empat kartu ke slot menurut urutan siklus CPU. Pada layar sentuh, ketuk kartu lalu ketuk slot tujuan.');
+   const slots=document.createElement('div');slots.className='cpu-drop-slots';slots.style.cssText='display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:14px 0';
+   const bank=document.createElement('div');bank.style.cssText='display:flex;flex-wrap:wrap;gap:10px;justify-content:center';
+   const placed=Array(4).fill(null),cards=c.cards.map((x,i)=>({x,i})).sort(()=>Math.random()-.5);let selected=null;
+   const render=()=>{slots.innerHTML='';placed.forEach((v,i)=>{const s=document.createElement('button');s.type='button';s.className='arcade-choice-tile';s.style.cssText='min-height:68px;border:2px dashed #75c9e8;border-radius:12px;background:#fffaf0;color:#172554';s.textContent='SLOT '+(i+1)+'\n'+(v? v.x[0]+' '+v.x[1]:'⬜ Kosong');if(v)s.classList.add('cpu-card-landed');s.addEventListener('dragover',e=>e.preventDefault());s.addEventListener('drop',e=>{e.preventDefault();const ix=Number(e.dataTransfer.getData('text/plain'));put(ix,i);});s.onclick=()=>{if(selected!==null)put(selected,i);};slots.appendChild(s);});bank.innerHTML='';cards.forEach(o=>{if(placed.includes(o))return;const b=document.createElement('button');b.type='button';b.className='arcade-choice-tile cpu-card-animated';b.draggable=true;b.style.cssText='padding:12px;border-radius:12px;background:#fff;color:#172554;border:1px solid #75c9e8;animation-delay:'+(Math.random()*.25)+'s';b.textContent=o.x[0]+' '+o.x[1];b.addEventListener('dragstart',e=>e.dataTransfer.setData('text/plain',String(o.i)));b.onclick=()=>{selected=o.i;say('Kartu '+o.x[1]+' dipilih. Sekarang ketuk slot kosong.');};bank.appendChild(b);});};
+   function put(ix,slot){const obj=cards.find(o=>o.i===ix);if(!obj||placed[slot])return;placed[slot]=obj;selected=null;render();if(placed.every(Boolean)){const ok=placed.every((o,i)=>o.x[1]===c.cards[i][1]);if(ok){say('⚡ Rangkaian berhasil dirakit!');hit(40);if(!box._move.ended)window.finishMovingArcade(box,true);}else{say('Rangkaian belum berjalan. Kartu kembali ke area awal—coba susun ulang.');placed.fill(null);box._move.score=Math.max(0,box._move.score-5);update();render();}}}
+   stage.append(slots,bank);render();
+  } else if(id==='escape'||id==='aiEscape'){
+   say(id==='aiEscape'?'TUJUAN: kumpulkan 4 🔑 dengan menjawab tantangan AI, lalu menuju 🚪. Gerak dengan panah/WASD atau tombol arah.':'TUJUAN: kumpulkan 4 🔑, lalu menuju 🚪. Dinding 🧱 menghalangi jalan. Gerak dengan panah/WASD atau tombol arah di bawah labirin.');const raw=['##########','#...#....#','#.#.#.##.#','#.#......#','#.####.#.#','#K....#..#','###.#.#K.#','#...#....#','#K..#...KE','##########'];let map=raw.map(r=>r.split(''));let pos={x:1,y:1};const board=document.createElement('div');board.className='arcade-maze';board.style.gridTemplateColumns='repeat(10,minmax(0,1fr))';stage.appendChild(board);const controls=document.createElement('div');controls.className='maze-controls';controls.innerHTML='<button type="button" data-dir="up">⬆️</button><div><button type="button" data-dir="left">⬅️</button><button type="button" data-dir="down">⬇️</button><button type="button" data-dir="right">➡️</button></div>';board.insertAdjacentElement('afterend',controls);const cells=[];map.forEach((row,y)=>row.forEach((ch,x)=>{const el=document.createElement('div');el.className='maze-cell';board.appendChild(el);cells.push({x,y,ch,el});}));const paint=()=>cells.forEach(o=>{o.el.textContent=o.x===pos.x&&o.y===pos.y?'🧑‍💻':o.ch==='#'?'🧱':o.ch==='K'?'🔑':o.ch==='E'?'🚪':'';o.el.classList.toggle('maze-player-animated',o.x===pos.x&&o.y===pos.y);o.el.className='maze-cell '+(o.ch==='#'?'wall':'floor')+((o.x===pos.x&&o.y===pos.y)?' player':'');});paint();
+   const keyQuiz= id==='aiEscape' ? [
+    {q:'Data pelatihan AI hanya berisi foto ban dari satu jenis kendaraan. Risiko utamanya adalah …',opts:['Model mungkin bias dan kurang mewakili kondisi lain','Model pasti selalu akurat','AI tidak membutuhkan data lagi','Privasi otomatis terjamin'],a:0,why:'Data yang tidak representatif dapat membuat model kurang mampu menghadapi variasi kondisi.'},
+    {q:'Model AI sudah dilatih. Langkah yang tepat sebelum digunakan adalah …',opts:['Menguji dengan data yang sesuai dan belum dipakai melatih','Langsung menerapkan tanpa uji','Menghapus semua catatan kesalahan','Menilai model hanya dari warna tampilannya'],a:0,why:'Pengujian membantu mengukur kemampuan model pada data baru.'},
+    {q:'Aplikasi AI meminta NIK pengguna padahal tidak diperlukan untuk memberi rekomendasi belajar. Sikap yang tepat adalah …',opts:['Membatasi pengumpulan data dan menjaga privasi','Mengunggah NIK ke ruang publik','Mengumpulkan semua data tanpa alasan','Mengabaikan persetujuan pengguna'],a:0,why:'Data pribadi harus diminimalkan dan digunakan sesuai tujuan yang jelas.'},
+    {q:'AI memberikan rekomendasi yang berpengaruh pada keselamatan. Tindakan paling bertanggung jawab adalah …',opts:['Memverifikasi hasil dan melibatkan pemeriksaan manusia','Mempercayai semua hasil AI','Menyembunyikan prediksi yang salah','Mengabaikan evaluasi model'],a:0,why:'Pengawasan manusia penting terutama untuk keputusan berisiko.'}
+   ] : [
+    {q:'Saat komputer menerima angka dari keyboard, bagian manakah yang berperan sebagai perangkat input?',opts:['Keyboard','Monitor','Speaker','Printer'],a:0,why:'Keyboard memasukkan data dan perintah ke komputer.'},
+    {q:'Instruksi program yang sedang dibutuhkan CPU disimpan sementara pada bagian apa?',opts:['Memori utama','Speaker','Mouse','Monitor'],a:0,why:'Memori menyimpan data dan instruksi yang diperlukan saat program berjalan.'},
+    {q:'Bagian CPU yang mengatur dan mengoordinasikan pelaksanaan instruksi adalah …',opts:['Control Unit (CU)','ALU','Perangkat output','Keyboard'],a:0,why:'Control Unit mengatur jalannya instruksi dan koordinasi kerja komponen.'},
+    {q:'Jika CPU perlu melakukan operasi penjumlahan, bagian yang paling berperan adalah …',opts:['ALU','Control Unit (CU)','Monitor','SSD sebagai perangkat output'],a:0,why:'ALU menangani operasi aritmetika dan logika.'}
+   ];let quizOpen=false;let quizLayer=null;
+   const openKeyQuiz=(x,y)=>{if(quizOpen||box._move.ended)return;quizOpen=true;const qi=Math.min(box._move.hits,keyQuiz.length-1),item=keyQuiz[qi];quizLayer=document.createElement('div');quizLayer.className='maze-key-quiz';quizLayer.innerHTML='<div class="maze-key-quiz-card"><div class="maze-key-quiz-kicker">🔐 TANTANGAN KUNCI '+(qi+1)+'/4</div><h3>Jawab dulu untuk mengambil kunci!</h3><p class="maze-key-question"></p><div class="maze-key-options"></div><p class="maze-key-feedback" aria-live="polite"></p></div>';quizLayer.querySelector('.maze-key-question').textContent=item.q;const opts=quizLayer.querySelector('.maze-key-options');const shuffled=item.opts.map((label,i)=>({label,i})).sort(()=>Math.random()-.5);shuffled.forEach(({label,i})=>{const b=document.createElement('button');b.type='button';b.className='maze-key-option';b.textContent=label;b.addEventListener('click',()=>{if(i!==item.a){quizLayer.querySelector('.maze-key-feedback').textContent=(id==='aiEscape'?'Belum tepat. Baca kembali materi AI, lalu coba jawaban lain.':'Belum tepat. Baca kembali materi Von Neumann, lalu coba jawaban lain.');b.classList.add('wrong');setTimeout(()=>b.classList.remove('wrong'),450);return;}map[y][x]='.';quizOpen=false;quizLayer.remove();quizLayer=null;hit(20);say('🔑 Jawaban tepat! Kunci '+box._move.hits+'/4 berhasil didapatkan. Lanjutkan menjelajah.');paint();});opts.appendChild(b);});stage.appendChild(quizLayer);};
+   const movePlayer=dir=>{if(box._move.ended||quizOpen)return;const dx=dir==='left'?-1:dir==='right'?1:0,dy=dir==='up'?-1:dir==='down'?1:0,nx=pos.x+dx,ny=pos.y+dy,ch=map[ny]?.[nx];if(!ch||ch==='#'){say('🧱 Jalan tertutup tembok. Coba arah lain.');return;}pos={x:nx,y:ny};paint();if(ch==='K'){say('🔐 Kamu menemukan kunci! Selesaikan tantangan materi untuk mengambilnya.');openKeyQuiz(nx,ny);}if(ch==='E'){if(box._move.hits>=4)window.finishMovingArcade(box,true);else say('🔒 Pintu terkunci: masih perlu '+(4-box._move.hits)+' kunci. Jelajahi labirin!');}};controls.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>movePlayer(b.dataset.dir)));box._keyHandler=e=>{const keys=['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','w','a','s','d'];if(box._move.ended||!keys.includes(e.key))return;if(quizOpen){e.preventDefault();return;}e.preventDefault();const dir=e.key==='ArrowLeft'||e.key.toLowerCase()==='a'?'left':e.key==='ArrowRight'||e.key.toLowerCase()==='d'?'right':e.key==='ArrowUp'||e.key.toLowerCase()==='w'?'up':'down';movePlayer(dir);};document.addEventListener('keydown',box._keyHandler);
+  } else if(id==='latihai'){
+   say('Gerakkan keranjang dengan ← → atau A/D. Ban aus memberi poin, kendaraan lain mengurangi poin.');const catcher=document.createElement('div');catcher.className='arcade-catcher';catcher.textContent='🧺';catcher.style.left='45%';stage.appendChild(catcher);let x=.45;const items=[];box._keyHandler=e=>{if(box._move.ended)return;if(['ArrowLeft','ArrowRight','a','d','A','D'].includes(e.key)){e.preventDefault();x=Math.max(0,Math.min(.88,x+((e.key==='ArrowLeft'||e.key.toLowerCase()==='a')?-.06:.06)));catcher.style.left=(x*100)+'%';}};document.addEventListener('keydown',box._keyHandler);
+   const spawn=()=>{if(box._move.ended)return;const ok=Math.random()<.58,el=btn(ok?'🛞':['🚗','🏍️','🛴','🚌'][Math.floor(Math.random()*4)],ok?'good':'');el.style.left=(Math.random()*85)+'%';el.style.top='0px';el.classList.add('arcade-falling');stage.appendChild(el);items.push({el,ok,y:0,x:parseFloat(el.style.left)/100});};for(let i=0;i<3;i++)spawn();box._spawnTimer=setInterval(spawn,1000);box._gameLoop=setInterval(()=>items.slice().forEach(it=>{if(!it.el.isConnected){items.splice(items.indexOf(it),1);return;}it.y+=2.5;it.el.style.top=it.y+'px';if(it.y>stage.clientHeight-70&&it.y<stage.clientHeight-15&&Math.abs(it.x-x)<.13){it.ok?hit():miss('Kendaraan lain tertangkap!');it.el.remove();items.splice(items.indexOf(it),1);}else if(it.y>stage.clientHeight){it.el.remove();items.splice(items.indexOf(it),1);}}),35);
+  } else if(id==='auditai'){
+   say('Cara main: klik satu kartu bukti, lalu klik kategori yang sesuai. Kartu yang benar akan masuk ke folder; jika salah, kartu tetap tersedia untuk dicoba lagi.');stage.style.cssText='position:relative;min-height:320px;padding:14px;background:linear-gradient(135deg,#e9f6ff,#fffaf0);border-radius:16px;overflow:visible';stage.innerHTML='<div style="font-weight:800;color:#172554;font-size:18px;margin-bottom:8px">🕵️ MEJA INVESTIGASI AI</div><p style="margin:0 0 12px;color:#334155">Ada 3 bukti dari sistem AI bengkel. Kelompokkan setiap bukti ke masalah yang sesuai.</p>';const evidence=[{id:'bias',icon:'📊',title:'Bukti 1: Data tidak seimbang',detail:'Foto pelatihan hampir semuanya berasal dari satu jenis ban.',category:'BIAS'},{id:'privacy',icon:'🔐',title:'Bukti 2: Formulir berlebihan',detail:'Aplikasi meminta NIK dan alamat lengkap, padahal tidak diperlukan untuk memeriksa ban.',category:'PRIVASI'},{id:'accuracy',icon:'⚠️',title:'Bukti 3: Prediksi keliru',detail:'Ban yang sudah aus berulang kali dinilai normal oleh sistem.',category:'AKURASI'}];let selected=null;const cards=document.createElement('div');cards.className='audit-evidence-list';const bins=document.createElement('div');bins.className='audit-bins';bins.innerHTML='<button type="button" data-cat="BIAS">⚖️ BIAS<small>Data tidak mewakili</small></button><button type="button" data-cat="PRIVASI">🔐 PRIVASI<small>Data pribadi berlebihan</small></button><button type="button" data-cat="AKURASI">🎯 AKURASI<small>Hasil prediksi salah</small></button>';stage.append(cards,bins);const renderCards=()=>{cards.innerHTML='';evidence.filter(o=>!o.done).forEach(o=>{const b=document.createElement('button');b.type='button';b.className='audit-evidence'+(selected===o?' selected':'');b.innerHTML='<strong>'+o.icon+' '+o.title+'</strong><span>'+o.detail+'</span>';b.onclick=()=>{selected=o;renderCards();say('Bukti dipilih. Sekarang klik kategori yang paling sesuai di bawah.');};cards.appendChild(b);});};bins.querySelectorAll('button').forEach(bin=>bin.addEventListener('click',()=>{if(!selected){say('Pilih salah satu kartu bukti terlebih dahulu.');return;}if(bin.dataset.cat!==selected.category){say('Belum cocok. Baca kembali isi bukti, lalu coba kategori lain.');bin.classList.add('bin-wrong');setTimeout(()=>bin.classList.remove('bin-wrong'),450);return;}selected.done=true;bin.classList.add('bin-correct');bin.innerHTML='✅ '+bin.dataset.cat+'<small>Bukti cocok ditemukan!</small>';say('Benar! '+selected.title+' termasuk masalah '+selected.category+'. Pilih bukti berikutnya.');selected=null;hit(20);renderCards();if(box._move.hits>=3&&!box._move.ended){say('Semua bukti sudah dikelompokkan. Investigasi selesai: rekomendasikan audit data, pembatasan data pribadi, dan pemeriksaan manusia atas hasil AI.');window.finishMovingArcade(box,true);}}));renderCards();
+  }
+  box._moveTimer=setInterval(()=>{if(box._move.ended)return;box._move.time--;time.textContent=box._move.time;if(box._move.time<=0)window.finishMovingArcade(box,false);},1000);
+ };
+ window.finishMovingArcade=function(box,won){const st=box._move;if(!st||st.ended)return;st.ended=true;clearInterval(box._moveTimer);clearInterval(box._spawnTimer);clearInterval(box._gameLoop);clearTimeout(box._spawnDelay);if(box._keyHandler)document.removeEventListener('keydown',box._keyHandler);const arena=$(box,'.arcade-arena'),pop=document.createElement('div');pop.className='arcade-result-pop';pop.innerHTML='<div><strong>'+(won?'🏆 MISI SELESAI!':'⏰ WAKTU HABIS!')+'</strong><p>Skor: '+st.score+' poin</p><p>Progres: '+st.hits+'/'+st.goal+'</p><p>'+(won?'Keren! Tantangan berhasil dituntaskan.':'Belum selesai. Coba lagi dan gunakan strategi berbeda.')+'</p><button type="button" class="arcade-start">▶ MAIN LAGI</button></div>';arena.appendChild(pop);pop.querySelector('button').addEventListener('click',()=>window.startMovingArcade(box));updateSession({aktivitasTerakhir:won?'Games Selesai':'Games Dicoba'});};
+ document.addEventListener('DOMContentLoaded',()=>document.querySelectorAll('.arcade-game').forEach(window.initArcade));setTimeout(()=>document.querySelectorAll('.arcade-game').forEach(window.initArcade),0);
+ const css=document.createElement('style');css.textContent='.arcade-stage{position:relative;min-height:270px;overflow:hidden;border-radius:16px;background:linear-gradient(135deg,#dff4ff,#fffaf0);border:2px solid #75c9e8;margin:12px 0}.arcade-flyer{font-size:27px;min-width:48px;min-height:48px;border:1px solid #b8dff0;border-radius:14px;background:#fff;box-shadow:0 4px 10px #17255422;cursor:pointer;z-index:2}.arcade-flyer.good{border-color:#8bd3a8}.arcade-hud{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;margin:12px 0;color:#172554}.arcade-bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.arcade-maze{display:grid;gap:3px;max-width:420px;margin:10px auto}.maze-cell{aspect-ratio:1;display:grid;place-items:center;font-size:clamp(12px,2.8vw,22px);border-radius:4px}.maze-cell.wall{background:#172554}.maze-cell.floor{background:#fff;border:1px solid #d7eaf2}.maze-cell.player{background:#8bd3a8}.arcade-catcher{position:absolute;bottom:6px;font-size:36px;z-index:3;transition:left .08s linear}.arcade-result-pop{position:absolute;inset:0;z-index:10;display:grid;place-items:center;background:#172554bb;padding:18px;text-align:center}.arcade-result-pop>div{background:#fffaf0;border-radius:18px;padding:24px;max-width:360px;color:#172554}.arcade-result-pop p{margin:10px 0}@keyframes pulse{50%{transform:scale(1.2)}}';document.head.appendChild(css);
+})();
+
+</script>
+
+<style id="visible-gameplay-animations">
+/* Animasi gameplay yang terlihat, bukan sekadar tombol statis. */
+.arcade-stage{isolation:isolate;background-image:radial-gradient(circle at 15% 20%,rgba(117,201,232,.25) 0 2px,transparent 3px),radial-gradient(circle at 80% 70%,rgba(139,211,168,.28) 0 3px,transparent 4px),linear-gradient(135deg,#e7f8ff,#fffaf0);background-size:72px 72px,94px 94px,100% 100%;animation:stage-drift 9s linear infinite}
+.arcade-flyer{transition:transform .18s ease,box-shadow .18s ease;animation:floaty 1.8s ease-in-out infinite alternate}
+.arcade-flyer:hover,.arcade-flyer:focus-visible{transform:scale(1.15) rotate(-4deg);box-shadow:0 9px 18px #17255435;z-index:5}
+.arcade-flyer.good{box-shadow:0 0 0 2px #8bd3a8,0 4px 12px #8bd3a855}
+.arcade-pop-in{animation:pop-in .42s cubic-bezier(.2,.8,.2,1) both,floaty 1.8s ease-in-out .42s infinite alternate}
+.arcade-falling{animation:fall-wiggle .7s ease-in-out infinite alternate}
+.cpu-card-animated{animation:card-arrive .45s cubic-bezier(.2,.8,.2,1) both;transition:transform .2s,box-shadow .2s}
+.cpu-card-animated:hover{transform:translateY(-6px) rotate(-2deg);box-shadow:0 9px 18px #17255426}
+.cpu-card-landed{animation:slot-land .42s ease-out both;background:#e6fff0!important;border:2px solid #65bd89!important}
+.cpu-drop-slots button{transition:background .2s,transform .2s,border-color .2s;animation:slot-breathe 2s ease-in-out infinite}
+.maze-cell{transition:background .14s,transform .14s}
+.maze-cell.player{animation:player-bob .35s ease-in-out infinite alternate;box-shadow:0 0 0 2px #8bd3a8}
+.arcade-catcher{filter:drop-shadow(0 3px 2px #17255430);animation:catcher-bob .3s ease-in-out infinite alternate}
+.arcade-result-pop>div{animation:result-pop .35s cubic-bezier(.2,.8,.2,1) both}
+.arcade-start{transition:transform .18s,box-shadow .18s;box-shadow:0 5px 0 #d45e48}
+.arcade-start:hover{transform:translateY(-2px);box-shadow:0 7px 0 #d45e48}
+@keyframes stage-drift{to{background-position:72px 0,-94px 94px,0 0}}
+@keyframes floaty{from{translate:0 0}to{translate:0 -7px}}
+@keyframes pop-in{0%{opacity:0;scale:.35;rotate:-12deg}100%{opacity:1;scale:1;rotate:0deg}}
+@keyframes fall-wiggle{from{rotate:-8deg}to{rotate:8deg}}
+@keyframes card-arrive{from{opacity:0;transform:translateY(-18px) rotate(5deg)}to{opacity:1;transform:translateY(0) rotate(0)}}
+@keyframes slot-land{0%{transform:scale(.86)}65%{transform:scale(1.06)}100%{transform:scale(1)}}
+@keyframes slot-breathe{50%{border-color:#75c9e8;box-shadow:0 0 0 3px #75c9e822}}
+@keyframes player-bob{to{transform:translateY(-2px)}}
+@keyframes catcher-bob{to{translate:0 -3px}}
+@keyframes result-pop{from{opacity:0;transform:scale(.8) translateY(12px)}to{opacity:1;transform:scale(1) translateY(0)}}
+@media(prefers-reduced-motion:reduce){.arcade-stage,.arcade-flyer,.arcade-pop-in,.arcade-falling,.cpu-card-animated,.cpu-drop-slots button,.maze-cell.player,.arcade-catcher,.arcade-result-pop>div{animation:none!important;transition:none!important}}
+</style>
+
+
+<style id="fix-enrichment-games-layout-and-material">
+/* The maze and investigation board expand to their content; no fixed-height clipping. */
+.game-learning-brief{position:relative;z-index:1;margin:12px 0 16px;padding:15px 17px;border:2px solid #75c9e8;border-radius:16px;background:linear-gradient(135deg,#f1faff,#fffaf0);color:#172554;line-height:1.6}
+.game-learning-brief strong{display:block;margin-bottom:7px;font-size:1.05rem}
+.game-learning-brief p{margin:7px 0}
+.arcade-game[data-arcade="escape"] .arcade-arena,
+.arcade-game[data-arcade="auditai"] .arcade-arena{height:auto;min-height:0;overflow:visible;padding:0 12px 14px;box-sizing:border-box}
+.arcade-game[data-arcade="escape"] .arcade-stage,
+.arcade-game[data-arcade="auditai"] .arcade-stage{position:relative;inset:auto;width:100%;height:auto;min-height:0;overflow:visible;padding:10px 4px 8px;margin:12px 0;box-sizing:border-box}
+.arcade-game[data-arcade="escape"] .arcade-stage{padding-top:12px}
+.arcade-game[data-arcade="escape"] .arcade-maze{width:min(100%,480px);max-width:480px;grid-template-columns:repeat(10,minmax(0,1fr))!important;gap:3px;padding:8px;box-sizing:border-box}
+.arcade-game[data-arcade="escape"] .maze-cell{min-width:0;aspect-ratio:1;font-size:clamp(10px,2.5vw,22px);display:grid;place-items:center}
+.arcade-game[data-arcade="escape"] .maze-controls{position:relative;z-index:3;margin:12px auto 4px}
+.arcade-game[data-arcade="escape"] .arcade-goal,
+.arcade-game[data-arcade="auditai"] .arcade-goal{position:relative;top:auto;left:auto;right:auto;margin:12px 0 6px}
+.arcade-game[data-arcade="escape"] .arcade-hud,
+.arcade-game[data-arcade="auditai"] .arcade-hud{position:relative;margin:10px 0;flex-wrap:wrap}
+.arcade-game[data-arcade="escape"] .arcade-bottom,
+.arcade-game[data-arcade="auditai"] .arcade-bottom{position:relative;left:auto;right:auto;bottom:auto;margin-top:8px}
+.arcade-game[data-arcade="auditai"] .arcade-stage{padding:14px;min-height:0}
+.arcade-game[data-arcade="auditai"] .audit-bins{grid-template-columns:repeat(3,minmax(0,1fr))}
+.arcade-game[data-arcade="escape"] .arcade-result-pop,
+.arcade-game[data-arcade="auditai"] .arcade-result-pop{position:absolute;inset:0;min-height:100%;border-radius:16px}
+@media(max-width:560px){
+ .arcade-game[data-arcade="escape"] .arcade-arena,.arcade-game[data-arcade="auditai"] .arcade-arena{padding:0 8px 12px}
+ .arcade-game[data-arcade="escape"] .arcade-maze{gap:2px;padding:5px}
+ .arcade-game[data-arcade="escape"] .maze-cell{font-size:clamp(9px,3vw,16px)}
+ .arcade-game[data-arcade="auditai"] .audit-bins{grid-template-columns:1fr}
+ .arcade-game[data-arcade="auditai"] .audit-bins button{min-height:58px}
+ .game-learning-brief{padding:12px}
+}
+</style>
+
+
+<style id="maze-key-quiz-style">
+.arcade-stage .maze-key-quiz{position:absolute;inset:0;z-index:20;display:grid;place-items:center;padding:14px;background:rgba(23,37,84,.78);overflow-y:auto;border-radius:14px;box-sizing:border-box}.maze-key-quiz-card{width:min(100%,480px);max-height:100%;overflow-y:auto;box-sizing:border-box;background:#fffaf0;color:#172554;border:3px solid #75c9e8;border-radius:20px;padding:clamp(14px,3vw,24px);box-shadow:0 16px 40px #08163866;animation:mazeQuizIn .25s ease-out}.maze-key-quiz-kicker{font-size:12px;letter-spacing:.08em;font-weight:800;color:#176b3a}.maze-key-quiz-card h3{margin:8px 0;font-size:clamp(18px,3vw,23px)}.maze-key-question{font-weight:700;line-height:1.5}.maze-key-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.maze-key-option{min-height:46px;padding:10px;border:2px solid #b8dff0;border-radius:12px;background:white;color:#172554;font-weight:700;cursor:pointer;white-space:normal}.maze-key-option:hover{background:#e7f8ff;transform:translateY(-1px)}.maze-key-option.wrong{border-color:#d95c54;background:#ffe5e2;animation:mazeShake .25s}.maze-key-feedback{min-height:22px;margin:10px 0 0;font-size:14px;color:#b9382c;font-weight:700}@keyframes mazeQuizIn{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}@keyframes mazeShake{25%{transform:translateX(-3px)}75%{transform:translateX(3px)}}@media(max-width:440px){.maze-key-options{grid-template-columns:1fr}.arcade-stage .maze-key-quiz{padding:8px}}
+</style>
+
+<style id="fix-ai-enrichment-maze-no-clipping">
+/* Fix khusus game Pengayaan AI: labirin dan tombol kontrol mengikuti tinggi konten. */
+.arcade-game[data-arcade="aiEscape"] .arcade-arena {
+  height:auto !important; min-height:0 !important; overflow:visible !important;
+  padding:0 12px 14px !important; box-sizing:border-box;
+}
+.arcade-game[data-arcade="aiEscape"] .arcade-stage {
+  position:relative !important; inset:auto !important; width:100%; height:auto !important;
+  min-height:0 !important; overflow:visible !important; padding:12px 4px 8px !important;
+  margin:12px 0 !important; box-sizing:border-box;
+}
+.arcade-game[data-arcade="aiEscape"] .arcade-maze {
+  width:min(100%,480px) !important; max-width:480px; margin:0 auto;
+  grid-template-columns:repeat(10,minmax(0,1fr)) !important; gap:3px;
+  padding:8px; box-sizing:border-box;
+}
+.arcade-game[data-arcade="aiEscape"] .maze-cell {
+  min-width:0; aspect-ratio:1; display:grid; place-items:center;
+  font-size:clamp(10px,2.5vw,22px); overflow:hidden;
+}
+.arcade-game[data-arcade="aiEscape"] .maze-controls {
+  position:relative !important; z-index:4; display:flex; flex-direction:column;
+  align-items:center; gap:6px; margin:12px auto 4px !important;
+}
+.arcade-game[data-arcade="aiEscape"] .maze-controls button {
+  min-width:48px; min-height:44px; padding:8px 14px; border:2px solid #75c9e8;
+  border-radius:12px; background:#fffaf0; color:#172554; font-weight:900; cursor:pointer;
+}
+.arcade-game[data-arcade="aiEscape"] .arcade-goal {
+  position:relative !important; inset:auto !important; margin:12px 0 6px;
+}
+.arcade-game[data-arcade="aiEscape"] .arcade-hud {
+  position:relative !important; margin:10px 0; flex-wrap:wrap;
+}
+.arcade-game[data-arcade="aiEscape"] .arcade-bottom {
+  position:relative !important; inset:auto !important; margin-top:8px;
+}
+.arcade-game[data-arcade="aiEscape"] .maze-key-quiz {
+  position:absolute; inset:0; max-height:100%; overflow-y:auto; box-sizing:border-box;
+}
+@media(max-width:560px) {
+  .arcade-game[data-arcade="aiEscape"] .arcade-arena { padding:0 8px 12px !important; }
+  .arcade-game[data-arcade="aiEscape"] .arcade-maze { gap:2px; padding:5px; }
+  .arcade-game[data-arcade="aiEscape"] .maze-cell { font-size:clamp(9px,3vw,16px); }
+}
+</style>
+
 </body>
 </html>
+
+<style>
+/* Fix: ruang permainan berbasis kartu harus mengikuti tinggi konten agar kartu tidak terpotong. */
+.arcade-game[data-arcade="cpu"] .arcade-arena,
+.arcade-game[data-arcade="auditai"] .arcade-arena {
+  height:auto;
+  min-height:0;
+  overflow:visible;
+  padding-bottom:74px;
+}
+.arcade-game[data-arcade="cpu"] .arcade-stage,
+.arcade-game[data-arcade="auditai"] .arcade-stage {
+  position:relative;
+  inset:auto;
+  min-height:0;
+  height:auto;
+  overflow:visible;
+  padding:104px 8px 8px;
+  box-sizing:border-box;
+}
+.arcade-game[data-arcade="cpu"] .arcade-action-panel,
+.arcade-game[data-arcade="auditai"] .arcade-action-panel {
+  max-height:none;
+  height:auto;
+  overflow:visible;
+  margin:0;
+  padding:16px;
+}
+.arcade-game[data-arcade="cpu"] .arcade-action-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.arcade-game[data-arcade="cpu"] .arcade-choice-tile { min-height:64px; white-space:normal; overflow-wrap:anywhere; }
+.arcade-game[data-arcade="cpu"] .arcade-goal,
+.arcade-game[data-arcade="auditai"] .arcade-goal { z-index:4; }
+@media(max-width:560px){
+  .arcade-game[data-arcade="cpu"] .arcade-stage,
+  .arcade-game[data-arcade="auditai"] .arcade-stage { padding:112px 8px 8px; }
+  .arcade-game[data-arcade="cpu"] .arcade-action-grid { grid-template-columns:1fr; }
+  .arcade-game[data-arcade="cpu"] .arcade-choice-tile { min-height:54px; }
+}
+</style>
+
+<style id="enrichment-game-clarity">
+.maze-controls{display:flex;flex-direction:column;align-items:center;gap:5px;margin:10px auto}.maze-controls>div{display:flex;gap:5px}.maze-controls button{width:48px;height:42px;border:0;border-radius:12px;background:#172554;color:#fff;font-size:20px;cursor:pointer;box-shadow:0 3px 0 #0d1738}.maze-controls button:active{transform:translateY(2px);box-shadow:none}.audit-evidence-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin:12px 0}.audit-evidence{display:flex;flex-direction:column;gap:7px;text-align:left;padding:13px;border:2px solid #75c9e8;border-radius:13px;background:#fff;color:#172554;cursor:pointer;min-height:100px}.audit-evidence span{font-size:13px;line-height:1.4}.audit-evidence.selected{border-color:#ff795d;background:#fff0eb;box-shadow:0 0 0 3px #ff795d33}.audit-bins{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:14px}.audit-bins button{display:flex;flex-direction:column;gap:5px;align-items:center;justify-content:center;min-height:80px;padding:10px 6px;border:2px dashed #75c9e8;border-radius:13px;background:#f5fbff;color:#172554;font-weight:800;cursor:pointer}.audit-bins small{font-size:11px;font-weight:500;text-align:center}.audit-bins button.bin-correct{border-style:solid;border-color:#65bd89;background:#e6fff0}.audit-bins button.bin-wrong{animation:bin-shake .35s;border-color:#ff795d;background:#fff0eb}@keyframes bin-shake{25%{transform:translateX(-3px)}75%{transform:translateX(3px)}}@media(max-width:520px){.audit-bins{grid-template-columns:1fr}.audit-bins button{min-height:60px}.arcade-maze{max-width:100%}}
+
+/* Responsive patch: keep all mini-games inside the visible screen */
+.arcade-game, .arcade-arena, .arcade-stage, .game-learning-brief {box-sizing:border-box;max-width:100%;min-width:0}
+.arcade-game{width:100%;overflow:hidden}
+.arcade-arena{width:100%;overflow:hidden;padding:clamp(6px,2vw,12px)}
+.arcade-hud{padding:clamp(6px,2vw,12px);min-width:0}
+.arcade-stage{width:100%;min-width:0;overflow:hidden;}
+.arcade-maze{width:min(100%,390px);max-width:100%;box-sizing:border-box;grid-template-columns:repeat(10,minmax(0,1fr));gap:clamp(1px,.5vw,3px);padding:clamp(4px,1.5vw,8px)}
+.maze-cell{min-width:0;font-size:clamp(10px,2.8vw,22px)}
+.maze-controls{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;max-width:100%;padding:8px;box-sizing:border-box}
+.maze-controls button{min-width:42px;min-height:42px;touch-action:manipulation}
+.maze-key-quiz{max-width:100%;max-height:100%;padding:clamp(6px,2vw,14px);overflow:auto}
+.maze-key-quiz-card{width:100%;max-width:480px;max-height:100%;overflow:auto}
+.maze-key-options{grid-template-columns:repeat(2,minmax(0,1fr))}
+.cpu-drop-slots{grid-template-columns:repeat(2,minmax(0,1fr))!important;max-width:100%}
+.arcade-choice-tile{min-width:0;max-width:100%;overflow-wrap:anywhere;white-space:normal}
+@media(max-width:480px){
+ .arcade-arena{min-height:300px;border-radius:16px;padding:5px}
+ .arcade-hud{font-size:12px;gap:5px}
+ .arcade-hud span{padding:5px 7px}
+ .arcade-goal{font-size:13px;line-height:1.45;padding:8px}
+ .arcade-stage{min-height:210px}
+ .maze-key-options{grid-template-columns:1fr}
+ .arcade-bottom{gap:8px;flex-wrap:wrap}
+ .arcade-start{max-width:100%;white-space:normal}
+ .arcade-choice-tile{font-size:12px;padding:8px!important}
+}
+</style>
